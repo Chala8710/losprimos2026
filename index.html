@@ -1,0 +1,3229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOS PRIMOS · Mundial 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+// ═══ SUPABASE CONFIG ═══
+const SB_URL='https://moitjfdsemukuwbofqtl.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vaXRqZmRzZW11a3V3Ym9mcXRsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMDE5ODksImV4cCI6MjA5Njc3Nzk4OX0.MHyi2Esl1LI1ncZ1l0mRl4BrFW9owNNV0DywwI1_6gs';
+window._SB=supabase.createClient(SB_URL,SB_KEY);
+window._FB_READY=true;
+document.addEventListener('DOMContentLoaded',()=>{
+  if(window._initFirebase)window._initFirebase();
+});
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --v:#1A7A52;--v2:#0F5438;--v3:#19c47e;
+  --d:#C8941A;--d2:#F5C842;
+  --bg:#080F0A;--sf:#0D1810;--card:#121F16;--card2:#182B1E;
+  --br:rgba(255,255,255,0.07);--br2:rgba(255,255,255,0.13);
+  --tx:#E8F0EB;--mt:#6B9478;--mt2:#A0BFA8;--rj:#C0392B;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--v2);border-radius:99px}
+
+/* HEADER */
+header{background:rgba(8,15,10,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--br);padding:0 1.2rem;display:flex;align-items:center;justify-content:space-between;height:54px;position:sticky;top:0;z-index:200}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:2px;color:var(--d2)}
+.logo em{color:rgba(255,255,255,0.3);font-style:normal}
+.hnav{display:flex;gap:2px}
+.hnp{padding:5px 11px;border-radius:99px;font-size:11px;font-weight:500;cursor:pointer;border:none;background:transparent;color:var(--mt);transition:all .15s;font-family:'Inter',sans-serif}
+.hnp.on,.hnp:hover{background:var(--v);color:#fff}
+.hcta{font-size:11px;font-weight:700;color:var(--d2);border:1px solid rgba(245,200,66,0.25);padding:5px 12px;border-radius:99px;text-decoration:none;background:rgba(245,200,66,0.06)}
+.hcta:hover{background:rgba(245,200,66,0.14)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:2.5rem 1.2rem 1.8rem;text-align:center;border-bottom:1px solid var(--br)}
+.hglow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(26,122,82,0.25),transparent 70%);pointer-events:none}
+.htrophy{position:absolute;right:3%;top:50%;transform:translateY(-50%);font-size:clamp(70px,12vw,120px);opacity:.07;line-height:1;pointer-events:none;animation:flt 6s ease-in-out infinite}
+@keyframes flt{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 10px))}}
+.hbadge{display:inline-block;background:rgba(200,148,26,0.12);color:var(--d2);border:1px solid rgba(200,148,26,0.28);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:99px;margin-bottom:.7rem;position:relative}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(46px,9vw,82px);letter-spacing:4px;line-height:.9;color:#fff;position:relative}
+h1 span{color:var(--d2);display:block}
+.hsub{font-size:12px;color:var(--mt2);margin-top:.6rem;position:relative}
+.cdw{display:inline-flex;gap:10px;margin:.9rem auto 0;background:rgba(255,255,255,0.04);border:1px solid var(--br2);border-radius:12px;padding:.6rem 1rem;position:relative}
+.cdu{text-align:center;min-width:32px}
+.cdn{font-family:'Bebas Neue',sans-serif;font-size:26px;line-height:1;color:var(--d2)}
+.cdl{font-size:8px;text-transform:uppercase;letter-spacing:1px;color:var(--mt);margin-top:2px}
+.cdsp{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--v3);padding-top:2px}
+.sedes{display:flex;justify-content:center;gap:1rem;margin-top:.8rem;flex-wrap:wrap;position:relative}
+.sede{font-size:12px;color:var(--mt);display:flex;align-items:center;gap:4px}
+.sede b{color:var(--tx);font-weight:600}
+.hlink{display:inline-flex;align-items:center;gap:6px;background:var(--v);color:#fff;padding:9px 20px;border-radius:99px;font-size:12px;font-weight:700;text-decoration:none;transition:all .2s;margin-top:1rem;position:relative}
+.hlink:hover{background:var(--v3);transform:translateY(-2px)}
+
+/* TABS */
+.tbar{background:rgba(8,15,10,0.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--br);position:sticky;top:54px;z-index:100;display:flex;overflow-x:auto;scrollbar-width:none}
+.tbar::-webkit-scrollbar{display:none}
+.tbtn{padding:0 16px;height:40px;font-family:'Inter',sans-serif;font-size:12px;font-weight:500;color:var(--mt);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.tbtn.on{color:var(--d2);border-bottom-color:var(--d2);font-weight:600}
+.tc{display:none}.tc.on{display:block}
+main{max-width:960px;margin:0 auto;padding:1.5rem 1rem 5rem}
+
+/* STATS CARDS */
+.srow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1.3rem}
+.sc{background:var(--card);border:1px solid var(--br);border-radius:12px;padding:.8rem;text-align:center}
+.sc.hi{border-color:rgba(245,200,66,0.18)}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--d2);line-height:1}
+.sl{font-size:9px;color:var(--mt);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
+
+/* PUNTOS BANNER */
+.pb{background:var(--card);border:1px solid rgba(245,200,66,0.14);border-radius:12px;padding:.85rem 1rem;margin-bottom:1.3rem;display:flex;align-items:flex-start;gap:10px}
+.pb-t{font-size:12px;font-weight:600;color:var(--d2);margin-bottom:3px}
+.pb-d{font-size:11px;color:var(--mt2);line-height:1.5}
+.ppills{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
+.pp{padding:3px 8px;border-radius:99px;font-size:10px;font-weight:600}
+.ppg{background:rgba(245,200,66,0.11);color:var(--d2);border:1px solid rgba(245,200,66,0.2)}
+.ppv{background:rgba(26,122,82,0.17);color:#5DD4A0;border:1px solid rgba(26,122,82,0.27)}
+.pps{background:rgba(180,60,220,0.11);color:#D07FE8;border:1px solid rgba(180,60,220,0.2)}
+
+/* FORM */
+.fcard{background:var(--card);border:1px solid var(--br);border-radius:14px;padding:1.1rem;margin-bottom:1.3rem}
+.stit{font-size:12px;font-weight:600;color:var(--tx);margin-bottom:.85rem;display:flex;align-items:center;gap:6px}
+.stit::before{content:'';width:3px;height:13px;background:var(--d2);border-radius:2px;flex-shrink:0}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:8px}
+.fi{position:relative}
+.fi label{display:block;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--mt);margin-bottom:4px}
+.fi input{width:100%;padding:8px 10px;background:var(--sf);border:1px solid var(--br2);border-radius:8px;color:var(--tx);font-family:'Inter',sans-serif;font-size:12px;transition:border-color .15s}
+.fi input:focus{outline:none;border-color:var(--v3)}
+.fi input::placeholder{color:rgba(107,148,120,0.4)}
+
+/* AUTOCOMPLETE */
+.acl{position:absolute;top:calc(100% + 2px);left:0;right:0;background:var(--card2);border:1px solid var(--v);border-radius:9px;z-index:500;max-height:220px;overflow-y:auto;display:none;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
+.acl.op{display:block}
+.aci{display:flex;align-items:center;gap:8px;padding:7px 10px;cursor:pointer;border-bottom:1px solid var(--br);transition:background .1s}
+.aci:last-child{border-bottom:none}
+.aci:hover{background:rgba(26,122,82,0.2)}
+.aci-em{font-size:18px;width:24px;text-align:center;flex-shrink:0;line-height:1}
+.aci-n{font-size:12px;font-weight:500;color:var(--tx)}
+.aci-s{font-size:10px;color:var(--mt)}
+.aci img{width:24px;height:24px;border-radius:50%;object-fit:cover;border:1px solid var(--br);flex-shrink:0}
+.factions{display:flex;gap:7px;justify-content:flex-end}
+.btn{padding:8px 16px;border-radius:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+.btnp{background:var(--v);color:#fff}.btnp:hover{background:var(--v3)}.btnp:active{transform:scale(.97)}
+.btng{background:transparent;color:var(--mt);border:1px solid var(--br2)}.btng:hover{color:var(--tx)}
+
+/* TABLA PRONÓSTICOS */
+.thdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem;gap:8px;flex-wrap:wrap}
+.thdr .stit{margin-bottom:0}
+.sinp{padding:7px 10px;background:var(--card);border:1px solid var(--br2);border-radius:8px;color:var(--tx);font-family:'Inter',sans-serif;font-size:11px;width:170px;transition:border-color .15s}
+.sinp:focus{outline:none;border-color:var(--v3)}
+.sinp::placeholder{color:var(--mt)}
+.twrap{background:var(--card);border:1px solid var(--br);border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead tr{background:rgba(0,0,0,0.3);border-bottom:1px solid var(--br2)}
+th{padding:9px 11px;text-align:left;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--mt)}
+th:first-child{width:36px;text-align:center}
+th:last-child{width:38px;text-align:center}
+tbody tr{border-bottom:1px solid var(--br);transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(255,255,255,0.02)}
+td{padding:9px 11px;font-size:12px;color:var(--tx);vertical-align:middle}
+td:first-child{text-align:center;font-family:'Bebas Neue',sans-serif;font-size:15px;color:var(--mt)}
+td:last-child{text-align:center}
+.r1{color:var(--d2)!important}.r2{color:#C0C0C0!important}.r3{color:#CD7F32!important}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;white-space:nowrap;max-width:140px;overflow:hidden;text-overflow:ellipsis}
+.cg{background:rgba(200,148,26,0.12);color:var(--d2);border:1px solid rgba(200,148,26,0.2)}
+.cv{background:rgba(26,122,82,0.12);color:#5DD4A0;border:1px solid rgba(26,122,82,0.22)}
+.ce{background:rgba(255,255,255,0.03);color:var(--mt);border:1px dashed rgba(255,255,255,0.08);font-style:italic}
+.chip-em{font-size:13px;line-height:1;flex-shrink:0}
+.pthumb{width:18px;height:18px;border-radius:50%;object-fit:cover;border:1px solid var(--br);background:var(--sf);flex-shrink:0}
+.bdel{background:none;border:none;cursor:pointer;color:var(--mt);font-size:13px;padding:3px 6px;border-radius:5px;transition:all .1s}
+.bdel:hover{background:rgba(192,57,43,0.14);color:#e74c3c}
+.empty{padding:2rem;text-align:center;color:var(--mt);font-size:12px}
+.ebar{display:flex;justify-content:flex-end;gap:6px;margin-top:.8rem;flex-wrap:wrap}
+.bsm{padding:6px 12px;border-radius:7px;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--br2);background:transparent;color:var(--mt);transition:all .15s}
+.bsm:hover{background:rgba(255,255,255,0.04);color:var(--tx)}
+
+/* FIXTURE */
+.fxctrl{display:flex;gap:5px;margin-bottom:1rem;flex-wrap:wrap}
+.fbtn{padding:5px 11px;border-radius:99px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--br2);background:transparent;color:var(--mt);transition:all .15s;font-family:'Inter',sans-serif}
+.fbtn.on,.fbtn:hover{background:var(--v);color:#fff;border-color:var(--v)}
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.gcard{background:var(--card);border:1px solid var(--br);border-radius:12px;overflow:hidden}
+.ghdr{padding:7px 11px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,rgba(26,122,82,0.2),rgba(26,122,82,0.04));border-bottom:1px solid var(--br)}
+.gnm{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;color:var(--d2)}
+.gcnf{font-size:9px;color:var(--mt)}
+.gtbl{width:100%;border-collapse:collapse}
+.gtbl th{padding:5px 8px;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);text-align:center;border-bottom:1px solid var(--br)}
+.gtbl th:first-child{text-align:left;width:54%}
+.gtbl td{padding:5px 8px;font-size:11px;text-align:center;border-bottom:1px solid var(--br);color:var(--mt2)}
+.gtbl td:first-child{text-align:left}
+.gtbl tr:last-child td{border-bottom:none}
+.gtbl tr:hover td{background:rgba(255,255,255,0.015)}
+.tcell{display:flex;align-items:center;gap:5px}
+.tflag{font-size:16px;line-height:1;flex-shrink:0}
+.tnm{font-size:11px;font-weight:500;color:var(--tx)}
+.cl{color:var(--v3)!important;font-weight:700}
+.ptsv{font-weight:700}
+.psec{margin-top:10px}
+.psec-t{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:5px;padding:0 2px}
+.plist{display:flex;flex-direction:column;gap:4px}
+.pcard.hidden{display:none}
+.gcard.hidden{display:none}
+.dia-sep{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--v3);padding:6px 2px 3px;margin-top:4px}
+.pcard{background:var(--card2);border:1px solid var(--br);border-radius:8px;padding:.55rem .75rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px}
+.pteam-l{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+.pteam-r{text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:1px}
+.pflag{font-size:18px;line-height:1}
+.pnm{font-size:10px;font-weight:600;color:var(--tx)}
+.pmid{text-align:center;display:flex;flex-direction:column;align-items:center;gap:2px}
+.pvs{background:var(--sf);border:1px solid var(--br2);border-radius:5px;padding:2px 6px;font-family:'Bebas Neue',sans-serif;font-size:12px;color:var(--mt)}
+.pres{font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--d2);letter-spacing:2px}
+.pmeta{font-size:8px;color:var(--mt);text-align:center;line-height:1.4}
+.pnum{font-size:7px;color:rgba(107,148,120,0.35)}
+.pcd{font-size:8px;font-weight:600;text-align:center;color:var(--amarillo);margin-top:1px;min-height:11px;letter-spacing:.3px}
+.res-edit{display:flex;align-items:center;gap:2px}
+.res-inp{width:24px;padding:1px 3px;background:var(--sf);border:1px solid var(--v);border-radius:3px;color:var(--d2);font-family:'Bebas Neue',sans-serif;font-size:13px;text-align:center;outline:none}
+.res-sep{font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--mt)}
+.efase-t{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;color:var(--d2);margin-bottom:.8rem;padding-bottom:6px;border-bottom:1px solid var(--br)}
+.econt{display:flex;flex-direction:column;gap:7px}
+.ecrd{background:var(--card);border:1px solid var(--br);border-radius:9px;padding:.75rem .9rem;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}
+.eteam{text-align:center}
+.eflag{font-size:20px;line-height:1;margin-bottom:2px}
+.enm{font-size:10px;font-weight:600;color:var(--mt)}
+.emid{text-align:center}
+.evs{background:var(--sf);border:1px solid var(--br2);border-radius:5px;padding:2px 8px;font-family:'Bebas Neue',sans-serif;font-size:12px;color:var(--mt);display:block;margin-bottom:2px}
+.emeta{font-size:9px;color:var(--mt);line-height:1.5}
+
+/* SELECCIONES */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.scard{background:var(--card);border:1px solid var(--br);border-radius:10px;padding:.7rem;text-align:center;cursor:pointer;transition:all .15s;position:relative}
+.scard:hover{border-color:var(--v3);background:rgba(26,122,82,0.07);transform:translateY(-1px)}
+.scard-em{font-size:30px;line-height:1;display:block;margin-bottom:4px}
+.scard-n{font-size:10px;font-weight:600;color:var(--tx)}
+.scard-c{font-size:9px;color:var(--mt);margin-top:1px}
+.vbadge{position:absolute;top:5px;right:5px;background:rgba(245,200,66,0.17);color:var(--d2);font-size:9px;font-weight:700;padding:1px 5px;border-radius:99px;border:1px solid rgba(245,200,66,0.2)}
+
+/* MODAL */
+.mbg{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:600;display:none;align-items:center;justify-content:center;padding:1rem}
+.mbg.op{display:flex}
+.mbox{background:var(--card2);border:1px solid var(--br2);border-radius:16px;width:100%;max-width:520px;max-height:88vh;overflow-y:auto;padding:1.1rem}
+.mtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem}
+.mtop h3{font-size:14px;font-weight:700;color:var(--tx)}
+.mcls{background:rgba(255,255,255,0.05);border:1px solid var(--br2);color:var(--mt);font-size:14px;cursor:pointer;padding:3px 8px;border-radius:7px;font-family:'Inter',sans-serif}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:7px}
+.pcard2{background:var(--sf);border:1px solid var(--br);border-radius:9px;padding:.6rem;text-align:center;cursor:pointer;transition:all .15s}
+.pcard2:hover{border-color:var(--v3);background:rgba(26,122,82,0.09)}
+.pimg{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid var(--br2);margin:0 auto 5px;display:block;background:var(--bg)}
+.pem{width:50px;height:50px;border-radius:50%;background:var(--sf);border:2px solid var(--br2);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 5px}
+.pnm2{font-size:10px;font-weight:600;color:var(--tx);line-height:1.3}
+.ppos{font-size:9px;color:var(--mt);margin-top:1px}
+.pvts{font-size:9px;color:var(--d2);margin-top:2px;font-weight:600}
+
+/* STATS */
+.sgrid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.bwrap{display:flex;flex-direction:column;gap:5px}
+.brow{display:flex;align-items:center;gap:6px}
+.bem{font-size:13px;width:18px;text-align:center;flex-shrink:0;line-height:1}
+.blbl{font-size:10px;color:var(--tx);min-width:75px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btrack{flex:1;background:rgba(255,255,255,0.06);border-radius:99px;height:6px;overflow:hidden}
+.bfill{height:100%;border-radius:99px;background:var(--v3);transition:width .5s}
+.bfill.gold{background:linear-gradient(90deg,var(--d),var(--d2))}
+.bval{font-size:10px;font-weight:700;color:var(--mt);min-width:16px}
+.acards{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:7px}
+.acard{background:var(--sf);border:1px solid var(--br);border-radius:9px;padding:.65rem;text-align:center}
+.anum{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--d2);line-height:1}
+.albl{font-size:9px;color:var(--mt);margin-top:2px;line-height:1.3}
+
+/* CHAT */
+.cbbl{background:var(--card);border:1px solid var(--br);border-radius:10px;padding:.7rem .85rem}
+.caut{font-size:11px;font-weight:700;color:var(--v3);margin-bottom:2px;display:flex;justify-content:space-between;align-items:center}
+.chr{font-size:9px;color:var(--mt);font-weight:400}
+.ctxt{font-size:12px;color:var(--tx);line-height:1.5}
+.cdel{background:none;border:none;cursor:pointer;color:var(--mt);font-size:11px;padding:1px 4px;border-radius:3px}
+.cdel:hover{color:var(--rj)}
+
+/* INFO */
+.icrd{background:var(--card);border:1px solid var(--br);border-radius:12px;padding:1.1rem;margin-bottom:.9rem}
+.icrd h3{font-size:12px;font-weight:600;color:var(--tx);margin-bottom:.75rem}
+.ptbl{width:100%;border-collapse:collapse}
+.ptbl td{padding:7px 0;font-size:12px;color:var(--mt2);border-bottom:1px solid var(--br)}
+.ptbl td:last-child{text-align:right;font-weight:700;color:var(--tx)}
+.ptbl tr:last-child td{border-bottom:none}
+.ptbl .hl td{color:var(--d2)!important}
+.lbox{background:rgba(26,122,82,0.07);border:1px solid rgba(26,122,82,0.18);border-radius:9px;padding:.85rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem;flex-wrap:wrap}
+.lbox p{font-size:11px;color:var(--mt2)}
+.lbox strong{display:block;font-size:13px;color:var(--v3);margin-bottom:2px}
+.lbox a{background:var(--v);color:#fff;padding:7px 14px;border-radius:99px;font-size:12px;font-weight:700;text-decoration:none}
+.lbox a:hover{background:var(--v3)}
+
+/* TOAST */
+.toast{position:fixed;bottom:1.2rem;right:1.2rem;background:var(--v);color:#fff;padding:9px 15px;border-radius:9px;font-size:12px;font-weight:500;opacity:0;transform:translateY(6px);transition:all .25s;pointer-events:none;z-index:999}
+.toast.on{opacity:1;transform:translateY(0)}
+.toast.err{background:var(--rj)}
+footer{text-align:center;padding:1rem;font-size:10px;color:var(--mt);border-top:1px solid var(--br);background:var(--sf)}
+footer a{color:var(--v3);text-decoration:none}
+
+/* LIVE BAR */
+.live-bar{background:rgba(231,76,60,0.07);border-bottom:1px solid rgba(231,76,60,0.28);padding:.5rem 1.2rem;display:none;position:sticky;top:94px;z-index:150;backdrop-filter:blur(8px)}
+.live-bar.active{display:block}
+.lpulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e74c3c;animation:lpls 1.1s ease-in-out infinite;flex-shrink:0}
+@keyframes lpls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(1.5)}}
+.lm-row{display:flex;align-items:center;gap:7px;padding:3px 0;flex-wrap:wrap}
+.lm-team{font-size:11px;font-weight:600;color:var(--tx)}
+.lm-flag{font-size:15px;line-height:1;flex-shrink:0}
+.live-inp{width:26px;padding:1px 3px;background:var(--sf);border:1px solid var(--v);border-radius:3px;color:var(--d2);font-family:'Bebas Neue',sans-serif;font-size:14px;text-align:center;outline:none;-moz-appearance:textfield}
+.live-inp::-webkit-inner-spin-button,.live-inp::-webkit-outer-spin-button{-webkit-appearance:none}
+
+/* RANKING */
+.rnk-medal{font-size:18px;min-width:26px;text-align:center}
+.chip-ok{border-color:rgba(74,222,128,.6)!important;background:rgba(74,222,128,.1)!important}
+.rnk-pts{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--d2);text-align:right}
+/* PODIUM */
+.podium-wrap{display:flex;justify-content:center;align-items:flex-end;gap:8px;height:140px;margin-bottom:1.3rem}
+.pod-col{display:flex;flex-direction:column;align-items:center}
+.pod-name{font-size:10px;font-weight:700;max-width:86px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:4px;color:var(--tx);text-align:center}
+.pod-block{width:86px;border-radius:8px 8px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.pod-1{height:100px;background:linear-gradient(160deg,rgba(245,200,66,.22),rgba(245,200,66,.06));border:1px solid rgba(245,200,66,.45)}
+.pod-2{height:72px;background:linear-gradient(160deg,rgba(192,192,192,.18),rgba(192,192,192,.05));border:1px solid rgba(192,192,192,.3)}
+.pod-3{height:52px;background:linear-gradient(160deg,rgba(205,127,50,.18),rgba(205,127,50,.05));border:1px solid rgba(205,127,50,.3)}
+/* QR MODAL */
+.qr-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center}
+.qr-modal.on{display:flex}
+/* FAV CHIP */
+.fav-chip{display:inline-flex;align-items:center;gap:3px;background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.2);border-radius:99px;padding:2px 7px;font-size:9px;color:var(--d2);font-weight:600;margin-top:3px}
+.adm-box{border-color:rgba(245,200,66,0.22)!important}
+
+/* LOGIN MODAL */
+.login-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:800;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+.login-box{background:var(--card);border:1px solid var(--br2);border-radius:20px;padding:2rem 1.5rem;max-width:340px;width:90%;text-align:center}
+.login-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;color:var(--d2);margin-bottom:.3rem}
+.login-sub{font-size:12px;color:var(--mt2);margin-bottom:1.3rem}
+.login-box input{width:100%;background:var(--sf);border:1px solid var(--br2);color:var(--tx);border-radius:8px;padding:10px 12px;font-size:13px;font-family:'Inter',sans-serif;outline:none;margin-bottom:.8rem}
+.login-box input:focus{border-color:var(--v3)}
+.login-btn{width:100%;background:var(--v);color:#fff;border:none;padding:11px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s}
+.login-btn:hover{background:var(--v3)}
+.login-avatar{width:64px;height:64px;border-radius:50%;background:var(--v2);border:2px solid var(--v3);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto .9rem}
+
+/* PROFILE PANEL */
+.profile-panel{position:fixed;right:0;top:0;bottom:0;width:min(340px,95vw);background:var(--sf);border-left:1px solid var(--br2);z-index:600;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);overflow-y:auto;padding:1.2rem}
+.profile-panel.open{transform:translateX(0)}
+.profile-overlay{position:fixed;inset:0;z-index:599;display:none}
+.profile-overlay.on{display:block}
+.pp-close{position:absolute;top:1rem;right:1rem;background:var(--card);border:1px solid var(--br2);color:var(--tx);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.pp-avatar{width:56px;height:56px;border-radius:50%;background:var(--v2);border:2px solid var(--v3);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto .7rem}
+.pp-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--tx);text-align:center}
+.pp-user{font-size:10px;color:var(--mt);text-align:center;margin-bottom:1rem}
+.pp-stat{background:var(--card);border:1px solid var(--br);border-radius:10px;padding:.7rem;text-align:center}
+.pp-stat-n{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--d2)}
+.pp-stat-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--mt)}
+.pp-pick{background:var(--card);border:1px solid var(--br);border-radius:10px;padding:.75rem;display:flex;align-items:center;gap:10px}
+.pp-pick-icon{font-size:22px}
+.pp-pick-label{font-size:9px;color:var(--mt);text-transform:uppercase;letter-spacing:1px}
+.pp-pick-val{font-size:13px;font-weight:600;color:var(--tx)}
+
+/* READONLY */
+body.readonly .btn,.body.readonly button[onclick*="agregar"],.readonly .fcard:not(.adm-visible){pointer-events:none;opacity:.4}
+body.readonly .fcard{display:none}
+body.readonly .adm-box{display:none}
+.readonly-badge{background:rgba(245,200,66,.12);border:1px solid rgba(245,200,66,.3);color:var(--d2);font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;letter-spacing:1px}
+
+/* ME HIGHLIGHT */
+tr.me-row td{background:rgba(26,122,82,.12)!important}
+tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);display:block}
+
+/* SYNC BADGE */
+.sync-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;margin-right:4px;animation:lpls 2s ease-in-out infinite}
+.sync-dot.off{background:#e74c3c;animation:none}
+
+@media(max-width:640px){
+  header{padding:0 .8rem}
+  .hnav{display:none}
+  main{padding:1.2rem .7rem 4rem}
+  .srow{gap:5px}.sn{font-size:20px}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .thdr{flex-direction:column;align-items:flex-start}
+  .sinp{width:100%}
+  th:nth-child(3),td:nth-child(3){display:none}
+  .gg{grid-template-columns:1fr}
+  .sgrid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
+  .sgrid2{grid-template-columns:1fr}
+  .lbox{flex-direction:column}
+}
+@media(max-width:360px){.fgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">⚽ LOS <em>PRIMOS</em> · 2026</div>
+  <nav class="hnav">
+    <button class="hnp on"  onclick="goT('pro',this)">Pronósticos</button>
+    <button class="hnp"     onclick="goT('fix',this)">Fixture</button>
+    <button class="hnp"     onclick="goT('rnk',this)">🏅 Ranking</button>
+    <button class="hnp"     onclick="goT('sel',this)">Selecciones</button>
+    <button class="hnp"     onclick="goT('sts',this)">Stats</button>
+    <button class="hnp"     onclick="goT('cht',this)">Chat</button>
+    <button class="hnp"     onclick="goT('inf',this)">Info</button>
+  </nav>
+  <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+    <span id="sync-badge" title="Estado conexión" style="display:none"><span class="sync-dot off" id="sync-dot"></span><span id="sync-lbl" style="font-size:10px;color:var(--mt)">Local</span></span>
+    <button id="me-btn" onclick="openMyProfile()" style="display:none;background:var(--v2);border:1px solid var(--v);color:var(--tx);padding:5px 10px;border-radius:99px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;align-items:center;gap:5px">
+      <span id="me-avatar" style="font-size:13px">👤</span>
+      <span id="me-name" style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
+    </button>
+    <a href="https://www.golpredictor.com" target="_blank" class="hcta">🔗 Ver polla</a>
+  </div>
+</header>
+
+<div class="tbar">
+  <button class="tbtn on"  onclick="goT('pro',this)">Pronósticos</button>
+  <button class="tbtn"     onclick="goT('fix',this)">Fixture</button>
+  <button class="tbtn"     onclick="goT('rnk',this)">🏅 Ranking</button>
+  <button class="tbtn"     onclick="goT('sel',this)">Selecciones</button>
+  <button class="tbtn"     onclick="goT('sts',this)">📊 Stats</button>
+  <button class="tbtn"     onclick="goT('cht',this)">💬 Chat</button>
+  <button class="tbtn"     onclick="goT('inf',this)">Info</button>
+</div>
+
+<div id="live-bar" class="live-bar">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+    <span class="lpulse"></span>
+    <span style="font-size:10px;font-weight:700;color:#e74c3c;letter-spacing:1.5px;text-transform:uppercase">En Vivo</span>
+    <span id="live-ts" style="font-size:9px;color:var(--mt)"></span>
+    <button onclick="fetchLive()" id="live-fetch-btn" style="margin-left:auto;background:none;border:1px solid var(--br2);color:var(--mt);font-size:10px;padding:2px 10px;border-radius:99px;cursor:pointer;font-family:'Inter',sans-serif">🔄 Actualizar</button>
+  </div>
+  <div id="live-matches"></div>
+</div>
+
+<div class="hero">
+  <div class="hglow"></div>
+  <div class="htrophy">🏆</div>
+  <div class="hbadge">🏆 FIFA World Cup 2026</div>
+  <h1>LOS <span>PRIMOS</span></h1>
+  <p class="hsub">Polla mundialista · ¡El que más acierta se lleva el orgullo!</p>
+  <div class="cdw">
+    <div class="cdu"><div class="cdn" id="cd-d">--</div><div class="cdl">Días</div></div>
+    <div class="cdsp">:</div>
+    <div class="cdu"><div class="cdn" id="cd-h">--</div><div class="cdl">Hrs</div></div>
+    <div class="cdsp">:</div>
+    <div class="cdu"><div class="cdn" id="cd-m">--</div><div class="cdl">Min</div></div>
+    <div class="cdsp">:</div>
+    <div class="cdu"><div class="cdn" id="cd-s">--</div><div class="cdl">Seg</div></div>
+  </div>
+  <div class="sedes">
+    <div class="sede">🇺🇸 <b>EE.UU.</b></div>
+    <div class="sede">🇨🇦 <b>Canadá</b></div>
+    <div class="sede">🇲🇽 <b>México</b></div>
+  </div>
+  <a href="https://golp.cc/YSsOtlmI" target="_blank" class="hlink">Ir a la polla oficial →</a>
+</div>
+
+<main>
+
+<div id="tab-pro" class="tc on">
+  <div class="srow">
+    <div class="sc hi"><div class="sn" id="st-tot">35</div><div class="sl">Participantes</div></div>
+    <div class="sc"><div class="sn" id="st-cam" style="font-size:12px;padding-top:8px">—</div><div class="sl">Campeón votado</div></div>
+    <div class="sc"><div class="sn" id="st-gol" style="font-size:12px;padding-top:8px">—</div><div class="sl">Goleador votado</div></div>
+  </div>
+  <div class="pb">
+    <div style="font-size:20px;flex-shrink:0">🏅</div>
+    <div>
+      <div class="pb-t">Bonus campeón y goleador</div>
+      <div class="pb-d">Los puntos de la polla se acumulan en la plataforma oficial. Al final suma:</div>
+      <div class="ppills">
+        <span class="pp ppg">🏆 Campeón: +10 pts</span>
+        <span class="pp ppv">⚽ Goleador: +10 pts</span>
+        <span class="pp pps">🎯 Ambos: +20 pts extra</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:rgba(245,200,66,0.07);border:1px solid rgba(245,200,66,0.22);border-radius:12px;padding:.85rem 1rem;margin-bottom:1.3rem;display:flex;align-items:center;gap:12px">
+    <div style="font-size:20px;flex-shrink:0">💰</div>
+    <div>
+      <div style="font-size:12px;font-weight:600;color:var(--d2);margin-bottom:3px">Pago de la polla</div>
+      <div style="font-size:11px;color:var(--mt2)">Consigna aquí la plata para participar:</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--d2);letter-spacing:2px;margin-top:3px">Llave Bre-b @CCP949</div>
+    </div>
+  </div>
+
+  <div class="fcard">
+    <div class="stit">Ingresar pronóstico</div>
+    <div class="fgrid">
+      <div class="fi"><label>Nombre</label><input id="in-nom" type="text" placeholder="Tu nombre completo" autocomplete="off"/></div>
+      <div class="fi"><label>Usuario</label><input id="in-usr" type="text" placeholder="Ej: juandch1222" autocomplete="off"/></div>
+      <div class="fi">
+        <label>Campeón 🏆</label>
+        <input id="in-cam" type="text" placeholder="Buscar selección…" autocomplete="off"
+          oninput="acF('cam')" onfocus="acF('cam')" onblur="acC('cam',260)"/>
+        <div class="acl" id="acl-cam"></div>
+      </div>
+      <div class="fi">
+        <label>Goleador ⚽</label>
+        <input id="in-gol" type="text" placeholder="Buscar jugador…" autocomplete="off"
+          oninput="acF('gol')" onfocus="acF('gol')" onblur="acC('gol',260)"/>
+        <div class="acl" id="acl-gol"></div>
+      </div>
+    </div>
+    <div class="factions">
+      <button class="btn btng" onclick="limpiar()">Limpiar</button>
+      <button class="btn btnp" onclick="agregar()">➕ Registrar</button>
+    </div>
+  </div>
+  <div class="thdr">
+    <div class="stit" style="margin-bottom:0">Tabla de pronósticos</div>
+    <input class="sinp" id="buscar" type="text" placeholder="🔍 Buscar…" oninput="renderT()"/>
+  </div>
+  <div class="twrap">
+    <table>
+      <thead><tr><th>#</th><th>Nombre</th><th>Usuario</th><th>Campeón</th><th>Goleador</th><th></th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div class="ebar">
+    <button class="bsm" onclick="expXlsx()">📊 Excel</button>
+    <button class="bsm" onclick="document.getElementById('fx').click()">📂 Importar</button>
+    <input type="file" id="fx" accept=".xlsx,.xls,.csv" style="display:none" onchange="impXlsx(event)"/>
+    <button class="bsm" onclick="window.print()">🖨️ Imprimir</button>
+  </div>
+</div>
+
+<div id="tab-fix" class="tc">
+  <div class="fxctrl">
+    <button class="fbtn on" onclick="vF('grupos',this)">Grupos</button>
+    <button class="fbtn"    onclick="vF('16vos',this)">Dieciseisavos</button>
+    <button class="fbtn"    onclick="vF('oct',this)">Octavos</button>
+    <button class="fbtn"    onclick="vF('cua',this)">Cuartos</button>
+    <button class="fbtn"    onclick="vF('sem',this)">Semis</button>
+    <button class="fbtn"    onclick="vF('fin',this)">Final</button>
+  </div>
+  <div id="fix-dia-wrap" style="margin-bottom:1rem">
+    <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:6px">📅 Filtrar por día</div>
+    <div style="display:flex;gap:5px;flex-wrap:wrap;align-items:center">
+      <button class="fbtn on" id="dia-btn-todos" onclick="filtrarDia('todos',this)">Todos los días</button>
+      <div id="dia-btns" style="display:flex;gap:5px;flex-wrap:wrap"></div>
+    </div>
+  </div>
+  <div id="fx-grupos"><div class="gg" id="gg-c"></div></div>
+  <div id="fx-16vos" style="display:none"><div class="efase-t">Dieciseisavos de final</div><div class="econt" id="ec-16v"></div></div>
+  <div id="fx-oct"   style="display:none"><div class="efase-t">Octavos de final</div><div class="econt" id="ec-oct"></div></div>
+  <div id="fx-cua"   style="display:none"><div class="efase-t">Cuartos de final</div><div class="econt" id="ec-cua"></div></div>
+  <div id="fx-sem"   style="display:none"><div class="efase-t">Semifinales</div><div class="econt" id="ec-sem"></div></div>
+  <div id="fx-fin"   style="display:none"><div class="efase-t">Final · 19 Jul · Nueva York</div><div class="econt" id="ec-fin"></div></div>
+</div>
+
+<div id="tab-sel" class="tc">
+  <input class="sinp" style="width:100%;max-width:280px;margin-bottom:1rem" id="bsel"
+    type="text" placeholder="🔍 Buscar selección o jugador…" oninput="renderSel()"/>
+  <div class="sgrid" id="sgrid"></div>
+</div>
+
+<div id="tab-sts" class="tc">
+  <div class="stit" style="margin-bottom:1rem">Estadísticas</div>
+  <div class="sgrid2">
+    <div class="icrd" style="padding:.9rem">
+      <div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:.6rem">🏆 Campeón más votado</div>
+      <div id="ch-cam"></div>
+    </div>
+    <div class="icrd" style="padding:.9rem">
+      <div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:.6rem">⚽ Goleador más votado</div>
+      <div id="ch-gol"></div>
+    </div>
+  </div>
+  <div class="icrd" style="padding:.9rem;margin-bottom:.9rem">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:.7rem">🎯 Resumen</div>
+    <div class="acards" id="st-cards"></div>
+  </div>
+  <div class="icrd" style="padding:.9rem">
+    <div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:.7rem">📋 Todos los pronósticos</div>
+    <div id="st-tbl" style="overflow-x:auto"></div>
+  </div>
+</div>
+
+<div id="tab-rnk" class="tc">
+  <!-- Estado actual -->
+  <div style="background:var(--card);border:1px solid var(--br);border-radius:12px;padding:.85rem 1rem;margin-bottom:1.1rem;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+    <div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--mt);margin-bottom:2px">🏆 Campeón Real</div>
+      <div id="rnk-cam-lbl" style="font-size:14px;font-weight:700;color:var(--tx)">por definir</div>
+    </div>
+    <div style="width:1px;background:var(--br2);align-self:stretch"></div>
+    <div>
+      <div style="font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--mt);margin-bottom:2px">⚽ Goleador Real</div>
+      <div id="rnk-gol-lbl" style="font-size:14px;font-weight:700;color:var(--tx)">por definir</div>
+    </div>
+    <div style="margin-left:auto;display:flex;gap:6px;flex-shrink:0">
+      <button id="golp-btn" onclick="syncGolp()" style="background:var(--v);color:#fff;border:none;padding:8px 14px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">📥 Importar golpredictor</button>
+      <button onclick="shareWA()" style="background:#25D366;color:#fff;border:none;padding:8px 14px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">📲 WhatsApp</button>
+      <button onclick="showQR()" style="background:var(--card);color:var(--d2);border:1px solid rgba(245,200,66,0.3);padding:8px 14px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">📱 QR</button>
+    </div>
+  </div>
+  <div id="golp-status" style="font-size:10px;color:var(--mt);margin-bottom:.8rem;display:none"></div>
+
+  <!-- Panel importar golpredictor -->
+  <div id="golp-import-box" style="display:none;background:var(--card);border:1px solid rgba(26,122,82,0.35);border-radius:12px;padding:1rem;margin-bottom:1rem">
+    <div style="font-size:12px;font-weight:600;color:var(--d2);margin-bottom:6px">📋 Pegar tabla de posiciones</div>
+    <p style="font-size:11px;color:var(--mt2);margin-bottom:8px;line-height:1.5">
+      1. Abre <strong>golpredictor.com</strong> → tu polla → pestaña <em>Posiciones</em><br>
+      2. Selecciona toda la tabla (Ctrl+A en la tabla) y cópiala (Ctrl+C)<br>
+      3. Pégala aquí y dale <em>Guardar ranking</em>
+    </p>
+    <textarea id="golp-paste" rows="8" placeholder="Pega aquí el contenido copiado de golpredictor.com..." style="width:100%;background:var(--sf);border:1px solid var(--br2);color:var(--tx);border-radius:8px;padding:8px;font-size:11px;font-family:monospace;resize:vertical"></textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button onclick="importGolp()" style="background:var(--v);color:#fff;border:none;padding:7px 16px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">💾 Guardar ranking</button>
+      <button onclick="document.getElementById('golp-import-box').style.display='none'" style="background:transparent;color:var(--mt);border:1px solid var(--br2);padding:7px 16px;border-radius:99px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Podio top 3 -->
+  <div id="rnk-podium"></div>
+
+  <!-- Tabla ranking -->
+  <div class="twrap" style="margin-bottom:1.3rem">
+    <table>
+      <thead><tr><th style="width:36px">#</th><th>Participante</th><th>Campeón</th><th>Goleador</th><th style="width:44px;text-align:right">Pts</th><th style="width:52px;text-align:right;font-size:9px">Falta</th></tr></thead>
+      <tbody id="rnk-tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- Sistema de puntos recordatorio -->
+  <div style="background:rgba(245,200,66,0.06);border:1px solid rgba(245,200,66,0.18);border-radius:10px;padding:.75rem 1rem;margin-bottom:1.3rem;font-size:11px;color:var(--mt2)">
+    <div style="font-weight:600;color:var(--d2);margin-bottom:5px">📊 Ranking durante el torneo: puntos de golpredictor.com (marcadores acertados)</div>
+    <div style="margin-bottom:5px">🏅 Bonus al <strong>finalizar el torneo</strong>:</div>
+    <div style="display:flex;gap:5px;flex-wrap:wrap">
+      <span class="pp ppg">🏆 Campeón: +10 pts</span>
+      <span class="pp ppv">⚽ Goleador: +10 pts</span>
+      <span class="pp pps">🎯 Ambos: +20 pts extra = 40 pts total</span>
+    </div>
+  </div>
+
+  <!-- Panel admin -->
+  <div class="fcard adm-box">
+    <div class="stit">⚙️ Configurar resultados reales · Admin</div>
+    <p style="font-size:11px;color:var(--mt);margin-bottom:.85rem">Solo el administrador puede definir el campeón y goleador real para calcular puntos bonus.</p>
+    <div class="fgrid">
+      <div class="fi">
+        <label>Campeón real 🏆</label>
+        <input id="adm-cam" type="text" placeholder="Ej: España" list="dl-sels" autocomplete="off"/>
+        <datalist id="dl-sels"></datalist>
+      </div>
+      <div class="fi">
+        <label>Goleador real ⚽</label>
+        <input id="adm-gol" type="text" placeholder="Ej: Lamine Yamal" list="dl-jug" autocomplete="off"/>
+        <datalist id="dl-jug"></datalist>
+      </div>
+      <div class="fi">
+        <label>🔐 Contraseña admin</label>
+        <input id="adm-pw" type="password" placeholder="••••••••"/>
+      </div>
+    </div>
+    <div class="factions">
+      <button class="btn btnp" onclick="saveAdmin()">💾 Guardar y calcular ranking</button>
+    </div>
+  </div>
+</div>
+
+<div id="tab-cht" class="tc">
+  <div class="stit" style="margin-bottom:1rem">💬 Comentarios</div>
+  <div class="icrd" style="padding:1rem;margin-bottom:1rem">
+    <div class="fgrid" style="margin-bottom:8px">
+      <div class="fi"><label>Tu nombre</label><input id="ch-nom" type="text" placeholder="¿Quién escribe?" autocomplete="off"/></div>
+      <div class="fi" style="grid-column:1/-1"><label>Mensaje</label>
+        <textarea id="ch-msg" rows="2" placeholder="Escribe algo… 🔥"
+          style="width:100%;padding:8px 10px;background:var(--sf);border:1px solid var(--br2);border-radius:8px;color:var(--tx);font-family:'Inter',sans-serif;font-size:12px;resize:none;outline:none"
+          onfocus="this.style.borderColor='var(--v3)'" onblur="this.style.borderColor=''"></textarea>
+      </div>
+    </div>
+    <div class="factions">
+      <button class="btn btng" onclick="document.getElementById('ch-msg').value=''">Limpiar</button>
+      <button class="btn btnp" onclick="envChat()">Enviar 💬</button>
+    </div>
+  </div>
+  <div id="ch-cont" style="display:flex;flex-direction:column;gap:6px"></div>
+</div>
+
+<div id="tab-inf" class="tc">
+  <div class="icrd">
+    <h3>🏅 Puntos bonus</h3>
+    <table class="ptbl">
+      <tr class="hl"><td>🏆 Campeón del mundo correcto</td><td>+10 pts</td></tr>
+      <tr class="hl"><td>⚽ Goleador del torneo correcto</td><td>+10 pts</td></tr>
+      <tr class="hl"><td>🎯 Ambos correctos</td><td>+20 pts extra</td></tr>
+    </table>
+  </div>
+  <div class="icrd">
+    <h3>🔗 Polla oficial</h3>
+    <div class="lbox">
+      <div><strong>golp.cc/YSsOtlmI</strong><p>Registra y sigue tus predicciones en tiempo real.</p></div>
+      <a href="https://golp.cc/YSsOtlmI" target="_blank">Abrir →</a>
+    </div>
+  </div>
+  <div class="icrd" style="border-color:rgba(245,200,66,0.3)">
+    <h3>💰 Pago de la polla</h3>
+    <div style="background:rgba(245,200,66,0.07);border:1px solid rgba(245,200,66,0.2);border-radius:10px;padding:1rem 1.1rem">
+      <p style="font-size:13px;color:var(--mt2);margin-bottom:.6rem">Consigna aquí la plata de la polla para participar:</p>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <div>
+          <div style="font-size:11px;color:var(--mt);margin-bottom:2px;text-transform:uppercase;letter-spacing:1px;font-weight:600">Llave / Cuenta</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--d2);letter-spacing:2px">Bre-b @CCP949</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="icrd">
+    <h3>🌍 Mundial 2026</h3>
+    <p style="font-size:12px;color:var(--mt2);line-height:1.7">
+      <strong style="color:var(--tx)">FIFA World Cup 2026</strong> —
+      <strong style="color:var(--tx)">EE.UU., Canadá y México</strong> —
+      <strong style="color:var(--v3)">11 Jun al 19 Jul 2026</strong>.
+      48 selecciones, 12 grupos.
+    </p>
+  </div>
+</div>
+
+</main>
+
+<div class="mbg" id="mbg" onclick="if(event.target===this)this.classList.remove('op')">
+  <div class="mbox">
+    <div class="mtop"><h3 id="m-tit">Jugadores</h3><button class="mcls" onclick="document.getElementById('mbg').classList.remove('op')">✕</button></div>
+    <div class="pgrid" id="m-play"></div>
+  </div>
+</div>
+
+<footer>LOS PRIMOS · Mundial 2026 &nbsp;·&nbsp; <a href="https://www.golpredictor.com" target="_blank">golpredictor.com</a></footer>
+<div class="toast" id="toast"></div>
+
+<!-- Login Modal -->
+<div class="login-overlay" id="login-modal" style="display:none">
+  <div class="login-box">
+    <div class="login-avatar" id="login-avatar">⚽</div>
+    <div class="login-title">LOS PRIMOS</div>
+    <div class="login-sub">Mundial 2026 · ¿Quién eres?</div>
+    <input id="login-input" type="text" placeholder="Tu usuario (ej: cchalap87)" list="login-dl" autocomplete="off" oninput="loginPreview(this.value)" onkeydown="if(event.key==='Enter')doLogin()"/>
+    <datalist id="login-dl"></datalist>
+    <button class="login-btn" onclick="doLogin()">Entrar 🚀</button>
+    <button onclick="doLogin('guest')" style="margin-top:.6rem;background:transparent;color:var(--mt);border:none;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif">Solo quiero ver →</button>
+  </div>
+</div>
+
+<!-- Profile Panel -->
+<div class="profile-overlay" id="profile-overlay" onclick="closeProfile()"></div>
+<div class="profile-panel" id="profile-panel">
+  <button class="pp-close" onclick="closeProfile()">✕</button>
+  <div style="margin-top:1.5rem">
+    <div class="pp-avatar" id="pp-avatar">👤</div>
+    <div class="pp-name" id="pp-name">—</div>
+    <div class="pp-user" id="pp-user"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:1rem">
+      <div class="pp-stat"><div class="pp-stat-n" id="pp-pts">—</div><div class="pp-stat-l">Pts</div></div>
+      <div class="pp-stat"><div class="pp-stat-n" id="pp-pos">—</div><div class="pp-stat-l">Posición</div></div>
+      <div class="pp-stat"><div class="pp-stat-n" id="pp-gap">—</div><div class="pp-stat-l">Al líder</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:1rem">
+      <div class="pp-pick"><div class="pp-pick-icon" id="pp-cam-flag">🏆</div><div><div class="pp-pick-label">Campeón</div><div class="pp-pick-val" id="pp-cam">—</div></div></div>
+      <div class="pp-pick"><div class="pp-pick-icon" id="pp-gol-flag">⚽</div><div><div class="pp-pick-label">Goleador</div><div class="pp-pick-val" id="pp-gol">—</div><div style="font-size:9px;color:var(--mt)" id="pp-gol-team"></div></div></div>
+    </div>
+    <div id="pp-needs" style="background:var(--card);border:1px solid var(--br);border-radius:10px;padding:.75rem;font-size:11px;color:var(--mt2);line-height:1.6"></div>
+  </div>
+</div>
+
+<!-- QR Modal -->
+<div class="qr-modal" id="qr-modal" onclick="this.classList.remove('on')">
+  <div style="background:var(--card);border:1px solid var(--br2);border-radius:16px;padding:1.5rem;text-align:center;max-width:260px" onclick="event.stopPropagation()">
+    <div style="font-size:13px;font-weight:700;color:var(--d2);margin-bottom:1rem">📱 Compartir polla</div>
+    <img id="qr-img" src="" alt="QR" style="width:200px;height:200px;border-radius:10px;background:#fff;padding:6px"/>
+    <div style="font-size:11px;color:var(--mt);margin-top:.8rem">Escanea para abrir golpredictor.com</div>
+    <button onclick="document.getElementById('qr-modal').classList.remove('on')" style="margin-top:.8rem;background:transparent;color:var(--mt);border:1px solid var(--br2);padding:6px 16px;border-radius:99px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif">Cerrar</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+// ═══ SELECCIONES ═══
+const S={
+  MEX:{n:'México',e:'🇲🇽',c:'CONCACAF'},RSA:{n:'Sudáfrica',e:'🇿🇦',c:'CAF'},
+  KOR:{n:'Corea del Sur',e:'🇰🇷',c:'AFC'},CZE:{n:'Chequia',e:'🇨🇿',c:'UEFA'},
+  CAN:{n:'Canadá',e:'🇨🇦',c:'CONCACAF'},BIH:{n:'Bosnia-Herz.',e:'🇧🇦',c:'UEFA'},
+  QAT:{n:'Catar',e:'🇶🇦',c:'AFC'},SUI:{n:'Suiza',e:'🇨🇭',c:'UEFA'},
+  BRA:{n:'Brasil',e:'🇧🇷',c:'CONMEBOL'},MAR:{n:'Marruecos',e:'🇲🇦',c:'CAF'},
+  HAI:{n:'Haití',e:'🇭🇹',c:'CONCACAF'},SCO:{n:'Escocia',e:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',c:'UEFA'},
+  USA:{n:'Estados Unidos',e:'🇺🇸',c:'CONCACAF'},PAR:{n:'Paraguay',e:'🇵🇾',c:'CONMEBOL'},
+  AUS:{n:'Australia',e:'🇦🇺',c:'AFC'},TUR:{n:'Turquía',e:'🇹🇷',c:'UEFA'},
+  GER:{n:'Alemania',e:'🇩🇪',c:'UEFA'},CUW:{n:'Curasao',e:'🇨🇼',c:'CONCACAF'},
+  CIV:{n:'C. de Marfil',e:'🇨🇮',c:'CAF'},ECU:{n:'Ecuador',e:'🇪🇨',c:'CONMEBOL'},
+  NED:{n:'Países Bajos',e:'🇳🇱',c:'UEFA'},JPN:{n:'Japón',e:'🇯🇵',c:'AFC'},
+  SWE:{n:'Suecia',e:'🇸🇪',c:'UEFA'},TUN:{n:'Túnez',e:'🇹🇳',c:'CAF'},
+  BEL:{n:'Bélgica',e:'🇧🇪',c:'UEFA'},EGY:{n:'Egipto',e:'🇪🇬',c:'CAF'},
+  IRN:{n:'Irán',e:'🇮🇷',c:'AFC'},NZL:{n:'Nueva Zelanda',e:'🇳🇿',c:'OFC'},
+  ESP:{n:'España',e:'🇪🇸',c:'UEFA'},CPV:{n:'Cabo Verde',e:'🇨🇻',c:'CAF'},
+  KSA:{n:'Arabia Saudí',e:'🇸🇦',c:'AFC'},URU:{n:'Uruguay',e:'🇺🇾',c:'CONMEBOL'},
+  FRA:{n:'Francia',e:'🇫🇷',c:'UEFA'},SEN:{n:'Senegal',e:'🇸🇳',c:'CAF'},
+  IRQ:{n:'Irak',e:'🇮🇶',c:'AFC'},NOR:{n:'Noruega',e:'🇳🇴',c:'UEFA'},
+  ARG:{n:'Argentina',e:'🇦🇷',c:'CONMEBOL'},ALG:{n:'Argelia',e:'🇩🇿',c:'CAF'},
+  AUT:{n:'Austria',e:'🇦🇹',c:'UEFA'},JOR:{n:'Jordania',e:'🇯🇴',c:'AFC'},
+  POR:{n:'Portugal',e:'🇵🇹',c:'UEFA'},COD:{n:'RD Congo',e:'🇨🇩',c:'CAF'},
+  UZB:{n:'Uzbekistán',e:'🇺🇿',c:'AFC'},COL:{n:'Colombia',e:'🇨🇴',c:'CONMEBOL'},
+  ENG:{n:'Inglaterra',e:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',c:'UEFA'},CRO:{n:'Croacia',e:'🇭🇷',c:'UEFA'},
+  GHA:{n:'Ghana',e:'🇬🇭',c:'CAF'},PAN:{n:'Panamá',e:'🇵🇦',c:'CONCACAF'},
+};
+// Índice por nombre
+const SN={};Object.entries(S).forEach(([k,v])=>{SN[v.n.toLowerCase()]=k;SN[k.toLowerCase()]=k});
+function selCod(n){return SN[n?.toLowerCase()]||null}
+function selEm(n){const k=selCod(n);return k?S[k].e:''}
+
+// ═══ JUGADORES ═══
+const J=[
+  {n:'Mastil',c:'ALG',p:'Portero',img:''},
+  {n:'Mandi',c:'ALG',p:'Defensa',img:''},
+  {n:'Abada',c:'ALG',p:'Defensa',img:''},
+  {n:'Tougai',c:'ALG',p:'Defensa',img:''},
+  {n:'Belaid',c:'ALG',p:'Defensa',img:''},
+  {n:'Zerrouki',c:'ALG',p:'Mediocampista',img:''},
+  {n:'Mahrez',c:'ALG',p:'Delantero',img:''},
+  {n:'Aouar',c:'ALG',p:'Mediocampista',img:''},
+  {n:'Gouiri',c:'ALG',p:'Delantero',img:''},
+  {n:'Chaibi',c:'ALG',p:'Mediocampista',img:''},
+  {n:'Hadj Moussa',c:'ALG',p:'Delantero',img:''},
+  {n:'Benbouali',c:'ALG',p:'Delantero',img:''},
+  {n:'Hadjam',c:'ALG',p:'Defensa',img:''},
+  {n:'Boudaoui',c:'ALG',p:'Mediocampista',img:''},
+  {n:'Ait-Nouri',c:'ALG',p:'Defensa',img:''},
+  {n:'Benbot',c:'ALG',p:'Portero',img:''},
+  {n:'Belghali',c:'ALG',p:'Defensa',img:''},
+  {n:'Amoura',c:'ALG',p:'Delantero',img:''},
+  {n:'Bentaleb',c:'ALG',p:'Mediocampista',img:''},
+  {n:'Boulbina',c:'ALG',p:'Delantero',img:''},
+  {n:'Bensebaini',c:'ALG',p:'Defensa',img:''},
+  {n:'Maza',c:'ALG',p:'Mediocampista',img:''},
+  {n:'Zidane L.',c:'ALG',p:'Portero',img:''},
+  {n:'Titraoui',c:'ALG',p:'Mediocampista',img:''},
+  {n:'Ghedjemis',c:'ALG',p:'Delantero',img:''},
+  {n:'Chergui',c:'ALG',p:'Defensa',img:''},
+  {n:'Musso',c:'ARG',p:'Portero',img:''},
+  {n:'Balerdi',c:'ARG',p:'Defensa',img:''},
+  {n:'Tagliafico',c:'ARG',p:'Defensa',img:''},
+  {n:'Montiel',c:'ARG',p:'Defensa',img:''},
+  {n:'Paredes',c:'ARG',p:'Mediocampista',img:''},
+  {n:'L. Martínez',c:'ARG',p:'Defensa',img:''},
+  {n:'De Paul',c:'ARG',p:'Mediocampista',img:''},
+  {n:'Barco',c:'ARG',p:'Mediocampista',img:''},
+  {n:'J. Álvarez',c:'ARG',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Julian_Alvarez_2022.jpg/200px-Julian_Alvarez_2022.jpg'},
+  {n:'Messi',c:'ARG',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/200px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg'},
+  {n:'Lo Celso',c:'ARG',p:'Mediocampista',img:''},
+  {n:'Rulli',c:'ARG',p:'Portero',img:''},
+  {n:'Romero',c:'ARG',p:'Defensa',img:''},
+  {n:'Palacios',c:'ARG',p:'Mediocampista',img:''},
+  {n:'N. González',c:'ARG',p:'Delantero',img:''},
+  {n:'Almada',c:'ARG',p:'Delantero',img:''},
+  {n:'G. Simeone',c:'ARG',p:'Delantero',img:''},
+  {n:'Nico Paz',c:'ARG',p:'Delantero',img:''},
+  {n:'Otamendi',c:'ARG',p:'Defensa',img:''},
+  {n:'Mac Allister',c:'ARG',p:'Mediocampista',img:''},
+  {n:'López',c:'ARG',p:'Delantero',img:''},
+  {n:'Lautaro',c:'ARG',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Lautaro_Martinez_2019.jpg/200px-Lautaro_Martinez_2019.jpg'},
+  {n:'E. Martínez',c:'ARG',p:'Portero',img:''},
+  {n:'E. Fernández',c:'ARG',p:'Mediocampista',img:''},
+  {n:'Medina',c:'ARG',p:'Defensa',img:''},
+  {n:'Molina',c:'ARG',p:'Defensa',img:''},
+  {n:'Ryan',c:'AUS',p:'Portero',img:''},
+  {n:'Degenek',c:'AUS',p:'Defensa',img:''},
+  {n:'Circati',c:'AUS',p:'Defensa',img:''},
+  {n:'Italiano',c:'AUS',p:'Defensa',img:''},
+  {n:'Bos',c:'AUS',p:'Defensa',img:''},
+  {n:'Geria',c:'AUS',p:'Defensa',img:''},
+  {n:'Leckie',c:'AUS',p:'Delantero',img:''},
+  {n:'Metcalfe',c:'AUS',p:'Mediocampista',img:''},
+  {n:'Toure',c:'AUS',p:'Delantero',img:''},
+  {n:'Hrustic',c:'AUS',p:'Delantero',img:''},
+  {n:'Mabil',c:'AUS',p:'Delantero',img:''},
+  {n:'Izzo',c:'AUS',p:'Portero',img:''},
+  {n:'O\'Neill',c:'AUS',p:'Mediocampista',img:''},
+  {n:'Devlin',c:'AUS',p:'Mediocampista',img:''},
+  {n:'Trewin',c:'AUS',p:'Defensa',img:''},
+  {n:'Behich',c:'AUS',p:'Defensa',img:''},
+  {n:'Irankunda',c:'AUS',p:'Delantero',img:''},
+  {n:'Beach',c:'AUS',p:'Portero',img:''},
+  {n:'Souttar',c:'AUS',p:'Defensa',img:''},
+  {n:'Volpato',c:'AUS',p:'Delantero',img:''},
+  {n:'Burgess',c:'AUS',p:'Defensa',img:''},
+  {n:'Irvine',c:'AUS',p:'Mediocampista',img:''},
+  {n:'Velupillay',c:'AUS',p:'Delantero',img:''},
+  {n:'Okon-Engstler',c:'AUS',p:'Mediocampista',img:''},
+  {n:'Herrington',c:'AUS',p:'Defensa',img:''},
+  {n:'Yengi',c:'AUS',p:'Delantero',img:''},
+  {n:'Schlager A.',c:'AUT',p:'Portero',img:''},
+  {n:'Affengruber',c:'AUT',p:'Defensa',img:''},
+  {n:'Danso',c:'AUT',p:'Defensa',img:''},
+  {n:'X. Schlager',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Posch',c:'AUT',p:'Defensa',img:''},
+  {n:'Seiwald',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Arnautovic',c:'AUT',p:'Delantero',img:''},
+  {n:'Alaba',c:'AUT',p:'Defensa',img:''},
+  {n:'Sabitzer',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Grillitsch',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Gregoritsch',c:'AUT',p:'Delantero',img:''},
+  {n:'Wiegele',c:'AUT',p:'Portero',img:''},
+  {n:'Pentz',c:'AUT',p:'Portero',img:''},
+  {n:'Kalajdzic',c:'AUT',p:'Delantero',img:''},
+  {n:'Lienhart',c:'AUT',p:'Defensa',img:''},
+  {n:'Mwene',c:'AUT',p:'Defensa',img:''},
+  {n:'Chukwuemeka',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Schmid',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Ljubicic',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Laimer',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Wimmer',c:'AUT',p:'Delantero',img:''},
+  {n:'Prass',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Friedl',c:'AUT',p:'Defensa',img:''},
+  {n:'Wanner',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Svoboda',c:'AUT',p:'Defensa',img:''},
+  {n:'Schöpf',c:'AUT',p:'Mediocampista',img:''},
+  {n:'Courtois',c:'BEL',p:'Portero',img:''},
+  {n:'Debast',c:'BEL',p:'Defensa',img:''},
+  {n:'Theate',c:'BEL',p:'Defensa',img:''},
+  {n:'Mechele',c:'BEL',p:'Defensa',img:''},
+  {n:'De Cuyper',c:'BEL',p:'Defensa',img:''},
+  {n:'Witsel',c:'BEL',p:'Mediocampista',img:''},
+  {n:'De Bruyne',c:'BEL',p:'Mediocampista',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Kevin_De_Bruyne_2017.jpg/200px-Kevin_De_Bruyne_2017.jpg'},
+  {n:'Tielemans',c:'BEL',p:'Mediocampista',img:''},
+  {n:'Lukaku',c:'BEL',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Romelu_Lukaku_2018.jpg/200px-Romelu_Lukaku_2018.jpg'},
+  {n:'Trossard',c:'BEL',p:'Delantero',img:''},
+  {n:'Doku',c:'BEL',p:'Delantero',img:''},
+  {n:'Lammens',c:'BEL',p:'Portero',img:''},
+  {n:'Penders',c:'BEL',p:'Portero',img:''},
+  {n:'Lukebakio',c:'BEL',p:'Delantero',img:''},
+  {n:'Meunier',c:'BEL',p:'Defensa',img:''},
+  {n:'De Winter',c:'BEL',p:'Defensa',img:''},
+  {n:'De Ketelaere',c:'BEL',p:'Delantero',img:''},
+  {n:'Seys',c:'BEL',p:'Defensa',img:''},
+  {n:'Moreira Jr',c:'BEL',p:'Mediocampista',img:''},
+  {n:'Vanaken',c:'BEL',p:'Mediocampista',img:''},
+  {n:'Castagne',c:'BEL',p:'Defensa',img:''},
+  {n:'Saelemaekers',c:'BEL',p:'Mediocampista',img:''},
+  {n:'Raskin',c:'BEL',p:'Mediocampista',img:''},
+  {n:'Onana',c:'BEL',p:'Mediocampista',img:''},
+  {n:'Ngoy',c:'BEL',p:'Defensa',img:''},
+  {n:'Fernandez-Pardo',c:'BEL',p:'Delantero',img:''},
+  {n:'Vasilj',c:'BIH',p:'Portero',img:''},
+  {n:'Mujakic',c:'BIH',p:'Defensa',img:''},
+  {n:'Hadzikadunic',c:'BIH',p:'Defensa',img:''},
+  {n:'Muharemovic',c:'BIH',p:'Defensa',img:''},
+  {n:'Kolasinac',c:'BIH',p:'Defensa',img:''},
+  {n:'Tahirovic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Dedic',c:'BIH',p:'Defensa',img:''},
+  {n:'Gigovic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Bazdar',c:'BIH',p:'Delantero',img:''},
+  {n:'Demirovic',c:'BIH',p:'Delantero',img:''},
+  {n:'Dzeko',c:'BIH',p:'Delantero',img:''},
+  {n:'Jurkas',c:'BIH',p:'Portero',img:''},
+  {n:'Basic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Sunjic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Memic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Hadziahmetovic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Burnic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Katic',c:'BIH',p:'Defensa',img:''},
+  {n:'Alajbegovic',c:'BIH',p:'Delantero',img:''},
+  {n:'Bajraktarevic',c:'BIH',p:'Delantero',img:''},
+  {n:'Radeljic',c:'BIH',p:'Defensa',img:''},
+  {n:'Zlomislic',c:'BIH',p:'Portero',img:''},
+  {n:'Tabakovic',c:'BIH',p:'Delantero',img:''},
+  {n:'Celik N.',c:'BIH',p:'Defensa',img:''},
+  {n:'Lukic',c:'BIH',p:'Delantero',img:''},
+  {n:'Mahmic',c:'BIH',p:'Mediocampista',img:''},
+  {n:'Alisson',c:'BRA',p:'Portero',img:''},
+  {n:'Éderson S.',c:'BRA',p:'Mediocampista',img:''},
+  {n:'Gabriel',c:'BRA',p:'Defensa',img:''},
+  {n:'Marquinhos',c:'BRA',p:'Defensa',img:''},
+  {n:'Casemiro',c:'BRA',p:'Mediocampista',img:''},
+  {n:'Alex Sandro',c:'BRA',p:'Defensa',img:''},
+  {n:'Vini Jr.',c:'BRA',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Vinicius_Junior_2019.jpg/200px-Vinicius_Junior_2019.jpg'},
+  {n:'Bruno G.',c:'BRA',p:'Mediocampista',img:''},
+  {n:'Cunha',c:'BRA',p:'Delantero',img:''},
+  {n:'Neymar Jr',c:'BRA',p:'Delantero',img:''},
+  {n:'Raphinha',c:'BRA',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Raphinha_2022.jpg/200px-Raphinha_2022.jpg'},
+  {n:'Weverton',c:'BRA',p:'Portero',img:''},
+  {n:'Danilo',c:'BRA',p:'Defensa',img:''},
+  {n:'Bremer',c:'BRA',p:'Defensa',img:''},
+  {n:'Léo Pereira',c:'BRA',p:'Defensa',img:''},
+  {n:'Douglas S.',c:'BRA',p:'Defensa',img:''},
+  {n:'Fabinho',c:'BRA',p:'Mediocampista',img:''},
+  {n:'Danilo S.',c:'BRA',p:'Mediocampista',img:''},
+  {n:'Endrick',c:'BRA',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Endrick_2023.jpg/200px-Endrick_2023.jpg'},
+  {n:'L. Paquetá',c:'BRA',p:'Mediocampista',img:''},
+  {n:'L. Henrique',c:'BRA',p:'Delantero',img:''},
+  {n:'Martinelli',c:'BRA',p:'Delantero',img:''},
+  {n:'Ederson',c:'BRA',p:'Portero',img:''},
+  {n:'Ibañez',c:'BRA',p:'Defensa',img:''},
+  {n:'Thiago',c:'BRA',p:'Delantero',img:''},
+  {n:'Rayan',c:'BRA',p:'Delantero',img:''},
+  {n:'Vozinha',c:'CPV',p:'Portero',img:''},
+  {n:'Stopira',c:'CPV',p:'Defensa',img:''},
+  {n:'Borges',c:'CPV',p:'Defensa',img:''},
+  {n:'Lopes',c:'CPV',p:'Defensa',img:''},
+  {n:'Costa',c:'CPV',p:'Defensa',img:''},
+  {n:'Kevin L.',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Jovane',c:'CPV',p:'Mediocampista',img:''},
+  {n:'João Paulo',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Benchimol',c:'CPV',p:'Delantero',img:''},
+  {n:'Monteiro',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Rodrigues',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Marcio',c:'CPV',p:'Portero',img:''},
+  {n:'Lopes Cabral',c:'CPV',p:'Defensa',img:''},
+  {n:'D. Duarte',c:'CPV',p:'Mediocampista',img:''},
+  {n:'L. Duarte',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Y. Semedo',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Semedo',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Arcanjo',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Livramento',c:'CPV',p:'Delantero',img:''},
+  {n:'Ryan',c:'CPV',p:'Delantero',img:''},
+  {n:'Da Costa',c:'CPV',p:'Mediocampista',img:''},
+  {n:'Moreira',c:'CPV',p:'Defensa',img:''},
+  {n:'Dos Santos',c:'CPV',p:'Portero',img:''},
+  {n:'Wagner P.',c:'CPV',p:'Defensa',img:''},
+  {n:'Kelvin',c:'CPV',p:'Defensa',img:''},
+  {n:'Hélio',c:'CPV',p:'Mediocampista',img:''},
+  {n:'St. Clair',c:'CAN',p:'Portero',img:''},
+  {n:'Johnston',c:'CAN',p:'Defensa',img:''},
+  {n:'Jones',c:'CAN',p:'Defensa',img:''},
+  {n:'De Fougerolles',c:'CAN',p:'Defensa',img:''},
+  {n:'Waterman',c:'CAN',p:'Defensa',img:''},
+  {n:'Choinière',c:'CAN',p:'Mediocampista',img:''},
+  {n:'Eustáquio',c:'CAN',p:'Mediocampista',img:''},
+  {n:'Koné',c:'CAN',p:'Mediocampista',img:''},
+  {n:'Larin',c:'CAN',p:'Delantero',img:''},
+  {n:'J. David',c:'CAN',p:'Delantero',img:''},
+  {n:'Millar',c:'CAN',p:'Mediocampista',img:''},
+  {n:'Oluwaseyi',c:'CAN',p:'Delantero',img:''},
+  {n:'Cornelius',c:'CAN',p:'Defensa',img:''},
+  {n:'Shaffelburg',c:'CAN',p:'Mediocampista',img:''},
+  {n:'Bombito',c:'CAN',p:'Defensa',img:''},
+  {n:'Crépeau',c:'CAN',p:'Portero',img:''},
+  {n:'Buchanan',c:'CAN',p:'Delantero',img:''},
+  {n:'Goodman',c:'CAN',p:'Portero',img:''},
+  {n:'Davies',c:'CAN',p:'Defensa',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Alphonso_Davies_2022.jpg/200px-Alphonso_Davies_2022.jpg'},
+  {n:'Ahmed',c:'CAN',p:'Delantero',img:''},
+  {n:'Osorio',c:'CAN',p:'Mediocampista',img:''},
+  {n:'Laryea',c:'CAN',p:'Defensa',img:''},
+  {n:'Sigur',c:'CAN',p:'Defensa',img:''},
+  {n:'Promise',c:'CAN',p:'Delantero',img:''},
+  {n:'Saliba',c:'CAN',p:'Mediocampista',img:''},
+  {n:'Nelson',c:'CAN',p:'Delantero',img:''},
+  {n:'Ospina',c:'COL',p:'Portero',img:''},
+  {n:'D. Muñoz',c:'COL',p:'Defensa',img:''},
+  {n:'J. Lucumi',c:'COL',p:'Defensa',img:''},
+  {n:'Arias',c:'COL',p:'Defensa',img:''},
+  {n:'K. Castaño',c:'COL',p:'Mediocampista',img:''},
+  {n:'Richard Rios',c:'COL',p:'Mediocampista',img:''},
+  {n:'Luis Diaz',c:'COL',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Luis_D%C3%ADaz_2022.jpg/200px-Luis_D%C3%ADaz_2022.jpg'},
+  {n:'Carrascal',c:'COL',p:'Mediocampista',img:''},
+  {n:'Córdoba',c:'COL',p:'Delantero',img:''},
+  {n:'James',c:'COL',p:'Mediocampista',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/James_Rodr%C3%ADguez_2018.jpg/200px-James_Rodr%C3%ADguez_2018.jpg'},
+  {n:'J. Arias',c:'COL',p:'Mediocampista',img:''},
+  {n:'C. Vargas',c:'COL',p:'Portero',img:''},
+  {n:'Y. Mina',c:'COL',p:'Defensa',img:''},
+  {n:'Puerta',c:'COL',p:'Defensa',img:''},
+  {n:'Portilla',c:'COL',p:'Mediocampista',img:''},
+  {n:'J. Lerma',c:'COL',p:'Mediocampista',img:''},
+  {n:'J. Mojica',c:'COL',p:'Defensa',img:''},
+  {n:'W. Ditta',c:'COL',p:'Defensa',img:''},
+  {n:'C. Hernández',c:'COL',p:'Delantero',img:''},
+  {n:'Quintero',c:'COL',p:'Mediocampista',img:''},
+  {n:'Campaz',c:'COL',p:'Delantero',img:''},
+  {n:'Machado',c:'COL',p:'Defensa',img:''},
+  {n:'Sánchez',c:'COL',p:'Defensa',img:''},
+  {n:'Montero',c:'COL',p:'Portero',img:''},
+  {n:'Suárez',c:'COL',p:'Delantero',img:''},
+  {n:'A. Gómez',c:'COL',p:'Delantero',img:''},
+  {n:'Mpasi',c:'COD',p:'Portero',img:''},
+  {n:'Wan Bissaka',c:'COD',p:'Defensa',img:''},
+  {n:'Kapuadi',c:'COD',p:'Defensa',img:''},
+  {n:'Tuanzebe',c:'COD',p:'Defensa',img:''},
+  {n:'Batubinsika',c:'COD',p:'Defensa',img:''},
+  {n:'Mukau',c:'COD',p:'Mediocampista',img:''},
+  {n:'Mbuku',c:'COD',p:'Mediocampista',img:''},
+  {n:'Moutoussamy',c:'COD',p:'Mediocampista',img:''},
+  {n:'Cipenga',c:'COD',p:'Delantero',img:''},
+  {n:'Bongonda',c:'COD',p:'Mediocampista',img:''},
+  {n:'Kakuta',c:'COD',p:'Delantero',img:''},
+  {n:'J. Kayembe',c:'COD',p:'Defensa',img:''},
+  {n:'Elia',c:'COD',p:'Delantero',img:''},
+  {n:'Sadiki',c:'COD',p:'Mediocampista',img:''},
+  {n:'Tshibola',c:'COD',p:'Mediocampista',img:''},
+  {n:'Fayulu',c:'COD',p:'Portero',img:''},
+  {n:'Bakambu',c:'COD',p:'Delantero',img:''},
+  {n:'Pickel',c:'COD',p:'Mediocampista',img:''},
+  {n:'Mayele',c:'COD',p:'Delantero',img:''},
+  {n:'Wissa',c:'COD',p:'Delantero',img:''},
+  {n:'Epolo',c:'COD',p:'Portero',img:''},
+  {n:'Mbemba',c:'COD',p:'Defensa',img:''},
+  {n:'Banza',c:'COD',p:'Delantero',img:''},
+  {n:'G. Kalulu',c:'COD',p:'Defensa',img:''},
+  {n:'Kayembe',c:'COD',p:'Mediocampista',img:''},
+  {n:'Masuaku',c:'COD',p:'Defensa',img:''},
+  {n:'Y. Fofana',c:'CIV',p:'Portero',img:''},
+  {n:'O. Diomandé',c:'CIV',p:'Defensa',img:''},
+  {n:'G. Konan',c:'CIV',p:'Defensa',img:''},
+  {n:'Seri',c:'CIV',p:'Mediocampista',img:''},
+  {n:'Singo',c:'CIV',p:'Defensa',img:''},
+  {n:'S. Fofana',c:'CIV',p:'Mediocampista',img:''},
+  {n:'Kossounou',c:'CIV',p:'Defensa',img:''},
+  {n:'Kessié',c:'CIV',p:'Mediocampista',img:''},
+  {n:'Bonny',c:'CIV',p:'Delantero',img:''},
+  {n:'Adingra',c:'CIV',p:'Delantero',img:''},
+  {n:'Yan Diomandé',c:'CIV',p:'Delantero',img:''},
+  {n:'Wahi',c:'CIV',p:'Delantero',img:''},
+  {n:'Operi',c:'CIV',p:'Defensa',img:''},
+  {n:'Diakité',c:'CIV',p:'Delantero',img:''},
+  {n:'Amad',c:'CIV',p:'Delantero',img:''},
+  {n:'Koné',c:'CIV',p:'Portero',img:''},
+  {n:'G. Doué',c:'CIV',p:'Defensa',img:''},
+  {n:'Sangaré',c:'CIV',p:'Mediocampista',img:''},
+  {n:'Pépé',c:'CIV',p:'Delantero',img:''},
+  {n:'Agbadou',c:'CIV',p:'Defensa',img:''},
+  {n:'Ndicka',c:'CIV',p:'Defensa',img:''},
+  {n:'Guessand',c:'CIV',p:'Delantero',img:''},
+  {n:'Lafont',c:'CIV',p:'Portero',img:''},
+  {n:'Touré',c:'CIV',p:'Delantero',img:''},
+  {n:'Guiagon',c:'CIV',p:'Mediocampista',img:''},
+  {n:'Oulai',c:'CIV',p:'Mediocampista',img:''},
+  {n:'Livaković',c:'CRO',p:'Portero',img:''},
+  {n:'Stanišić',c:'CRO',p:'Defensa',img:''},
+  {n:'Pongračić',c:'CRO',p:'Defensa',img:''},
+  {n:'Gvardiol',c:'CRO',p:'Defensa',img:''},
+  {n:'Ćaleta-Car',c:'CRO',p:'Defensa',img:''},
+  {n:'Šutalo',c:'CRO',p:'Defensa',img:''},
+  {n:'Moro',c:'CRO',p:'Mediocampista',img:''},
+  {n:'Kovačić',c:'CRO',p:'Mediocampista',img:''},
+  {n:'Kramarić',c:'CRO',p:'Delantero',img:''},
+  {n:'Modrić',c:'CRO',p:'Mediocampista',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Luka_Modri%C4%87_2019.jpg/200px-Luka_Modri%C4%87_2019.jpg'},
+  {n:'Budimir',c:'CRO',p:'Delantero',img:''},
+  {n:'Pandur',c:'CRO',p:'Portero',img:''},
+  {n:'Vlašić',c:'CRO',p:'Mediocampista',img:''},
+  {n:'Perišić',c:'CRO',p:'Delantero',img:''},
+  {n:'Pašalić',c:'CRO',p:'Mediocampista',img:''},
+  {n:'Baturina',c:'CRO',p:'Mediocampista',img:''},
+  {n:'P. Sučić',c:'CRO',p:'Mediocampista',img:''},
+  {n:'Jakić',c:'CRO',p:'Defensa',img:''},
+  {n:'Fruk',c:'CRO',p:'Mediocampista',img:''},
+  {n:'Matanović',c:'CRO',p:'Delantero',img:''},
+  {n:'L. Sučić',c:'CRO',p:'Mediocampista',img:''},
+  {n:'Vušković',c:'CRO',p:'Defensa',img:''},
+  {n:'Kotarski',c:'CRO',p:'Portero',img:''},
+  {n:'M. Pašalić',c:'CRO',p:'Delantero',img:''},
+  {n:'Erlić',c:'CRO',p:'Defensa',img:''},
+  {n:'Musa',c:'CRO',p:'Delantero',img:''},
+  {n:'Room',c:'CUW',p:'Portero',img:''},
+  {n:'Sambo',c:'CUW',p:'Defensa',img:''},
+  {n:'Gaari',c:'CUW',p:'Defensa',img:''},
+  {n:'Van Eijma',c:'CUW',p:'Defensa',img:''},
+  {n:'Floranus',c:'CUW',p:'Defensa',img:''},
+  {n:'Roemeratoe',c:'CUW',p:'Mediocampista',img:''},
+  {n:'J. Bacuna',c:'CUW',p:'Mediocampista',img:''},
+  {n:'Comenencia',c:'CUW',p:'Mediocampista',img:''},
+  {n:'Locadia',c:'CUW',p:'Delantero',img:''},
+  {n:'L. Bacuna',c:'CUW',p:'Mediocampista',img:''},
+  {n:'Antonisse',c:'CUW',p:'Delantero',img:''},
+  {n:'Hansen',c:'CUW',p:'Delantero',img:''},
+  {n:'Noslin',c:'CUW',p:'Delantero',img:''},
+  {n:'Gorré',c:'CUW',p:'Delantero',img:''},
+  {n:'Martha',c:'CUW',p:'Mediocampista',img:''},
+  {n:'Margaritha',c:'CUW',p:'Delantero',img:''},
+  {n:'Kuwas',c:'CUW',p:'Delantero',img:''},
+  {n:'Obispo',c:'CUW',p:'Defensa',img:''},
+  {n:'Kastaneer',c:'CUW',p:'Delantero',img:''},
+  {n:'Brenet',c:'CUW',p:'Defensa',img:''},
+  {n:'Chong',c:'CUW',p:'Mediocampista',img:''},
+  {n:'Felida',c:'CUW',p:'Mediocampista',img:''},
+  {n:'Bazoer',c:'CUW',p:'Defensa',img:''},
+  {n:'Fonville',c:'CUW',p:'Defensa',img:''},
+  {n:'Bodak',c:'CUW',p:'Portero',img:''},
+  {n:'Doornbusch',c:'CUW',p:'Portero',img:''},
+  {n:'Kovář',c:'CZE',p:'Portero',img:''},
+  {n:'Zima',c:'CZE',p:'Defensa',img:''},
+  {n:'Holeš',c:'CZE',p:'Defensa',img:''},
+  {n:'Hranáč',c:'CZE',p:'Defensa',img:''},
+  {n:'Coufal',c:'CZE',p:'Defensa',img:''},
+  {n:'Chaloupek',c:'CZE',p:'Defensa',img:''},
+  {n:'Krejčí',c:'CZE',p:'Defensa',img:''},
+  {n:'Darida',c:'CZE',p:'Mediocampista',img:''},
+  {n:'Hložek',c:'CZE',p:'Delantero',img:''},
+  {n:'Schick',c:'CZE',p:'Delantero',img:''},
+  {n:'Kuchta',c:'CZE',p:'Delantero',img:''},
+  {n:'Červ',c:'CZE',p:'Mediocampista',img:''},
+  {n:'Chytil',c:'CZE',p:'Delantero',img:''},
+  {n:'Jurásek',c:'CZE',p:'Defensa',img:''},
+  {n:'Šulc',c:'CZE',p:'Delantero',img:''},
+  {n:'Staněk',c:'CZE',p:'Portero',img:''},
+  {n:'Provod',c:'CZE',p:'Mediocampista',img:''},
+  {n:'Sadílek',c:'CZE',p:'Mediocampista',img:''},
+  {n:'Chorý',c:'CZE',p:'Delantero',img:''},
+  {n:'Zelený',c:'CZE',p:'Defensa',img:''},
+  {n:'Douděra',c:'CZE',p:'Defensa',img:''},
+  {n:'Souček',c:'CZE',p:'Mediocampista',img:''},
+  {n:'Horníček',c:'CZE',p:'Portero',img:''},
+  {n:'Sojka',c:'CZE',p:'Mediocampista',img:''},
+  {n:'Sochůrek',c:'CZE',p:'Mediocampista',img:''},
+  {n:'Višinský',c:'CZE',p:'Delantero',img:''},
+  {n:'Galíndez',c:'ECU',p:'Portero',img:''},
+  {n:'Torres',c:'ECU',p:'Defensa',img:''},
+  {n:'Hincapié',c:'ECU',p:'Defensa',img:''},
+  {n:'Ordóñez',c:'ECU',p:'Defensa',img:''},
+  {n:'Alcívar',c:'ECU',p:'Mediocampista',img:''},
+  {n:'Pacho',c:'ECU',p:'Defensa',img:''},
+  {n:'Estupiñán',c:'ECU',p:'Defensa',img:''},
+  {n:'A. Valencia',c:'ECU',p:'Mediocampista',img:''},
+  {n:'Yeboah',c:'ECU',p:'Delantero',img:''},
+  {n:'Kendry',c:'ECU',p:'Mediocampista',img:''},
+  {n:'Rodríguez',c:'ECU',p:'Delantero',img:''},
+  {n:'Ramírez',c:'ECU',p:'Portero',img:''},
+  {n:'E. Valencia',c:'ECU',p:'Delantero',img:''},
+  {n:'Minda',c:'ECU',p:'Mediocampista',img:''},
+  {n:'Vite',c:'ECU',p:'Mediocampista',img:''},
+  {n:'J. Caicedo',c:'ECU',p:'Delantero',img:''},
+  {n:'Preciado',c:'ECU',p:'Defensa',img:''},
+  {n:'Castillo',c:'ECU',p:'Mediocampista',img:''},
+  {n:'Plata',c:'ECU',p:'Delantero',img:''},
+  {n:'Angulo',c:'ECU',p:'Delantero',img:''},
+  {n:'Franco',c:'ECU',p:'Mediocampista',img:''},
+  {n:'Valle',c:'ECU',p:'Portero',img:''},
+  {n:'M. Caicedo',c:'ECU',p:'Mediocampista',img:''},
+  {n:'Arévalo',c:'ECU',p:'Delantero',img:''},
+  {n:'Porozo',c:'ECU',p:'Defensa',img:''},
+  {n:'Medina Y.',c:'ECU',p:'Defensa',img:''},
+  {n:'M. Elshenawy',c:'EGY',p:'Portero',img:''},
+  {n:'Yasser',c:'EGY',p:'Defensa',img:''},
+  {n:'M. Hany',c:'EGY',p:'Defensa',img:''},
+  {n:'Hossam',c:'EGY',p:'Defensa',img:''},
+  {n:'R. Rabiaa',c:'EGY',p:'Defensa',img:''},
+  {n:'M. Abdelmoniem',c:'EGY',p:'Defensa',img:''},
+  {n:'M. Trezeguet',c:'EGY',p:'Delantero',img:''},
+  {n:'E. Ashour',c:'EGY',p:'Mediocampista',img:''},
+  {n:'Abdelkarim',c:'EGY',p:'Delantero',img:''},
+  {n:'M. Salah',c:'EGY',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mohamed_Salah_2018.jpg/200px-Mohamed_Salah_2018.jpg'},
+  {n:'Zico',c:'EGY',p:'Mediocampista',img:''},
+  {n:'H. Hassan',c:'EGY',p:'Delantero',img:''},
+  {n:'A. Fatouh',c:'EGY',p:'Defensa',img:''},
+  {n:'H. Fathy',c:'EGY',p:'Mediocampista',img:''},
+  {n:'K. Hafez',c:'EGY',p:'Defensa',img:''},
+  {n:'M. Soliman',c:'EGY',p:'Portero',img:''},
+  {n:'M. Lashin',c:'EGY',p:'Mediocampista',img:''},
+  {n:'Donga',c:'EGY',p:'Mediocampista',img:''},
+  {n:'M. Attia',c:'EGY',p:'Mediocampista',img:''},
+  {n:'I. Adel',c:'EGY',p:'Delantero',img:''},
+  {n:'M. Saber',c:'EGY',p:'Mediocampista',img:''},
+  {n:'Marmoush',c:'EGY',p:'Delantero',img:''},
+  {n:'Shoubir',c:'EGY',p:'Portero',img:''},
+  {n:'T. Alaa',c:'EGY',p:'Defensa',img:''},
+  {n:'Zizo',c:'EGY',p:'Delantero',img:''},
+  {n:'M. Alaa',c:'EGY',p:'Portero',img:''},
+  {n:'Pickford',c:'ENG',p:'Portero',img:''},
+  {n:'Konsa',c:'ENG',p:'Defensa',img:''},
+  {n:'O\'Reilly',c:'ENG',p:'Defensa',img:''},
+  {n:'Rice',c:'ENG',p:'Mediocampista',img:''},
+  {n:'Stones',c:'ENG',p:'Defensa',img:''},
+  {n:'Guéhi',c:'ENG',p:'Defensa',img:''},
+  {n:'Saka',c:'ENG',p:'Delantero',img:''},
+  {n:'Anderson',c:'ENG',p:'Mediocampista',img:''},
+  {n:'Kane',c:'ENG',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Harry_Kane_2019.jpg/200px-Harry_Kane_2019.jpg'},
+  {n:'Bellingham',c:'ENG',p:'Mediocampista',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Bellingham_2023.jpg/200px-Bellingham_2023.jpg'},
+  {n:'Rashford',c:'ENG',p:'Delantero',img:''},
+  {n:'Livramento',c:'ENG',p:'Defensa',img:''},
+  {n:'D. Henderson',c:'ENG',p:'Portero',img:''},
+  {n:'Henderson',c:'ENG',p:'Mediocampista',img:''},
+  {n:'Burn',c:'ENG',p:'Defensa',img:''},
+  {n:'Mainoo',c:'ENG',p:'Mediocampista',img:''},
+  {n:'Rogers',c:'ENG',p:'Mediocampista',img:''},
+  {n:'Gordon',c:'ENG',p:'Delantero',img:''},
+  {n:'Watkins',c:'ENG',p:'Delantero',img:''},
+  {n:'Madueke',c:'ENG',p:'Delantero',img:''},
+  {n:'Eze',c:'ENG',p:'Mediocampista',img:''},
+  {n:'Toney',c:'ENG',p:'Delantero',img:''},
+  {n:'Trafford',c:'ENG',p:'Portero',img:''},
+  {n:'James',c:'ENG',p:'Defensa',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/James_Rodr%C3%ADguez_2018.jpg/200px-James_Rodr%C3%ADguez_2018.jpg'},
+  {n:'Spence',c:'ENG',p:'Defensa',img:''},
+  {n:'Quansah',c:'ENG',p:'Defensa',img:''},
+  {n:'Raya',c:'ESP',p:'Portero',img:''},
+  {n:'Marc Pubill',c:'ESP',p:'Defensa',img:''},
+  {n:'Grimaldo',c:'ESP',p:'Defensa',img:''},
+  {n:'Eric',c:'ESP',p:'Defensa',img:''},
+  {n:'M. Llorente',c:'ESP',p:'Defensa',img:''},
+  {n:'Merino',c:'ESP',p:'Mediocampista',img:''},
+  {n:'Ferran',c:'ESP',p:'Delantero',img:''},
+  {n:'Fabián',c:'ESP',p:'Mediocampista',img:''},
+  {n:'Gavi',c:'ESP',p:'Mediocampista',img:''},
+  {n:'Olmo',c:'ESP',p:'Delantero',img:''},
+  {n:'Yeremy',c:'ESP',p:'Delantero',img:''},
+  {n:'Pedro Porro',c:'ESP',p:'Defensa',img:''},
+  {n:'Joan García',c:'ESP',p:'Portero',img:''},
+  {n:'Laporte',c:'ESP',p:'Defensa',img:''},
+  {n:'Alex B.',c:'ESP',p:'Mediocampista',img:''},
+  {n:'Rodri',c:'ESP',p:'Mediocampista',img:''},
+  {n:'Williams Jr.',c:'ESP',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Nico_Williams_2024.jpg/200px-Nico_Williams_2024.jpg'},
+  {n:'Zubimendi',c:'ESP',p:'Mediocampista',img:''},
+  {n:'Lamine Yamal',c:'ESP',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Lamine_Yamal_2024.jpg/200px-Lamine_Yamal_2024.jpg'},
+  {n:'Pedri',c:'ESP',p:'Mediocampista',img:''},
+  {n:'Oyarzabal',c:'ESP',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mikel_Oyarzabal_2019.jpg/200px-Mikel_Oyarzabal_2019.jpg'},
+  {n:'Cubarsí',c:'ESP',p:'Defensa',img:''},
+  {n:'Unai Simón',c:'ESP',p:'Portero',img:''},
+  {n:'Cucurella',c:'ESP',p:'Defensa',img:''},
+  {n:'Victor M.V.',c:'ESP',p:'Delantero',img:''},
+  {n:'B. Iglesias',c:'ESP',p:'Delantero',img:''},
+  {n:'Samba',c:'FRA',p:'Portero',img:''},
+  {n:'Gusto',c:'FRA',p:'Defensa',img:''},
+  {n:'Digne',c:'FRA',p:'Defensa',img:''},
+  {n:'Upamecano',c:'FRA',p:'Defensa',img:''},
+  {n:'Koundé',c:'FRA',p:'Defensa',img:''},
+  {n:'Koné',c:'FRA',p:'Mediocampista',img:''},
+  {n:'Dembélé',c:'FRA',p:'Delantero',img:''},
+  {n:'Tchouaméni',c:'FRA',p:'Mediocampista',img:''},
+  {n:'Thuram',c:'FRA',p:'Delantero',img:''},
+  {n:'Mbappé',c:'FRA',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/2019-07-17_SG_Dynamo_Dresden_vs._Paris_Saint-Germain_by_Sandro_Halank%E2%80%93148_%28cropped%29.jpg/200px-2019-07-17_SG_Dynamo_Dresden_vs._Paris_Saint-Germain_by_Sandro_Halank%E2%80%93148_%28cropped%29.jpg'},
+  {n:'Olise',c:'FRA',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Michael_Olise_2024.jpg/200px-Michael_Olise_2024.jpg'},
+  {n:'Barcola',c:'FRA',p:'Delantero',img:''},
+  {n:'Kanté',c:'FRA',p:'Mediocampista',img:''},
+  {n:'Rabiot',c:'FRA',p:'Mediocampista',img:''},
+  {n:'Konaté',c:'FRA',p:'Defensa',img:''},
+  {n:'Maignan',c:'FRA',p:'Portero',img:''},
+  {n:'Saliba',c:'FRA',p:'Defensa',img:''},
+  {n:'Zaire-Emery',c:'FRA',p:'Mediocampista',img:''},
+  {n:'T. Hernández',c:'FRA',p:'Defensa',img:''},
+  {n:'D. Doué',c:'FRA',p:'Delantero',img:''},
+  {n:'L. Hernández',c:'FRA',p:'Defensa',img:''},
+  {n:'Mateta',c:'FRA',p:'Delantero',img:''},
+  {n:'Risser',c:'FRA',p:'Portero',img:''},
+  {n:'Cherki',c:'FRA',p:'Mediocampista',img:''},
+  {n:'Akliouche',c:'FRA',p:'Mediocampista',img:''},
+  {n:'Lacroix',c:'FRA',p:'Defensa',img:''},
+  {n:'Neuer',c:'GER',p:'Portero',img:''},
+  {n:'Rüdiger',c:'GER',p:'Defensa',img:''},
+  {n:'Anton',c:'GER',p:'Defensa',img:''},
+  {n:'Tah',c:'GER',p:'Defensa',img:''},
+  {n:'Pavlović',c:'GER',p:'Mediocampista',img:''},
+  {n:'Kimmich',c:'GER',p:'Defensa',img:''},
+  {n:'Havertz',c:'GER',p:'Delantero',img:''},
+  {n:'Goretzka',c:'GER',p:'Mediocampista',img:''},
+  {n:'Leweling',c:'GER',p:'Mediocampista',img:''},
+  {n:'Musiala',c:'GER',p:'Mediocampista',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jamal_Musiala_2023.jpg/200px-Jamal_Musiala_2023.jpg'},
+  {n:'Woltemade',c:'GER',p:'Delantero',img:''},
+  {n:'Baumann',c:'GER',p:'Portero',img:''},
+  {n:'Groß',c:'GER',p:'Mediocampista',img:''},
+  {n:'Beier',c:'GER',p:'Delantero',img:''},
+  {n:'Schlotterbeck',c:'GER',p:'Defensa',img:''},
+  {n:'Stiller',c:'GER',p:'Mediocampista',img:''},
+  {n:'Wirtz',c:'GER',p:'Mediocampista',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Florian_Wirtz_2023.jpg/200px-Florian_Wirtz_2023.jpg'},
+  {n:'Brown',c:'GER',p:'Defensa',img:''},
+  {n:'Sané',c:'GER',p:'Mediocampista',img:''},
+  {n:'Amiri',c:'GER',p:'Mediocampista',img:''},
+  {n:'Nübel',c:'GER',p:'Portero',img:''},
+  {n:'Raum',c:'GER',p:'Defensa',img:''},
+  {n:'Nmecha',c:'GER',p:'Mediocampista',img:''},
+  {n:'Thiaw',c:'GER',p:'Defensa',img:''},
+  {n:'Ouédraogo',c:'GER',p:'Mediocampista',img:''},
+  {n:'Undav',c:'GER',p:'Delantero',img:''},
+  {n:'Zigi',c:'GHA',p:'Portero',img:''},
+  {n:'Seidu',c:'GHA',p:'Defensa',img:''},
+  {n:'Yirenkyi',c:'GHA',p:'Mediocampista',img:''},
+  {n:'Adjetey',c:'GHA',p:'Defensa',img:''},
+  {n:'Partey',c:'GHA',p:'Mediocampista',img:''},
+  {n:'Mumin',c:'GHA',p:'Defensa',img:''},
+  {n:'Fatawu',c:'GHA',p:'Delantero',img:''},
+  {n:'Sibo',c:'GHA',p:'Mediocampista',img:''},
+  {n:'Ayew',c:'GHA',p:'Delantero',img:''},
+  {n:'Thomas-Asante',c:'GHA',p:'Delantero',img:''},
+  {n:'Semenyo',c:'GHA',p:'Mediocampista',img:''},
+  {n:'Anang',c:'GHA',p:'Portero',img:''},
+  {n:'Baah',c:'GHA',p:'Delantero',img:''},
+  {n:'Mensah',c:'GHA',p:'Defensa',img:''},
+  {n:'Owusu',c:'GHA',p:'Mediocampista',img:''},
+  {n:'Asare',c:'GHA',p:'Portero',img:''},
+  {n:'Baba',c:'GHA',p:'Defensa',img:''},
+  {n:'Opoku',c:'GHA',p:'Defensa',img:''},
+  {n:'I. Williams',c:'GHA',p:'Delantero',img:''},
+  {n:'Boakye',c:'GHA',p:'Mediocampista',img:''},
+  {n:'Oppong',c:'GHA',p:'Defensa',img:''},
+  {n:'Kamaldeen',c:'GHA',p:'Delantero',img:''},
+  {n:'Luckassen',c:'GHA',p:'Defensa',img:''},
+  {n:'Nuamah',c:'GHA',p:'Delantero',img:''},
+  {n:'Adu',c:'GHA',p:'Delantero',img:''},
+  {n:'Senaya',c:'GHA',p:'Defensa',img:''},
+  {n:'Placide',c:'HAI',p:'Portero',img:''},
+  {n:'Arcus',c:'HAI',p:'Defensa',img:''},
+  {n:'Thermoncy',c:'HAI',p:'Defensa',img:''},
+  {n:'Ade',c:'HAI',p:'Defensa',img:''},
+  {n:'Delcroix',c:'HAI',p:'Defensa',img:''},
+  {n:'Sainte',c:'HAI',p:'Mediocampista',img:''},
+  {n:'Etienne Jr',c:'HAI',p:'Delantero',img:''},
+  {n:'Experience',c:'HAI',p:'Defensa',img:''},
+  {n:'Nazon',c:'HAI',p:'Delantero',img:''},
+  {n:'Bellegarde',c:'HAI',p:'Mediocampista',img:''},
+  {n:'Louicius',c:'HAI',p:'Delantero',img:''},
+  {n:'A. Pierre',c:'HAI',p:'Portero',img:''},
+  {n:'Lacroix',c:'HAI',p:'Defensa',img:''},
+  {n:'Metusala',c:'HAI',p:'Defensa',img:''},
+  {n:'Providence',c:'HAI',p:'Delantero',img:''},
+  {n:'Joseph',c:'HAI',p:'Delantero',img:''},
+  {n:'Jean-Jacques',c:'HAI',p:'Mediocampista',img:''},
+  {n:'Isidor',c:'HAI',p:'Delantero',img:''},
+  {n:'Fortune',c:'HAI',p:'Delantero',img:''},
+  {n:'Pierrot',c:'HAI',p:'Delantero',img:''},
+  {n:'Casimir',c:'HAI',p:'Delantero',img:''},
+  {n:'Duverne',c:'HAI',p:'Defensa',img:''},
+  {n:'Duverger',c:'HAI',p:'Portero',img:''},
+  {n:'Paugain',c:'HAI',p:'Defensa',img:''},
+  {n:'Simon',c:'HAI',p:'Mediocampista',img:''},
+  {n:'W. Pierre',c:'HAI',p:'Mediocampista',img:''},
+  {n:'Beiranvand',c:'IRN',p:'Portero',img:''},
+  {n:'Saleh',c:'IRN',p:'Defensa',img:''},
+  {n:'E. Hajisafi',c:'IRN',p:'Defensa',img:''},
+  {n:'Shoja',c:'IRN',p:'Defensa',img:''},
+  {n:'M. Mohammadi',c:'IRN',p:'Defensa',img:''},
+  {n:'S. Ezatolahi',c:'IRN',p:'Mediocampista',img:''},
+  {n:'A. Jahanbakhsh',c:'IRN',p:'Mediocampista',img:''},
+  {n:'M. Mohebbi',c:'IRN',p:'Mediocampista',img:''},
+  {n:'Taremi',c:'IRN',p:'Delantero',img:''},
+  {n:'Mehdi Ghayedi',c:'IRN',p:'Delantero',img:''},
+  {n:'A. Alipour',c:'IRN',p:'Delantero',img:''},
+  {n:'Payam',c:'IRN',p:'Portero',img:''},
+  {n:'Kanani',c:'IRN',p:'Defensa',img:''},
+  {n:'Ghoddos',c:'IRN',p:'Mediocampista',img:''},
+  {n:'Roozbeh',c:'IRN',p:'Mediocampista',img:''},
+  {n:'M. Torabi',c:'IRN',p:'Mediocampista',img:''},
+  {n:'Arya',c:'IRN',p:'Defensa',img:''},
+  {n:'Amirhossein',c:'IRN',p:'Delantero',img:''},
+  {n:'Ali N.',c:'IRN',p:'Defensa',img:''},
+  {n:'Shahriyar',c:'IRN',p:'Delantero',img:''},
+  {n:'Mohammad',c:'IRN',p:'Mediocampista',img:''},
+  {n:'Hosseini',c:'IRN',p:'Portero',img:''},
+  {n:'Ramin',c:'IRN',p:'Defensa',img:''},
+  {n:'Dargahi',c:'IRN',p:'Delantero',img:''},
+  {n:'Danial',c:'IRN',p:'Defensa',img:''},
+  {n:'Razagh',c:'IRN',p:'Mediocampista',img:''},
+  {n:'Fahad',c:'IRQ',p:'Portero',img:''},
+  {n:'Rebin',c:'IRQ',p:'Defensa',img:''},
+  {n:'Hussein',c:'IRQ',p:'Defensa',img:''},
+  {n:'Zaid T.',c:'IRQ',p:'Defensa',img:''},
+  {n:'Akam',c:'IRQ',p:'Defensa',img:''},
+  {n:'Munaf',c:'IRQ',p:'Defensa',img:''},
+  {n:'Youssef',c:'IRQ',p:'Mediocampista',img:''},
+  {n:'Ibrahim',c:'IRQ',p:'Mediocampista',img:''},
+  {n:'Al-Hamadi',c:'IRQ',p:'Delantero',img:''},
+  {n:'Mohanad',c:'IRQ',p:'Delantero',img:''},
+  {n:'Ahmed Q.',c:'IRQ',p:'Delantero',img:''},
+  {n:'Jalal',c:'IRQ',p:'Portero',img:''},
+  {n:'Ali Y.',c:'IRQ',p:'Delantero',img:''},
+  {n:'Z. Iqbal',c:'IRQ',p:'Mediocampista',img:''},
+  {n:'Maknazi',c:'IRQ',p:'Defensa',img:''},
+  {n:'Al-Ammari',c:'IRQ',p:'Mediocampista',img:''},
+  {n:'Ali J.',c:'IRQ',p:'Delantero',img:''},
+  {n:'Aymen',c:'IRQ',p:'Delantero',img:''},
+  {n:'K. Yakob',c:'IRQ',p:'Mediocampista',img:''},
+  {n:'Aimar',c:'IRQ',p:'Mediocampista',img:''},
+  {n:'Marko',c:'IRQ',p:'Delantero',img:''},
+  {n:'Ahmed B.',c:'IRQ',p:'Portero',img:''},
+  {n:'Doski',c:'IRQ',p:'Defensa',img:''},
+  {n:'Zaid I.',c:'IRQ',p:'Mediocampista',img:''},
+  {n:'Mustafa',c:'IRQ',p:'Defensa',img:''},
+  {n:'Frans',c:'IRQ',p:'Defensa',img:''},
+  {n:'Suzuki Z.',c:'JPN',p:'Portero',img:''},
+  {n:'Sugawara',c:'JPN',p:'Defensa',img:''},
+  {n:'Taniguchi',c:'JPN',p:'Defensa',img:''},
+  {n:'Itakura',c:'JPN',p:'Defensa',img:''},
+  {n:'Nagatomo',c:'JPN',p:'Defensa',img:''},
+  {n:'Endo',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Tanaka',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Kubo',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Goto',c:'JPN',p:'Delantero',img:''},
+  {n:'Doan',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Daizen',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Osako',c:'JPN',p:'Portero',img:''},
+  {n:'Nakamura',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Ito J.',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Kamada',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Watanabe',c:'JPN',p:'Defensa',img:''},
+  {n:'Y. Suzuki',c:'JPN',p:'Mediocampista',img:''},
+  {n:'Ayase',c:'JPN',p:'Delantero',img:''},
+  {n:'Ogawa',c:'JPN',p:'Delantero',img:''},
+  {n:'Seko',c:'JPN',p:'Defensa',img:''},
+  {n:'H. Ito',c:'JPN',p:'Defensa',img:''},
+  {n:'Tomiyasu',c:'JPN',p:'Defensa',img:''},
+  {n:'Hayakawa',c:'JPN',p:'Portero',img:''},
+  {n:'Sano',c:'JPN',p:'Mediocampista',img:''},
+  {n:'J. Suzuki',c:'JPN',p:'Defensa',img:''},
+  {n:'Shiogai',c:'JPN',p:'Delantero',img:''},
+  {n:'Yazeed',c:'JOR',p:'Portero',img:''},
+  {n:'Abu Hasheesh',c:'JOR',p:'Defensa',img:''},
+  {n:'Nasib',c:'JOR',p:'Defensa',img:''},
+  {n:'Abu Dahab',c:'JOR',p:'Defensa',img:''},
+  {n:'Alarab',c:'JOR',p:'Defensa',img:''},
+  {n:'Jamous',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Abu Zraiq',c:'JOR',p:'Delantero',img:''},
+  {n:'Alrawabdeh',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Olwan',c:'JOR',p:'Delantero',img:''},
+  {n:'Altamari',c:'JOR',p:'Delantero',img:''},
+  {n:'Odeh',c:'JOR',p:'Delantero',img:''},
+  {n:'Bani Ateyah',c:'JOR',p:'Portero',img:''},
+  {n:'Almardi',c:'JOR',p:'Delantero',img:''},
+  {n:'Rajaei',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Sadeh',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Abu Alnadi',c:'JOR',p:'Defensa',img:''},
+  {n:'Saleem',c:'JOR',p:'Defensa',img:''},
+  {n:'Abu Ghoush',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Saed',c:'JOR',p:'Defensa',img:''},
+  {n:'Abu Taha',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Nizar',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Alfakhori',c:'JOR',p:'Portero',img:''},
+  {n:'Ehsan',c:'JOR',p:'Defensa',img:''},
+  {n:'Azaizeh',c:'JOR',p:'Delantero',img:''},
+  {n:'Aldaoud',c:'JOR',p:'Mediocampista',img:''},
+  {n:'Badawi',c:'JOR',p:'Defensa',img:''},
+  {n:'Seunggyu',c:'KOR',p:'Portero',img:''},
+  {n:'Hanbeom',c:'KOR',p:'Defensa',img:''},
+  {n:'Gihyuk',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Minjae',c:'KOR',p:'Defensa',img:''},
+  {n:'Taehyeon',c:'KOR',p:'Defensa',img:''},
+  {n:'Inbeom',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Heungmin',c:'KOR',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Son_Heung-min.jpg/200px-Son_Heung-min.jpg'},
+  {n:'Seungho',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Guesung',c:'KOR',p:'Delantero',img:''},
+  {n:'Jaesung',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Heechan',c:'KOR',p:'Delantero',img:''},
+  {n:'Bumkeun',c:'KOR',p:'Portero',img:''},
+  {n:'Taeseok',c:'KOR',p:'Defensa',img:''},
+  {n:'Wije',c:'KOR',p:'Defensa',img:''},
+  {n:'Moonhwan',c:'KOR',p:'Defensa',img:''},
+  {n:'Jinseob',c:'KOR',p:'Defensa',img:''},
+  {n:'Junho',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Hyeongyu',c:'KOR',p:'Delantero',img:''},
+  {n:'Kangin',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Hyunjun',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Hyeonwoo',c:'KOR',p:'Portero',img:''},
+  {n:'Youngwoo',c:'KOR',p:'Defensa',img:''},
+  {n:'Jens',c:'KOR',p:'Defensa',img:''},
+  {n:'Jingyu',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Jisung',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Donggyeong',c:'KOR',p:'Mediocampista',img:''},
+  {n:'Alaqidi',c:'KSA',p:'Portero',img:''},
+  {n:'Majrashi',c:'KSA',p:'Defensa',img:''},
+  {n:'Lajami',c:'KSA',p:'Defensa',img:''},
+  {n:'Alamri',c:'KSA',p:'Defensa',img:''},
+  {n:'Altambakti',c:'KSA',p:'Defensa',img:''},
+  {n:'Nasser',c:'KSA',p:'Mediocampista',img:''},
+  {n:'Musab',c:'KSA',p:'Mediocampista',img:''},
+  {n:'Aiman',c:'KSA',p:'Delantero',img:''},
+  {n:'Feras',c:'KSA',p:'Delantero',img:''},
+  {n:'Salem',c:'KSA',p:'Delantero',img:''},
+  {n:'Alshehri',c:'KSA',p:'Delantero',img:''},
+  {n:'Saud',c:'KSA',p:'Defensa',img:''},
+  {n:'Nawaf',c:'KSA',p:'Defensa',img:''},
+  {n:'Kadish',c:'KSA',p:'Defensa',img:''},
+  {n:'Alkhaibari',c:'KSA',p:'Mediocampista',img:''},
+  {n:'Ziyad',c:'KSA',p:'Mediocampista',img:''},
+  {n:'Khalid',c:'KSA',p:'Delantero',img:''},
+  {n:'Alhajji',c:'KSA',p:'Mediocampista',img:''},
+  {n:'Alhamddan',c:'KSA',p:'Delantero',img:''},
+  {n:'Mandash',c:'KSA',p:'Delantero',img:''},
+  {n:'Alowais',c:'KSA',p:'Portero',img:''},
+  {n:'Alkassar',c:'KSA',p:'Portero',img:''},
+  {n:'Kanno',c:'KSA',p:'Mediocampista',img:''},
+  {n:'Moteb',c:'KSA',p:'Defensa',img:''},
+  {n:'Jehad',c:'KSA',p:'Defensa',img:''},
+  {n:'Mohammed',c:'KSA',p:'Defensa',img:''},
+  {n:'Bono',c:'MAR',p:'Portero',img:''},
+  {n:'Hakimi',c:'MAR',p:'Defensa',img:''},
+  {n:'Mazraoui',c:'MAR',p:'Defensa',img:''},
+  {n:'Amrabat',c:'MAR',p:'Mediocampista',img:''},
+  {n:'Saadane',c:'MAR',p:'Defensa',img:''},
+  {n:'Bouaddi',c:'MAR',p:'Mediocampista',img:''},
+  {n:'Talbi',c:'MAR',p:'Mediocampista',img:''},
+  {n:'Ounahi',c:'MAR',p:'Mediocampista',img:''},
+  {n:'Rahimi',c:'MAR',p:'Delantero',img:''},
+  {n:'Brahim',c:'MAR',p:'Delantero',img:''},
+  {n:'Saibari',c:'MAR',p:'Mediocampista',img:''},
+  {n:'El Kajoui',c:'MAR',p:'Portero',img:''},
+  {n:'El Ouahdi',c:'MAR',p:'Defensa',img:''},
+  {n:'Diop',c:'MAR',p:'Defensa',img:''},
+  {n:'El Mourabet',c:'MAR',p:'Mediocampista',img:''},
+  {n:'Yassine',c:'MAR',p:'Mediocampista',img:''},
+  {n:'Sbaï',c:'MAR',p:'Delantero',img:''},
+  {n:'Riad',c:'MAR',p:'Defensa',img:''},
+  {n:'Belammari',c:'MAR',p:'Defensa',img:''},
+  {n:'El Kaabi',c:'MAR',p:'Delantero',img:''},
+  {n:'Amaimouni',c:'MAR',p:'Delantero',img:''},
+  {n:'Tagnaouti',c:'MAR',p:'Portero',img:''},
+  {n:'El Khannouss',c:'MAR',p:'Mediocampista',img:''},
+  {n:'El Aynaoui',c:'MAR',p:'Mediocampista',img:''},
+  {n:'Halhal',c:'MAR',p:'Defensa',img:''},
+  {n:'Salah-Eddine',c:'MAR',p:'Defensa',img:''},
+  {n:'R. Rangel',c:'MEX',p:'Portero',img:''},
+  {n:'J. Sánchez',c:'MEX',p:'Defensa',img:''},
+  {n:'C. Montes',c:'MEX',p:'Defensa',img:''},
+  {n:'E. Álvarez',c:'MEX',p:'Defensa',img:''},
+  {n:'J. Vásquez',c:'MEX',p:'Defensa',img:''},
+  {n:'E. Lira',c:'MEX',p:'Mediocampista',img:''},
+  {n:'L. Romo',c:'MEX',p:'Mediocampista',img:''},
+  {n:'Fidalgo',c:'MEX',p:'Mediocampista',img:''},
+  {n:'Raúl',c:'MEX',p:'Delantero',img:''},
+  {n:'A. Vega',c:'MEX',p:'Delantero',img:''},
+  {n:'S. Gimenez',c:'MEX',p:'Delantero',img:''},
+  {n:'C. Acevedo',c:'MEX',p:'Portero',img:''},
+  {n:'G. Ochoa',c:'MEX',p:'Portero',img:''},
+  {n:'A. González',c:'MEX',p:'Delantero',img:''},
+  {n:'I. Reyes',c:'MEX',p:'Defensa',img:''},
+  {n:'J. Quiñones',c:'MEX',p:'Delantero',img:''},
+  {n:'Orbelín',c:'MEX',p:'Mediocampista',img:''},
+  {n:'O. Vargas',c:'MEX',p:'Mediocampista',img:''},
+  {n:'G. Mora',c:'MEX',p:'Mediocampista',img:''},
+  {n:'M. Chávez',c:'MEX',p:'Defensa',img:''},
+  {n:'C. Huerta',c:'MEX',p:'Delantero',img:''},
+  {n:'G. Martínez',c:'MEX',p:'Delantero',img:''},
+  {n:'J. Gallardo',c:'MEX',p:'Defensa',img:''},
+  {n:'L. Chávez',c:'MEX',p:'Mediocampista',img:''},
+  {n:'R. Alvarado',c:'MEX',p:'Delantero',img:''},
+  {n:'B. Gutiérrez',c:'MEX',p:'Mediocampista',img:''},
+  {n:'Verbruggen',c:'NED',p:'Portero',img:''},
+  {n:'Geertruida',c:'NED',p:'Defensa',img:''},
+  {n:'De Roon',c:'NED',p:'Mediocampista',img:''},
+  {n:'Virgil',c:'NED',p:'Defensa',img:''},
+  {n:'Aké',c:'NED',p:'Defensa',img:''},
+  {n:'Van Hecke',c:'NED',p:'Defensa',img:''},
+  {n:'Kluivert',c:'NED',p:'Mediocampista',img:''},
+  {n:'Gravenberch',c:'NED',p:'Mediocampista',img:''},
+  {n:'Weghorst',c:'NED',p:'Delantero',img:''},
+  {n:'Memphis',c:'NED',p:'Delantero',img:''},
+  {n:'Gakpo',c:'NED',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Cody_Gakpo_2023.jpg/200px-Cody_Gakpo_2023.jpg'},
+  {n:'Wieffer',c:'NED',p:'Defensa',img:''},
+  {n:'Roefs',c:'NED',p:'Portero',img:''},
+  {n:'Reijnders',c:'NED',p:'Mediocampista',img:''},
+  {n:'Van de Ven',c:'NED',p:'Defensa',img:''},
+  {n:'Til',c:'NED',p:'Mediocampista',img:''},
+  {n:'Lang',c:'NED',p:'Delantero',img:''},
+  {n:'Malen',c:'NED',p:'Delantero',img:''},
+  {n:'Brobbey',c:'NED',p:'Delantero',img:''},
+  {n:'Koopmeiners',c:'NED',p:'Mediocampista',img:''},
+  {n:'F. De Jong',c:'NED',p:'Mediocampista',img:''},
+  {n:'Dumfries',c:'NED',p:'Defensa',img:''},
+  {n:'Flekken',c:'NED',p:'Portero',img:''},
+  {n:'Summerville',c:'NED',p:'Delantero',img:''},
+  {n:'Hato',c:'NED',p:'Defensa',img:''},
+  {n:'Q. Timber',c:'NED',p:'Mediocampista',img:''},
+  {n:'Nyland',c:'NOR',p:'Portero',img:''},
+  {n:'Thorsby',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Ajer',c:'NOR',p:'Defensa',img:''},
+  {n:'Østigård',c:'NOR',p:'Defensa',img:''},
+  {n:'Møller Wolfe',c:'NOR',p:'Defensa',img:''},
+  {n:'Berg',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Sørloth',c:'NOR',p:'Delantero',img:''},
+  {n:'Berge',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Haaland',c:'NOR',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Erling_Haaland_2022.jpg/200px-Erling_Haaland_2022.jpg'},
+  {n:'Ødegaard',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Strand Larsen',c:'NOR',p:'Delantero',img:''},
+  {n:'Tangvik',c:'NOR',p:'Portero',img:''},
+  {n:'Selvik',c:'NOR',p:'Portero',img:''},
+  {n:'Aursnes',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Bjørkan',c:'NOR',p:'Defensa',img:''},
+  {n:'Holmgren',c:'NOR',p:'Defensa',img:''},
+  {n:'Heggem',c:'NOR',p:'Defensa',img:''},
+  {n:'Thorstvedt',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Aasgaard',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Nusa',c:'NOR',p:'Delantero',img:''},
+  {n:'Schjelderup',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Bobb',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Hauge',c:'NOR',p:'Mediocampista',img:''},
+  {n:'Langås',c:'NOR',p:'Defensa',img:''},
+  {n:'Falchener',c:'NOR',p:'Defensa',img:''},
+  {n:'Ryerson',c:'NOR',p:'Delantero',img:''},
+  {n:'Crocombe',c:'NZL',p:'Portero',img:''},
+  {n:'Payne',c:'NZL',p:'Defensa',img:''},
+  {n:'De Vries',c:'NZL',p:'Defensa',img:''},
+  {n:'Bindon',c:'NZL',p:'Defensa',img:''},
+  {n:'Boxall',c:'NZL',p:'Defensa',img:''},
+  {n:'Bell',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Garbett',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Stamenic',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Wood',c:'NZL',p:'Delantero',img:''},
+  {n:'Singh',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Just',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Paulsen',c:'NZL',p:'Portero',img:''},
+  {n:'Cacace',c:'NZL',p:'Defensa',img:''},
+  {n:'Rufer',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Pijnaker',c:'NZL',p:'Defensa',img:''},
+  {n:'Surman',c:'NZL',p:'Defensa',img:''},
+  {n:'Barbarouses',c:'NZL',p:'Delantero',img:''},
+  {n:'Waine',c:'NZL',p:'Delantero',img:''},
+  {n:'Old',c:'NZL',p:'Mediocampista',img:''},
+  {n:'McCowatt',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Randall',c:'NZL',p:'Delantero',img:''},
+  {n:'Woud',c:'NZL',p:'Portero',img:''},
+  {n:'Thomas',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Elliot',c:'NZL',p:'Defensa',img:''},
+  {n:'Bayliss',c:'NZL',p:'Mediocampista',img:''},
+  {n:'Smith',c:'NZL',p:'Defensa',img:''},
+  {n:'Mejia',c:'PAN',p:'Portero',img:''},
+  {n:'Blackman',c:'PAN',p:'Defensa',img:''},
+  {n:'Córdoba',c:'PAN',p:'Defensa',img:''},
+  {n:'F. Escobar',c:'PAN',p:'Defensa',img:''},
+  {n:'Fariña',c:'PAN',p:'Defensa',img:''},
+  {n:'Martínez',c:'PAN',p:'Mediocampista',img:''},
+  {n:'J.L. Rodríguez',c:'PAN',p:'Mediocampista',img:''},
+  {n:'Carrasquilla',c:'PAN',p:'Mediocampista',img:''},
+  {n:'T. Rodríguez',c:'PAN',p:'Delantero',img:''},
+  {n:'Ismael',c:'PAN',p:'Mediocampista',img:''},
+  {n:'Bárcenas',c:'PAN',p:'Mediocampista',img:''},
+  {n:'Samudio',c:'PAN',p:'Portero',img:''},
+  {n:'Ramos',c:'PAN',p:'Defensa',img:''},
+  {n:'Harvey',c:'PAN',p:'Defensa',img:''},
+  {n:'Davis',c:'PAN',p:'Defensa',img:''},
+  {n:'Andrade',c:'PAN',p:'Defensa',img:''},
+  {n:'Fajardo',c:'PAN',p:'Delantero',img:''},
+  {n:'Waterman C.',c:'PAN',p:'Delantero',img:''},
+  {n:'Quintero',c:'PAN',p:'Mediocampista',img:''},
+  {n:'Godoy',c:'PAN',p:'Mediocampista',img:''},
+  {n:'Yanis',c:'PAN',p:'Mediocampista',img:''},
+  {n:'Mosquera',c:'PAN',p:'Portero',img:''},
+  {n:'A. Murillo',c:'PAN',p:'Defensa',img:''},
+  {n:'Londoño',c:'PAN',p:'Delantero',img:''},
+  {n:'Miller',c:'PAN',p:'Defensa',img:''},
+  {n:'Gutiérrez J.',c:'PAN',p:'Defensa',img:''},
+  {n:'Fernández',c:'PAR',p:'Portero',img:''},
+  {n:'Velázquez',c:'PAR',p:'Defensa',img:''},
+  {n:'Alderete',c:'PAR',p:'Defensa',img:''},
+  {n:'Cáceres',c:'PAR',p:'Defensa',img:''},
+  {n:'Balbuena',c:'PAR',p:'Defensa',img:''},
+  {n:'Alonso',c:'PAR',p:'Defensa',img:''},
+  {n:'Sosa',c:'PAR',p:'Mediocampista',img:''},
+  {n:'D. Gómez',c:'PAR',p:'Mediocampista',img:''},
+  {n:'Sanabria',c:'PAR',p:'Delantero',img:''},
+  {n:'Almirón',c:'PAR',p:'Mediocampista',img:''},
+  {n:'Mauricio',c:'PAR',p:'Mediocampista',img:''},
+  {n:'O. Gill',c:'PAR',p:'Portero',img:''},
+  {n:'Canale',c:'PAR',p:'Defensa',img:''},
+  {n:'Cubas',c:'PAR',p:'Mediocampista',img:''},
+  {n:'G. Gómez',c:'PAR',p:'Defensa',img:''},
+  {n:'Bobadilla',c:'PAR',p:'Mediocampista',img:''},
+  {n:'R. Gamarra',c:'PAR',p:'Delantero',img:''},
+  {n:'Arce',c:'PAR',p:'Delantero',img:''},
+  {n:'Enciso',c:'PAR',p:'Delantero',img:''},
+  {n:'Ojeda',c:'PAR',p:'Mediocampista',img:''},
+  {n:'Ávalos',c:'PAR',p:'Delantero',img:''},
+  {n:'Olveira',c:'PAR',p:'Portero',img:''},
+  {n:'Galarza',c:'PAR',p:'Mediocampista',img:''},
+  {n:'Caballero',c:'PAR',p:'Mediocampista',img:''},
+  {n:'Pitta',c:'PAR',p:'Delantero',img:''},
+  {n:'Maidana',c:'PAR',p:'Defensa',img:''},
+  {n:'Diogo Costa',c:'POR',p:'Portero',img:''},
+  {n:'N. Semedo',c:'POR',p:'Defensa',img:''},
+  {n:'Rúben Dias',c:'POR',p:'Defensa',img:''},
+  {n:'Tomás A.',c:'POR',p:'Defensa',img:''},
+  {n:'Dalot',c:'POR',p:'Defensa',img:''},
+  {n:'Matheus N.',c:'POR',p:'Mediocampista',img:''},
+  {n:'Ronaldo',c:'POR',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cristiano_Ronaldo_2018.jpg/200px-Cristiano_Ronaldo_2018.jpg'},
+  {n:'B. Fernandes',c:'POR',p:'Mediocampista',img:''},
+  {n:'G. Ramos',c:'POR',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Gon%C3%A7alo_Ramos_2023.jpg/200px-Gon%C3%A7alo_Ramos_2023.jpg'},
+  {n:'Bernardo',c:'POR',p:'Mediocampista',img:''},
+  {n:'João Félix',c:'POR',p:'Delantero',img:''},
+  {n:'José Sá',c:'POR',p:'Portero',img:''},
+  {n:'Renato Veiga',c:'POR',p:'Defensa',img:''},
+  {n:'G. Inácio',c:'POR',p:'Defensa',img:''},
+  {n:'João Neves',c:'POR',p:'Mediocampista',img:''},
+  {n:'Trincão',c:'POR',p:'Delantero',img:''},
+  {n:'Rafa Leão',c:'POR',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Rafael_Le%C3%A3o_2023.jpg/200px-Rafael_Le%C3%A3o_2023.jpg'},
+  {n:'Neto',c:'POR',p:'Delantero',img:''},
+  {n:'G. Guedes',c:'POR',p:'Delantero',img:''},
+  {n:'João Cancelo',c:'POR',p:'Defensa',img:''},
+  {n:'R. Neves',c:'POR',p:'Mediocampista',img:''},
+  {n:'Rui Silva',c:'POR',p:'Portero',img:''},
+  {n:'Vitinha',c:'POR',p:'Mediocampista',img:''},
+  {n:'Samú',c:'POR',p:'Defensa',img:''},
+  {n:'N. Mendes',c:'POR',p:'Defensa',img:''},
+  {n:'F. Conceição',c:'POR',p:'Delantero',img:''},
+  {n:'Abunada',c:'QAT',p:'Portero',img:''},
+  {n:'Pedro',c:'QAT',p:'Defensa',img:''},
+  {n:'L. Mendes',c:'QAT',p:'Defensa',img:''},
+  {n:'Issa Laye',c:'QAT',p:'Defensa',img:''},
+  {n:'Jassem',c:'QAT',p:'Defensa',img:''},
+  {n:'A. Aziz',c:'QAT',p:'Mediocampista',img:''},
+  {n:'Alaaeldin',c:'QAT',p:'Delantero',img:''},
+  {n:'Edmilson Jr.',c:'QAT',p:'Delantero',img:''},
+  {n:'Muntari',c:'QAT',p:'Delantero',img:''},
+  {n:'Alhaydos',c:'QAT',p:'Delantero',img:''},
+  {n:'Afif',c:'QAT',p:'Delantero',img:''},
+  {n:'Karim',c:'QAT',p:'Mediocampista',img:''},
+  {n:'Ayoub',c:'QAT',p:'Defensa',img:''},
+  {n:'Homam',c:'QAT',p:'Defensa',img:''},
+  {n:'Yusuf',c:'QAT',p:'Delantero',img:''},
+  {n:'Khoukhi',c:'QAT',p:'Defensa',img:''},
+  {n:'A. Alganehi',c:'QAT',p:'Mediocampista',img:''},
+  {n:'Sultan',c:'QAT',p:'Defensa',img:''},
+  {n:'Almoez',c:'QAT',p:'Delantero',img:''},
+  {n:'A. Fathy',c:'QAT',p:'Mediocampista',img:''},
+  {n:'Salah Z.',c:'QAT',p:'Portero',img:''},
+  {n:'Barsham',c:'QAT',p:'Portero',img:''},
+  {n:'Madibo',c:'QAT',p:'Mediocampista',img:''},
+  {n:'Tahsin',c:'QAT',p:'Delantero',img:''},
+  {n:'Alhashmi',c:'QAT',p:'Defensa',img:''},
+  {n:'Manai',c:'QAT',p:'Delantero',img:''},
+  {n:'Williams',c:'RSA',p:'Portero',img:''},
+  {n:'Matuludi',c:'RSA',p:'Defensa',img:''},
+  {n:'Ndamane',c:'RSA',p:'Defensa',img:''},
+  {n:'Mokoena',c:'RSA',p:'Mediocampista',img:''},
+  {n:'Mbatha',c:'RSA',p:'Mediocampista',img:''},
+  {n:'Modiba',c:'RSA',p:'Defensa',img:''},
+  {n:'Appollis',c:'RSA',p:'Delantero',img:''},
+  {n:'Moremi',c:'RSA',p:'Delantero',img:''},
+  {n:'Foster',c:'RSA',p:'Delantero',img:''},
+  {n:'Mofokeng',c:'RSA',p:'Delantero',img:''},
+  {n:'Zwane',c:'RSA',p:'Mediocampista',img:''},
+  {n:'Maseko',c:'RSA',p:'Delantero',img:''},
+  {n:'Sithole',c:'RSA',p:'Mediocampista',img:''},
+  {n:'Mbokazi',c:'RSA',p:'Defensa',img:''},
+  {n:'Rayners',c:'RSA',p:'Delantero',img:''},
+  {n:'Chaine',c:'RSA',p:'Portero',img:''},
+  {n:'Makgopa',c:'RSA',p:'Delantero',img:''},
+  {n:'Kabini',c:'RSA',p:'Defensa',img:''},
+  {n:'Sibisi',c:'RSA',p:'Defensa',img:''},
+  {n:'Mudau',c:'RSA',p:'Defensa',img:''},
+  {n:'Okon',c:'RSA',p:'Defensa',img:''},
+  {n:'Goss',c:'RSA',p:'Portero',img:''},
+  {n:'Adams J.',c:'RSA',p:'Mediocampista',img:''},
+  {n:'Makhanya',c:'RSA',p:'Defensa',img:''},
+  {n:'Sebelebele',c:'RSA',p:'Delantero',img:''},
+  {n:'Cross',c:'RSA',p:'Defensa',img:''},
+  {n:'Gunn',c:'SCO',p:'Portero',img:''},
+  {n:'Hickey',c:'SCO',p:'Defensa',img:''},
+  {n:'Robertson',c:'SCO',p:'Defensa',img:''},
+  {n:'McTominay',c:'SCO',p:'Mediocampista',img:''},
+  {n:'Hanley',c:'SCO',p:'Defensa',img:''},
+  {n:'Tierney',c:'SCO',p:'Defensa',img:''},
+  {n:'McGinn',c:'SCO',p:'Mediocampista',img:''},
+  {n:'Fletcher',c:'SCO',p:'Mediocampista',img:''},
+  {n:'Dykes',c:'SCO',p:'Delantero',img:''},
+  {n:'Adams',c:'SCO',p:'Delantero',img:''},
+  {n:'Christie',c:'SCO',p:'Mediocampista',img:''},
+  {n:'Kelly',c:'SCO',p:'Portero',img:''},
+  {n:'Hendry',c:'SCO',p:'Defensa',img:''},
+  {n:'Stewart',c:'SCO',p:'Delantero',img:''},
+  {n:'Souttar',c:'SCO',p:'Defensa',img:''},
+  {n:'Hyam',c:'SCO',p:'Defensa',img:''},
+  {n:'Gannon-Doak',c:'SCO',p:'Delantero',img:''},
+  {n:'Hirst',c:'SCO',p:'Delantero',img:''},
+  {n:'Ferguson',c:'SCO',p:'Mediocampista',img:''},
+  {n:'Shankland',c:'SCO',p:'Delantero',img:''},
+  {n:'Gordon',c:'SCO',p:'Portero',img:''},
+  {n:'Patterson',c:'SCO',p:'Defensa',img:''},
+  {n:'McLean',c:'SCO',p:'Mediocampista',img:''},
+  {n:'Ralston',c:'SCO',p:'Defensa',img:''},
+  {n:'Curtis',c:'SCO',p:'Delantero',img:''},
+  {n:'McKenna',c:'SCO',p:'Defensa',img:''},
+  {n:'Y. Diouf',c:'SEN',p:'Portero',img:''},
+  {n:'Sarr M.',c:'SEN',p:'Defensa',img:''},
+  {n:'Koulibaly',c:'SEN',p:'Defensa',img:''},
+  {n:'Seck',c:'SEN',p:'Defensa',img:''},
+  {n:'Gana',c:'SEN',p:'Mediocampista',img:''},
+  {n:'P.I. Ciss',c:'SEN',p:'Mediocampista',img:''},
+  {n:'Diao',c:'SEN',p:'Delantero',img:''},
+  {n:'Lamine',c:'SEN',p:'Mediocampista',img:''},
+  {n:'B. Dieng',c:'SEN',p:'Delantero',img:''},
+  {n:'Mané',c:'SEN',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sadio_Man%C3%A9_2019.jpg/200px-Sadio_Man%C3%A9_2019.jpg'},
+  {n:'Jackson',c:'SEN',p:'Delantero',img:''},
+  {n:'Cherif',c:'SEN',p:'Delantero',img:''},
+  {n:'Ndiaye',c:'SEN',p:'Delantero',img:''},
+  {n:'Jakobs',c:'SEN',p:'Defensa',img:''},
+  {n:'Krépin',c:'SEN',p:'Defensa',img:''},
+  {n:'Mendy',c:'SEN',p:'Portero',img:''},
+  {n:'P.M. Sarr',c:'SEN',p:'Mediocampista',img:''},
+  {n:'I. Sarr',c:'SEN',p:'Delantero',img:''},
+  {n:'Niakhaté',c:'SEN',p:'Defensa',img:''},
+  {n:'Mbaye',c:'SEN',p:'Delantero',img:''},
+  {n:'H. Diarra',c:'SEN',p:'Mediocampista',img:''},
+  {n:'Bara',c:'SEN',p:'Mediocampista',img:''},
+  {n:'Diaw',c:'SEN',p:'Portero',img:''},
+  {n:'A. Mendy',c:'SEN',p:'Defensa',img:''},
+  {n:'Diouf M.',c:'SEN',p:'Defensa',img:''},
+  {n:'Gueye P.',c:'SEN',p:'Mediocampista',img:''},
+  {n:'Kobel',c:'SUI',p:'Portero',img:''},
+  {n:'Muheim',c:'SUI',p:'Defensa',img:''},
+  {n:'Widmer',c:'SUI',p:'Defensa',img:''},
+  {n:'Elvedi',c:'SUI',p:'Defensa',img:''},
+  {n:'Akanji',c:'SUI',p:'Defensa',img:''},
+  {n:'Zakaria',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Embolo',c:'SUI',p:'Delantero',img:''},
+  {n:'Freuler',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Manzambi',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Xhaka',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Ndoye',c:'SUI',p:'Delantero',img:''},
+  {n:'Mvogo',c:'SUI',p:'Portero',img:''},
+  {n:'Rodriguez',c:'SUI',p:'Defensa',img:''},
+  {n:'Jashari',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Sow',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Fassnacht',c:'SUI',p:'Delantero',img:''},
+  {n:'Vargas',c:'SUI',p:'Delantero',img:''},
+  {n:'Cömert',c:'SUI',p:'Defensa',img:''},
+  {n:'Okafor',c:'SUI',p:'Delantero',img:''},
+  {n:'Aebischer',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Keller',c:'SUI',p:'Portero',img:''},
+  {n:'Rieder',c:'SUI',p:'Mediocampista',img:''},
+  {n:'Amdouni',c:'SUI',p:'Delantero',img:''},
+  {n:'Amenda',c:'SUI',p:'Defensa',img:''},
+  {n:'Jaquez',c:'SUI',p:'Defensa',img:''},
+  {n:'Itten',c:'SUI',p:'Delantero',img:''},
+  {n:'Zetterström',c:'SWE',p:'Portero',img:''},
+  {n:'Lagerbielke',c:'SWE',p:'Defensa',img:''},
+  {n:'Lindelöf',c:'SWE',p:'Defensa',img:''},
+  {n:'Hien',c:'SWE',p:'Defensa',img:''},
+  {n:'Gudmundsson',c:'SWE',p:'Defensa',img:''},
+  {n:'H. Johansson',c:'SWE',p:'Defensa',img:''},
+  {n:'Bergvall',c:'SWE',p:'Mediocampista',img:''},
+  {n:'Svensson',c:'SWE',p:'Defensa',img:''},
+  {n:'Isak',c:'SWE',p:'Delantero',img:''},
+  {n:'Nygren',c:'SWE',p:'Mediocampista',img:''},
+  {n:'Elanga',c:'SWE',p:'Delantero',img:''},
+  {n:'V. Johansson',c:'SWE',p:'Portero',img:''},
+  {n:'Sema',c:'SWE',p:'Mediocampista',img:''},
+  {n:'Ekdal',c:'SWE',p:'Defensa',img:''},
+  {n:'Starfelt',c:'SWE',p:'Defensa',img:''},
+  {n:'Karlström',c:'SWE',p:'Mediocampista',img:''},
+  {n:'Gyökeres',c:'SWE',p:'Delantero',img:''},
+  {n:'Ayari',c:'SWE',p:'Mediocampista',img:''},
+  {n:'Svanberg',c:'SWE',p:'Mediocampista',img:''},
+  {n:'Smith E.',c:'SWE',p:'Defensa',img:''},
+  {n:'Bernhardsson',c:'SWE',p:'Defensa',img:''},
+  {n:'Zeneli',c:'SWE',p:'Mediocampista',img:''},
+  {n:'Nordfeldt',c:'SWE',p:'Portero',img:''},
+  {n:'Stroud',c:'SWE',p:'Defensa',img:''},
+  {n:'Nilsson G.',c:'SWE',p:'Delantero',img:''},
+  {n:'Ali T.',c:'SWE',p:'Delantero',img:''},
+  {n:'Chamakh',c:'TUN',p:'Portero',img:''},
+  {n:'Abdi',c:'TUN',p:'Defensa',img:''},
+  {n:'Talbi M.',c:'TUN',p:'Defensa',img:''},
+  {n:'Rekik',c:'TUN',p:'Defensa',img:''},
+  {n:'Arous',c:'TUN',p:'Defensa',img:''},
+  {n:'Bronn',c:'TUN',p:'Defensa',img:''},
+  {n:'Achouri',c:'TUN',p:'Delantero',img:''},
+  {n:'Saad',c:'TUN',p:'Delantero',img:''},
+  {n:'Mastouri',c:'TUN',p:'Delantero',img:''},
+  {n:'Hannibal',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Gharbi',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Ben Ouanes',c:'TUN',p:'Defensa',img:''},
+  {n:'Khedira',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Ayari K.',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Hadj Mahmoud',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Dahmen',c:'TUN',p:'Portero',img:''},
+  {n:'Skhiri',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Elloumi',c:'TUN',p:'Delantero',img:''},
+  {n:'Chaouat',c:'TUN',p:'Delantero',img:''},
+  {n:'Valery',c:'TUN',p:'Defensa',img:''},
+  {n:'Ben Hmida',c:'TUN',p:'Defensa',img:''},
+  {n:'Ben Hessen',c:'TUN',p:'Portero',img:''},
+  {n:'Neffati',c:'TUN',p:'Defensa',img:''},
+  {n:'Chikhaoui',c:'TUN',p:'Defensa',img:''},
+  {n:'Slimane',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Tounekti',c:'TUN',p:'Mediocampista',img:''},
+  {n:'Mert',c:'TUR',p:'Portero',img:''},
+  {n:'Zeki Çelik',c:'TUR',p:'Defensa',img:''},
+  {n:'Demiral',c:'TUR',p:'Defensa',img:''},
+  {n:'Çağlar',c:'TUR',p:'Defensa',img:''},
+  {n:'Özcan',c:'TUR',p:'Mediocampista',img:''},
+  {n:'Orkun Kökçü',c:'TUR',p:'Mediocampista',img:''},
+  {n:'Aktürkoğlu',c:'TUR',p:'Delantero',img:''},
+  {n:'Arda Güler',c:'TUR',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Arda_G%C3%BCler_2023.jpg/200px-Arda_G%C3%BCler_2023.jpg'},
+  {n:'Deniz Gül',c:'TUR',p:'Delantero',img:''},
+  {n:'Çalhanoğlu',c:'TUR',p:'Mediocampista',img:''},
+  {n:'Yildiz',c:'TUR',p:'Delantero',img:''},
+  {n:'Altay',c:'TUR',p:'Portero',img:''},
+  {n:'Eren Elmalı',c:'TUR',p:'Defensa',img:''},
+  {n:'Abdülkerim',c:'TUR',p:'Defensa',img:''},
+  {n:'Ozan Kabak',c:'TUR',p:'Defensa',img:''},
+  {n:'İsmail',c:'TUR',p:'Mediocampista',img:''},
+  {n:'Kahveci',c:'TUR',p:'Delantero',img:''},
+  {n:'Mert Müldür',c:'TUR',p:'Defensa',img:''},
+  {n:'Yunus',c:'TUR',p:'Delantero',img:''},
+  {n:'F. Kadıoğlu',c:'TUR',p:'Defensa',img:''},
+  {n:'Barış',c:'TUR',p:'Delantero',img:''},
+  {n:'Kaan',c:'TUR',p:'Mediocampista',img:''},
+  {n:'Uğurcan',c:'TUR',p:'Portero',img:''},
+  {n:'Oğuz',c:'TUR',p:'Delantero',img:''},
+  {n:'Samet Akaydin',c:'TUR',p:'Defensa',img:''},
+  {n:'Can Uzun',c:'TUR',p:'Delantero',img:''},
+  {n:'S. Rochet',c:'URU',p:'Portero',img:''},
+  {n:'J.M. Giménez',c:'URU',p:'Defensa',img:''},
+  {n:'S. Caceres',c:'URU',p:'Defensa',img:''},
+  {n:'R. Araujo',c:'URU',p:'Defensa',img:''},
+  {n:'M. Ugarte',c:'URU',p:'Mediocampista',img:''},
+  {n:'R. Bentancur',c:'URU',p:'Mediocampista',img:''},
+  {n:'N. De La Cruz',c:'URU',p:'Mediocampista',img:''},
+  {n:'F. Valverde',c:'URU',p:'Mediocampista',img:''},
+  {n:'D. Núñez',c:'URU',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Darwin_N%C3%BA%C3%B1ez_2022.jpg/200px-Darwin_N%C3%BA%C3%B1ez_2022.jpg'},
+  {n:'G. De Arrascaeta',c:'URU',p:'Mediocampista',img:''},
+  {n:'F. Pellistri',c:'URU',p:'Delantero',img:''},
+  {n:'S. Mele',c:'URU',p:'Portero',img:''},
+  {n:'G. Varela',c:'URU',p:'Defensa',img:''},
+  {n:'A. Canobbio',c:'URU',p:'Mediocampista',img:''},
+  {n:'E. Martinez',c:'URU',p:'Mediocampista',img:''},
+  {n:'M. Olivera',c:'URU',p:'Defensa',img:''},
+  {n:'M. Viña',c:'URU',p:'Defensa',img:''},
+  {n:'B. Rodriguez',c:'URU',p:'Delantero',img:''},
+  {n:'R. Aguirre',c:'URU',p:'Delantero',img:''},
+  {n:'M. Araujo',c:'URU',p:'Mediocampista',img:''},
+  {n:'F. Viñas',c:'URU',p:'Delantero',img:''},
+  {n:'J. Piquerez',c:'URU',p:'Mediocampista',img:''},
+  {n:'F. Muslera',c:'URU',p:'Portero',img:''},
+  {n:'S. Bueno',c:'URU',p:'Defensa',img:''},
+  {n:'J.M. Sanabria',c:'URU',p:'Mediocampista',img:''},
+  {n:'R. Zalazar',c:'URU',p:'Mediocampista',img:''},
+  {n:'Turner',c:'USA',p:'Portero',img:''},
+  {n:'Dest',c:'USA',p:'Defensa',img:''},
+  {n:'Richards',c:'USA',p:'Defensa',img:''},
+  {n:'Adams T.',c:'USA',p:'Mediocampista',img:''},
+  {n:'A. Robinson',c:'USA',p:'Defensa',img:''},
+  {n:'Trusty',c:'USA',p:'Defensa',img:''},
+  {n:'Reyna',c:'USA',p:'Mediocampista',img:''},
+  {n:'McKennie',c:'USA',p:'Mediocampista',img:''},
+  {n:'Pepi',c:'USA',p:'Delantero',img:''},
+  {n:'Pulisic',c:'USA',p:'Delantero',img:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Christian_Pulisic_2022.jpg/200px-Christian_Pulisic_2022.jpg'},
+  {n:'Aaronson',c:'USA',p:'Delantero',img:''},
+  {n:'M. Robinson',c:'USA',p:'Defensa',img:''},
+  {n:'Ream',c:'USA',p:'Defensa',img:''},
+  {n:'Berhalter',c:'USA',p:'Mediocampista',img:''},
+  {n:'Roldan',c:'USA',p:'Mediocampista',img:''},
+  {n:'Freeman',c:'USA',p:'Defensa',img:''},
+  {n:'Tillman',c:'USA',p:'Mediocampista',img:''},
+  {n:'Arfsten',c:'USA',p:'Defensa',img:''},
+  {n:'Wright',c:'USA',p:'Delantero',img:''},
+  {n:'Balogun',c:'USA',p:'Delantero',img:''},
+  {n:'Weah',c:'USA',p:'Delantero',img:''},
+  {n:'McKenzie',c:'USA',p:'Defensa',img:''},
+  {n:'Scally',c:'USA',p:'Defensa',img:''},
+  {n:'Freese',c:'USA',p:'Portero',img:''},
+  {n:'Brady',c:'USA',p:'Portero',img:''},
+  {n:'Zendejas',c:'USA',p:'Delantero',img:''},
+  {n:'Yusupov',c:'UZB',p:'Portero',img:''},
+  {n:'Khusanov',c:'UZB',p:'Defensa',img:''},
+  {n:'Alijonov',c:'UZB',p:'Defensa',img:''},
+  {n:'Sayfiev',c:'UZB',p:'Defensa',img:''},
+  {n:'Ashurmatov',c:'UZB',p:'Defensa',img:''},
+  {n:'Mozgovoy',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Shukurov',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Iskanderov',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Xamrobekov',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Masharipov',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Urunov',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Nematov',c:'UZB',p:'Portero',img:''},
+  {n:'Nasrullaev',c:'UZB',p:'Defensa',img:''},
+  {n:'Shomurodov',c:'UZB',p:'Delantero',img:''},
+  {n:'Eshmurodov',c:'UZB',p:'Defensa',img:''},
+  {n:'Ergashev',c:'UZB',p:'Portero',img:''},
+  {n:'Khamdamov',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Abdullaev',c:'UZB',p:'Defensa',img:''},
+  {n:'Ganiev',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Amonov',c:'UZB',p:'Delantero',img:''},
+  {n:'Sergeev',c:'UZB',p:'Delantero',img:''},
+  {n:'Fayzullaev',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Esanov',c:'UZB',p:'Mediocampista',img:''},
+  {n:'Karimov',c:'UZB',p:'Defensa',img:''},
+  {n:'Ulmasaliyev',c:'UZB',p:'Defensa',img:''},
+  {n:'Urozov',c:'UZB',p:'Defensa',img:''}
+];
+
+// Goleador → código de selección para bandera
+const GOL_SEL={
+  'Mbappé':'FRA','Cristiano Ronaldo':'POR','Endrick':'BRA','Vinicius Jr':'BRA',
+  'Harry Kane':'ENG','Messi':'ARG','Oyarzabal':'ESP','Michael Olise':'FRA',
+  'Luis Díaz':'COL','Jhon Durán':'COL','Erling Haaland':'NOR',
+  'Darwin Núñez':'URU','Son Heung-min':'KOR','Lamine Yamal':'ESP',
+  'Nico Williams':'ESP','Morata':'ESP','Griezmann':'FRA',
+  'Rafael Leão':'POR','Gonçalo Ramos':'POR','Jude Bellingham':'ENG',
+  'Jamal Musiala':'GER','Florian Wirtz':'GER','Julián Álvarez':'ARG',
+  'Lautaro Martínez':'ARG','Rodrygo':'BRA','Raphinha':'BRA',
+};
+
+// ═══ GRUPOS ═══
+const GRUPOS=[
+  {g:'A',eq:['MEX','RSA','KOR','CZE']},{g:'B',eq:['CAN','BIH','QAT','SUI']},
+  {g:'C',eq:['BRA','MAR','HAI','SCO']},{g:'D',eq:['USA','PAR','AUS','TUR']},
+  {g:'E',eq:['GER','CUW','CIV','ECU']},{g:'F',eq:['NED','JPN','SWE','TUN']},
+  {g:'G',eq:['BEL','EGY','IRN','NZL']},{g:'H',eq:['ESP','CPV','KSA','URU']},
+  {g:'I',eq:['FRA','SEN','IRQ','NOR']},{g:'J',eq:['ARG','ALG','AUT','JOR']},
+  {g:'K',eq:['POR','COD','UZB','COL']},{g:'L',eq:['ENG','CRO','GHA','PAN']},
+];
+
+// ═══ PARTIDOS GRUPOS ═══
+const PG=[
+  {n:1,l:'MEX',v:'RSA',g:'A',f:'11 Jun',h:'14:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:2,l:'KOR',v:'CZE',g:'A',f:'11 Jun',h:'21:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:3,l:'CAN',v:'BIH',g:'B',f:'12 Jun',h:'14:00 Col',s:'DSPORTS·WIN SPORTS·DISNEY+'},
+  {n:4,l:'BRA',v:'MAR',g:'C',f:'13 Jun',h:'17:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:5,l:'QAT',v:'SUI',g:'B',f:'13 Jun',h:'14:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:6,l:'USA',v:'PAR',g:'D',f:'12 Jun',h:'20:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:7,l:'HAI',v:'SCO',g:'C',f:'13 Jun',h:'20:00 Col',s:'DSPORTS'},
+  {n:8,l:'GER',v:'CUW',g:'E',f:'14 Jun',h:'12:00 Col',s:'DSPORTS'},
+  {n:9,l:'KSA',v:'URU',g:'H',f:'15 Jun',h:'17:00 Col',s:'DSPORTS·WIN SPORTS·DISNEY+'},
+  {n:10,l:'NED',v:'JPN',g:'F',f:'14 Jun',h:'15:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:11,l:'CIV',v:'ECU',g:'E',f:'14 Jun',h:'18:00 Col',s:'DSPORTS·WIN SPORTS·DISNEY+'},
+  {n:12,l:'SWE',v:'TUN',g:'F',f:'14 Jun',h:'21:00 Col',s:'DSPORTS'},
+  {n:13,l:'ESP',v:'CPV',g:'H',f:'15 Jun',h:'11:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:14,l:'AUT',v:'JOR',g:'J',f:'17 Jun',h:'23:00 Col',s:'DSPORTS'},
+  {n:15,l:'IRN',v:'NZL',g:'G',f:'15 Jun',h:'20:00 Col',s:'DSPORTS'},
+  {n:16,l:'BEL',v:'EGY',g:'G',f:'15 Jun',h:'14:00 Col',s:'DSPORTS'},
+  {n:17,l:'GHA',v:'PAN',g:'L',f:'17 Jun',h:'18:00 Col',s:'DSPORTS'},
+  {n:18,l:'TUR',v:'USA',g:'D',f:'15 Jun',h:'18:00',s:'Bahía SF'},
+  {n:19,l:'FRA',v:'SEN',g:'I',f:'16 Jun',h:'14:00 Col',s:'DSPORTS'},
+  {n:20,l:'ARG',v:'ALG',g:'J',f:'16 Jun',h:'20:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:21,l:'ENG',v:'CRO',g:'L',f:'17 Jun',h:'15:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:22,l:'UZB',v:'COL',g:'K',f:'17 Jun',h:'21:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:23,l:'COL',v:'COD',g:'K',f:'23 Jun',h:'21:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:24,l:'CAN',v:'QAT',g:'B',f:'18 Jun',h:'17:00 Col',s:'DSPORTS'},
+  {n:25,l:'CZE',v:'RSA',g:'A',f:'18 Jun',h:'11:00 Col',s:'DSPORTS'},
+  {n:26,l:'USA',v:'AUS',g:'D',f:'19 Jun',h:'14:00 Col',s:'DSPORTS'},
+  {n:27,l:'MEX',v:'KOR',g:'A',f:'18 Jun',h:'20:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:28,l:'BRA',v:'HAI',g:'C',f:'19 Jun',h:'20:00 Col',s:'DSPORTS'},
+  {n:29,l:'SCO',v:'MAR',g:'C',f:'19 Jun',h:'17:00 Col',s:'DSPORTS·CARACOL·RCN'},
+  {n:30,l:'SUI',v:'BIH',g:'B',f:'18 Jun',h:'14:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:31,l:'SWE',v:'TUN',g:'F',f:'17 Jun',h:'23:00',s:'Monterrey'},
+  {n:32,l:'TUN',v:'JPN',g:'F',f:'21 Jun',h:'23:00 Col',s:'DSPORTS'},
+  {n:33,l:'NOR',v:'SEN',g:'I',f:'16 Jun',h:'17:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:34,l:'GER',v:'CIV',g:'E',f:'20 Jun',h:'15:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:35,l:'POR',v:'COD',g:'K',f:'17 Jun',h:'12:00 Col',s:'DSPORTS'},
+  {n:36,l:'ECU',v:'CUW',g:'E',f:'20 Jun',h:'19:00 Col',s:'DSPORTS·WIN SPORTS·DISNEY+'},
+  {n:37,l:'ESP',v:'KSA',g:'H',f:'21 Jun',h:'11:00 Col',s:'DSPORTS·WIN SPORTS·DISNEY+'},
+  {n:38,l:'ARG',v:'AUT',g:'J',f:'22 Jun',h:'12:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:39,l:'NZL',v:'EGY',g:'G',f:'21 Jun',h:'20:00 Col',s:'DSPORTS'},
+  {n:40,l:'JOR',v:'ALG',g:'J',f:'22 Jun',h:'22:00 Col',s:'DSPORTS'},
+  {n:41,l:'ENG',v:'GHA',g:'L',f:'23 Jun',h:'15:00 Col',s:'DSPORTS'},
+  {n:42,l:'SEN',v:'IRQ',g:'I',f:'26 Jun',h:'14:00 Col',s:'DSPORTS'},
+  {n:43,l:'BEL',v:'IRN',g:'G',f:'21 Jun',h:'14:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:44,l:'SUI',v:'CAN',g:'B',f:'24 Jun',h:'14:00 Col',s:'DSPORTS'},
+  {n:45,l:'PAN',v:'CRO',g:'L',f:'23 Jun',h:'18:00 Col',s:'DSPORTS'},
+  {n:46,l:'URU',v:'CPV',g:'H',f:'21 Jun',h:'17:00 Col',s:'DSPORTS'},
+  {n:47,l:'MAR',v:'HAI',g:'C',f:'24 Jun',h:'17:00 Col',s:'DSPORTS'},
+  {n:48,l:'FRA',v:'IRQ',g:'I',f:'22 Jun',h:'16:00 Col',s:'DSPORTS'},
+  {n:49,l:'ECU',v:'GER',g:'E',f:'25 Jun',h:'15:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:50,l:'SCO',v:'BRA',g:'C',f:'24 Jun',h:'17:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:51,l:'RSA',v:'KOR',g:'A',f:'24 Jun',h:'20:00 Col',s:'DSPORTS'},
+  {n:52,l:'BIH',v:'QAT',g:'B',f:'24 Jun',h:'14:00 Col',s:'DSPORTS'},
+  {n:53,l:'CZE',v:'MEX',g:'A',f:'24 Jun',h:'20:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:54,l:'POR',v:'UZB',g:'K',f:'23 Jun',h:'12:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:55,l:'TUN',v:'NED',g:'F',f:'20 Jun',h:'14:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:56,l:'CUW',v:'CIV',g:'E',f:'25 Jun',h:'15:00 Col',s:'DSPORTS'},
+  {n:57,l:'JPN',v:'SWE',g:'F',f:'25 Jun',h:'18:00 Col',s:'DSPORTS'},
+  {n:58,l:'PAR',v:'AUS',g:'D',f:'25 Jun',h:'21:00 Col',s:'DSPORTS'},
+  {n:59,l:'TUR',v:'USA',g:'D',f:'20 Jun',h:'23:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:60,l:'NZL',v:'BEL',g:'G',f:'26 Jun',h:'22:00 Col',s:'DSPORTS'},
+  {n:61,l:'PAN',v:'ENG',g:'L',f:'27 Jun',h:'16:00 Col',s:'DSPORTS'},
+  {n:62,l:'CPV',v:'KSA',g:'H',f:'24 Jun',h:'23:00',s:'Miami'},
+  {n:63,l:'IRQ',v:'NOR',g:'I',f:'24 Jun',h:'23:00',s:'Filadelfia'},
+  {n:64,l:'URU',v:'ESP',g:'H',f:'26 Jun',h:'19:00 Col',s:'DSPORTS'},
+  {n:65,l:'NOR',v:'FRA',g:'I',f:'26 Jun',h:'19:00 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:66,l:'CRO',v:'GHA',g:'L',f:'26 Jun',h:'14:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:67,l:'COL',v:'POR',g:'K',f:'27 Jun',h:'16:00 Col',s:'DSPORTS'},
+  {n:68,l:'JOR',v:'ARG',g:'J',f:'27 Jun',h:'18:30 Col',s:'DSPORTS·CARACOL·RCN·DISNEY+'},
+  {n:69,l:'EGY',v:'IRN',g:'G',f:'27 Jun',h:'21:00 Col',s:'DSPORTS'},
+  {n:70,l:'ALG',v:'AUT',g:'J',f:'26 Jun',h:'22:00 Col',s:'DSPORTS'},
+  {n:71,l:'COD',v:'UZB',g:'K',f:'27 Jun',h:'18:30 Col',s:'DSPORTS'},
+  {n:72,l:'BIH',v:'QAT',g:'B',f:'27 Jun',h:'15:00',s:'Seattle'},
+];
+
+const ELIM={
+  '16vos':[
+    {l:'2A',v:'2B',f:'28 Jun',s:'Los Ángeles'},{l:'1F',v:'2C',f:'28 Jun',s:'Monterrey'},
+    {l:'1C',v:'2F',f:'29 Jun',s:'Boston'},{l:'2E',v:'2I',f:'29 Jun',s:'Filadelfia'},
+    {l:'1I',v:'3CDFGH',f:'29 Jun',s:'Houston'},{l:'1J',v:'2H',f:'30 Jun',s:'Dallas'},
+    {l:'1D',v:'3BEFIJ',f:'30 Jun',s:'Cd. México'},{l:'1E',v:'3ABCDF',f:'30 Jun',s:'Kansas City'},
+    {l:'1G',v:'3AEHIJ',f:'1 Jul',s:'Seattle'},{l:'1B',v:'3EFGIJ',f:'1 Jul',s:'Vancouver'},
+    {l:'2K',v:'2L',f:'1 Jul',s:'Toronto'},{l:'1H',v:'2J',f:'2 Jul',s:'Miami'},
+    {l:'1L',v:'3EHIJK',f:'2 Jul',s:'Atlanta'},{l:'2K',v:'2L',f:'2 Jul',s:'Nueva York'},
+    {l:'1A',v:'3CEFHI',f:'2 Jul',s:'Guadalajara'},{l:'1K',v:'3DEIJL',f:'3 Jul',s:'Bahía SF'},
+  ],
+  oct:[
+    {l:'W74',v:'W77',f:'5 Jul',s:'Dallas'},{l:'W73',v:'W75',f:'5 Jul',s:'Los Ángeles'},
+    {l:'W76',v:'W78',f:'6 Jul',s:'Houston'},{l:'W79',v:'W80',f:'6 Jul',s:'Nueva York'},
+    {l:'W83',v:'W84',f:'7 Jul',s:'Miami'},{l:'W85',v:'W87',f:'7 Jul',s:'Filadelfia'},
+    {l:'W81',v:'W82',f:'8 Jul',s:'Seattle'},{l:'W86',v:'W88',f:'8 Jul',s:'Vancouver'},
+  ],
+  cua:[{l:'W89',v:'W90',f:'11 Jul',s:'Dallas'},{l:'W91',v:'W92',f:'11 Jul',s:'Los Ángeles'},{l:'W93',v:'W94',f:'12 Jul',s:'Nueva York'},{l:'W95',v:'W96',f:'12 Jul',s:'Seattle'}],
+  sem:[{l:'W97',v:'W98',f:'15 Jul',s:'Dallas'},{l:'W99',v:'W100',f:'16 Jul',s:'Los Ángeles'}],
+  fin:[{l:'W101',v:'W102',f:'19 Jul',s:'MetLife Stadium, Nueva York'},{l:'Perdedor S1',v:'Perdedor S2',f:'18 Jul',s:'Miami — 3er lugar'}]
+};
+
+// ═══ PARTICIPANTES ═══
+const INIT=[
+  {id: 1, n:"Camilo Chalarca Patiño", u:"cchalap87", c:"Portugal", g:"Ronaldo"},
+  {id: 2, n:"Daniel Chalarca", u:"dfchalarcard", c:"Francia", g:"Mbappé"},
+  {id: 3, n:"Cesar Andres Orozco Mejia", u:"cesarorozco", c:"Portugal", g:"Mbappé"},
+  {id: 4, n:"Yillian Andrés Cano Jimenez", u:"yili321", c:"Portugal", g:"Endrick"},
+  {id: 5, n:"Jhon Heinar Salgado Loaiza", u:"jhonsalga28", c:"Francia", g:"Kane"},
+  {id: 6, n:"Alejandro Chalarca Diaz", u:"alejonal73", c:"Brasil", g:"Vini Jr."},
+  {id: 7, n:"Kelvin Johan Cardona Lobo", u:"lobezno", c:"Portugal", g:"Ronaldo"},
+  {id: 8, n:"Jhonathan Gutierrez Valencia", u:"jhonda23", c:"Francia", g:"Mbappé"},
+  {id: 9, n:"Juan Manuel Ospina Salgado", u:"juanma0807", c:"Portugal", g:"Dembélé"},
+  {id:10, n:"Jose Luis Peña Gonzalez", u:"joselop", c:"España", g:"Kane"},
+  {id:11, n:"Johan Sebastian Ramirez Ossa", u:"johan2404", c:"Portugal", g:"Mbappé"},
+  {id:12, n:"Pacho Arias", u:"pachoarias", c:"Alemania", g:"Kane"},
+  {id:13, n:"Juan David Chalarca Diaz", u:"juandch1222", c:"España", g:"Mbappé"},
+  {id:14, n:"Michael Villamil", u:"villa123", c:"España", g:"Ronaldo"},
+  {id:15, n:"John Alexander Ramirez Diaz", u:"jard0424", c:"Argentina", g:"Messi"},
+  {id:16, n:"Ana Milena Patiño Trujillo", u:"anitamile", c:"Francia", g:"Mbappé"},
+  {id:17, n:"Laura Ramirez Patiño", u:"lauris07", c:"España", g:"Mbappé"},
+  {id:18, n:"Maria Fernanda Ramirez Patiño", u:"mramirezpati", c:"Argentina", g:"Messi"},
+  {id:19, n:"Oscar David Alzate Avellaneda", u:"odalzatea129", c:"España", g:"Mbappé"},
+  {id:20, n:"Andres Felipe Correa", u:"pipecorrea27", c:"España", g:"Mbappé"},
+  {id:21, n:"Diego Gutierrez", u:"diego415", c:"Países Bajos", g:"Kane"},
+  {id:22, n:"Leonardo Fernández Alarcón", u:"leo11ardo", c:"España", g:"Oyarzabal"},
+  {id:23, n:"Lina Ortiz", u:"lina_ortiz", c:"España", g:"Mbappé"},
+  {id:24, n:"Sebastián Duque", u:"xduquex", c:"España", g:"Kane"},
+  {id:25, n:"Juan Camilo Salgado Castro", u:"jcsalgado107", c:"Francia", g:"Mbappé"},
+  {id:26, n:"Mateo Serna", u:"mateo1396", c:"España", g:"Kane"},
+  {id:27, n:"Yulyeth Andrea Valencia Bedoya", u:"yulygol13", c:"España", g:"Mbappé"},
+  {id:28, n:"Luis Enrique Serna", u:"luisserna17", c:"Francia", g:"Olise"},
+  {id:29, n:"Felipe Franco", u:"franco115", c:"Francia", g:"Kane"},
+  {id:30, n:"Andres Mora", u:"andres1032", c:"Francia", g:"Mbappé"},
+  {id:31, n:"Juan Carlos Lopez Manrique", u:"juankalos123", c:"Argentina", g:"Mbappé"},
+  {id:32, n:"Luis Eduardo Muñoz Salgado", u:"luisomunoz", c:"España", g:"Ronaldo"},
+  {id:33, n:"Deiby Valencia", u:"deibyval", c:"Brasil", g:"Mbappé"},
+  {id:34, n:"Oscar Rios Betancur", u:"oscaribe", c:"España", g:"Kane"},
+  {id:35, n:"Fabian Fernández Alarcón", u:"fabiferala", c:"Inglaterra", g:"Kane"},
+  {id:36, n:"Sebastian Leguizamon", u:"sebasleg26", c:"Portugal", g:"Mbappé"},
+  {id:37, n:"Mauricio Henao Aguirre", u:"maurohenao10", c:"España", g:"Mbappé"},
+  {id:38, n:"Carlos Andrés Herrera Pérez", u:"andresz1988", c:"Francia", g:"Olise"},
+  {id:39, n:"Alejandro Rios Valencia", u:"aleriosval", c:"Francia", g:"Lamine Yamal"},
+  {id:40, n:"Sebastian Osorio Marin", u:"seboz", c:"Francia", g:"Olise"},
+  {id:41, n:"Isa Restrepo", u:"lachiqui01", c:"Francia", g:"Mbappé"}
+];
+
+// ═══ ESTADO ═══
+// Forzar carga desde INIT siempre (datos vienen del código, no de localStorage)
+let datos=INIT.map(p=>({...p}));
+
+let RES=JSON.parse(localStorage.getItem('r26')||'{}');
+let POS=JSON.parse(localStorage.getItem('p26')||'null');
+if(!POS){POS={};GRUPOS.forEach(g=>{POS[g.g]={};g.eq.forEach(c=>{POS[g.g][c]={pj:0,g:0,e:0,p:0,pts:0}});})}
+let CHT=JSON.parse(localStorage.getItem('c26')||'[]');
+let ADMIN=JSON.parse(localStorage.getItem('adm26')||'{"cam":"","gol":""}');
+let GOLP_PTS=JSON.parse(localStorage.getItem('gpts26')||'null');
+// Mapeo golpredictor username → username local en INIT (donde difieren)
+const GP_MAP={'yulypit13':'yulygol13','luisenrima17':'luisserna17','andres1012':'andres1032','arrivismo':'aleriosval','luisomuniz':'luisomunoz','derbyvol':'deibyval','weboz':'seboz','andres21988':'andresz1988','oscarber':'oscaribe','fabifenata':'fabiferala','webasing26':'sebasleg26','dfchalancad':'dfchalarcard','cchalapit07':'cchalap87','cesarandroaco':'cesarorozco','jhormaliga28':'jhonsalga28','alejama73':'alejonal73','jhondaz1':'jhonda23','jowlop':'joselop','pachoerias':'pachoarias','juandich1222':'juandch1222','villar23':'villa123','jard8424':'jard0424','antimile':'anitamile','laura07':'lauris07','odalizalaz129':'odalzatea129','diegop415':'diego415','leo1lardo':'leo11ardo','xduquen':'xduquex','jcalgado107':'jcsalgado107'};
+// ═══ SAVE — localStorage + Firebase si está configurado ═══
+function saveR(){
+  localStorage.setItem('r26',JSON.stringify(RES));
+  if(window._FB_READY)window._SB.from('polla26').update({data:RES,updated_at:new Date().toISOString()}).eq('key','res').then(()=>{}).catch(()=>{});
+}
+function saveP(){
+  localStorage.setItem('p26',JSON.stringify(POS));
+  if(window._FB_READY)window._SB.from('polla26').update({data:POS,updated_at:new Date().toISOString()}).eq('key','pos').then(()=>{}).catch(()=>{});
+}
+function saveC(){
+  localStorage.setItem('c26',JSON.stringify(CHT));
+  if(window._FB_READY)window._SB.from('polla26').update({data:CHT,updated_at:new Date().toISOString()}).eq('key','chat').then(()=>{}).catch(()=>{});
+}
+function saveAdm(){
+  localStorage.setItem('adm26',JSON.stringify(ADMIN));
+  if(window._FB_READY)window._SB.from('polla26').update({data:ADMIN,updated_at:new Date().toISOString()}).eq('key','adm').then(()=>{}).catch(()=>{});
+}
+function saveGolp(){
+  localStorage.setItem('gpts26',JSON.stringify(GOLP_PTS));
+  if(window._FB_READY)window._SB.from('polla26').update({data:GOLP_PTS,updated_at:new Date().toISOString()}).eq('key','golp').then(()=>{}).catch(()=>{});
+}
+
+// ═══ SUPABASE INIT — llamado en DOMContentLoaded ═══
+window._initFirebase=async function(){
+  const sb=window._SB;
+  // Cargar estado inicial
+  try{
+    const {data:rows,error}=await sb.from('polla26').select('*');
+    if(error)throw error;
+    rows.forEach(row=>{
+      if(row.key==='res'&&row.data!=null){RES=row.data;localStorage.setItem('r26',JSON.stringify(RES));}
+      if(row.key==='pos'&&row.data!=null){POS=row.data;localStorage.setItem('p26',JSON.stringify(POS));}
+      if(row.key==='chat'&&row.data!=null){CHT=Array.isArray(row.data)?row.data:[];localStorage.setItem('c26',JSON.stringify(CHT));}
+      if(row.key==='adm'&&row.data!=null){ADMIN=row.data;localStorage.setItem('adm26',JSON.stringify(ADMIN));}
+      if(row.key==='golp'&&row.data!=null){GOLP_PTS=row.data;localStorage.setItem('gpts26',JSON.stringify(GOLP_PTS));}
+    });
+    renderT();stats();renderFix();renderChat();renderRanking();renderLiveBanner();
+  }catch(e){console.warn('Supabase load error',e);}
+  // Escuchar cambios en tiempo real
+  sb.channel('polla26-realtime')
+    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'polla26'},payload=>{
+      const {key,data}=payload.new;
+      if(key==='res'){
+        const prev=JSON.stringify(RES);
+        RES=data||{};
+        localStorage.setItem('r26',JSON.stringify(RES));
+        if(JSON.stringify(RES)!==prev){
+          renderFix();renderLiveBanner();
+          const prevObj=JSON.parse(prev||'{}');
+          const changed=Object.keys(RES).find(k=>JSON.stringify(RES[k])!==JSON.stringify(prevObj[k]));
+          if(changed){const p=PG.find(x=>x.n==changed);if(p){const sl=S[p.l],sv=S[p.v];toast(`⚽ ${sl?.n||p.l} ${RES[changed].l??''}-${RES[changed].v??''} ${sv?.n||p.v}`);}}
+        }
+      }
+      if(key==='golp'){GOLP_PTS=data||null;localStorage.setItem('gpts26',JSON.stringify(GOLP_PTS));renderRanking();}
+      if(key==='adm'){ADMIN=data||{cam:'',gol:''};localStorage.setItem('adm26',JSON.stringify(ADMIN));renderRanking();renderT();}
+      if(key==='chat'){CHT=Array.isArray(data)?data:[];localStorage.setItem('c26',JSON.stringify(CHT));renderChat();}
+    })
+    .subscribe();
+  // Indicador de conexión
+  const badge=document.getElementById('sync-badge');
+  const dot=document.getElementById('sync-dot');
+  const lbl=document.getElementById('sync-lbl');
+  if(badge){badge.style.display='inline-flex';dot.classList.remove('off');lbl.textContent='En vivo';}
+};
+
+// ═══ READONLY ═══
+const IS_VIEW=new URLSearchParams(location.search).has('ver');
+if(IS_VIEW){
+  document.addEventListener('DOMContentLoaded',()=>{
+    document.body.classList.add('readonly');
+    document.querySelectorAll('.fcard,.adm-box').forEach(el=>el.style.display='none');
+    const b=document.createElement('span');
+    b.className='readonly-badge';b.textContent='👁 Modo solo lectura';
+    document.querySelector('header .logo')?.insertAdjacentElement('afterend',b);
+  });
+}
+
+// ═══ LOGIN ═══
+let ME=null; // {id,n,u,c,g} del primo logueado
+function initLogin(){
+  // Rellenar datalist del login
+  const dl=document.getElementById('login-dl');
+  if(dl)dl.innerHTML=INIT.map(p=>`<option value="${p.u}" label="${p.n}">`).join('');
+  const saved=localStorage.getItem('me26');
+  if(saved){
+    try{ME=JSON.parse(saved);applyLogin();}
+    catch{showLoginModal();}
+  } else if(!IS_VIEW){
+    setTimeout(showLoginModal,600);
+  }
+}
+function showLoginModal(){
+  const m=document.getElementById('login-modal');
+  if(m)m.style.display='flex';
+}
+function loginPreview(val){
+  const p=INIT.find(x=>nrm(x.u)===nrm(val.trim()));
+  const av=document.getElementById('login-avatar');
+  if(av)av.textContent=p?getInitials(p.n):'⚽';
+}
+function getInitials(name){
+  const parts=name.trim().split(' ');
+  return(parts[0]?.[0]||'')+(parts[1]?.[0]||'');
+}
+function doLogin(mode){
+  if(mode==='guest'){ME=null;localStorage.removeItem('me26');document.getElementById('login-modal').style.display='none';return;}
+  const val=document.getElementById('login-input').value.trim();
+  const p=INIT.find(x=>nrm(x.u)===nrm(val)||nrm(x.n)===nrm(val));
+  if(!p)return toast('⚠️ Usuario no encontrado — revisa tu usuario de golpredictor',true);
+  ME=p;
+  localStorage.setItem('me26',JSON.stringify(ME));
+  document.getElementById('login-modal').style.display='none';
+  applyLogin();
+  toast(`¡Bienvenido ${p.n.split(' ')[0]}! 🏆`);
+}
+function applyLogin(){
+  if(!ME)return;
+  const btn=document.getElementById('me-btn');
+  const nameEl=document.getElementById('me-name');
+  const avEl=document.getElementById('me-avatar');
+  if(btn){btn.style.display='inline-flex';}
+  if(nameEl)nameEl.textContent=ME.n.split(' ')[0];
+  if(avEl)avEl.textContent=getInitials(ME.n);
+  highlightMe();
+}
+function highlightMe(){
+  document.querySelectorAll('tr.me-row').forEach(r=>r.classList.remove('me-row'));
+  if(!ME)return;
+  document.querySelectorAll('#tbody tr,#rnk-tbody tr').forEach(tr=>{
+    const txt=(tr.querySelector('td:nth-child(2)')?.textContent||'').toLowerCase();
+    if(txt.includes(nrm(ME.n).toLowerCase())||txt.includes(ME.u.toLowerCase()))tr.classList.add('me-row');
+  });
+}
+
+// ═══ MINI-PERFIL ═══
+function openProfile(participantId){
+  const r=datos.find(x=>x.id===participantId)||ME;
+  if(!r)return;
+  showProfile(r);
+}
+function openMyProfile(){if(ME)showProfile(ME);}
+function showProfile(r){
+  const useGolp=!!(GOLP_PTS&&Object.keys(GOLP_PTS).length);
+  const bonusActivo=!!(ADMIN.cam&&ADMIN.gol);
+  const bonus=calcPuntos(r);
+  const gd=useGolp?GOLP_PTS[nrm(r.u||'')]||GOLP_PTS[(r.u||'').toLowerCase()]||null:null;
+  const golpPts=gd?.pts??null;
+  const total=useGolp?(golpPts!==null?golpPts+(bonusActivo?bonus.pts:0):0):bonusActivo?bonus.pts:0;
+  // Posición en el ranking
+  const allSorted=datos.slice().map(x=>{
+    const b=calcPuntos(x);
+    const g2=useGolp?GOLP_PTS[nrm(x.u||'')]||GOLP_PTS[(x.u||'').toLowerCase()]||null:null;
+    const gp=g2?.pts??null;
+    return{...x,_total:useGolp?(gp!==null?gp+(bonusActivo?b.pts:0):0):bonusActivo?b.pts:0,_pos:g2?.pos??9999};
+  }).sort((a,b2)=>useGolp?a._pos-b2._pos:b2._total-a._total);
+  const pos=allSorted.findIndex(x=>x.id===r.id)+1;
+  const leader=allSorted[0]?._total??0;
+  const gap=pos===1?0:leader-total;
+  // Banderas
+  const ck=selCod(r.c);
+  const jj=J.find(x=>nrm(x.n)===nrm(r.g));
+  const jcod=jj?jj.c:(GOL_SEL[r.g]||null);
+  // Llenar panel
+  document.getElementById('pp-avatar').textContent=getInitials(r.n);
+  document.getElementById('pp-name').textContent=r.n;
+  document.getElementById('pp-user').textContent='@'+r.u;
+  document.getElementById('pp-pts').textContent=total;
+  document.getElementById('pp-pos').textContent=pos?`#${pos}`:'—';
+  document.getElementById('pp-gap').textContent=pos===1?'👑':gap>0?`-${gap}`:'=';
+  document.getElementById('pp-cam').textContent=r.c+(bonus.camOk?' ✓':'');
+  document.getElementById('pp-cam-flag').textContent=ck?S[ck]?.e||'🏆':'🏆';
+  document.getElementById('pp-gol').textContent=r.g+(bonus.golOk?' ✓':'');
+  document.getElementById('pp-gol-flag').textContent=jcod?S[jcod]?.e||'⚽':'⚽';
+  document.getElementById('pp-gol-team').textContent=jcod?S[jcod]?.n||'':'';
+  // ¿Qué necesita?
+  const needsEl=document.getElementById('pp-needs');
+  if(needsEl){
+    if(pos===1){
+      needsEl.innerHTML='<strong style="color:var(--d2)">👑 ¡Vas primero!</strong> Mantén la ventaja.';
+    } else {
+      const above=allSorted[pos-2];
+      const gapAbove=above?((above._total??0)-total):0;
+      needsEl.innerHTML=
+        `📊 Te faltan <strong>${gap} pts</strong> para alcanzar al líder <em>${allSorted[0].n.split(' ')[0]}</em>`+
+        (above&&gapAbove>0?`<br>⬆️ <strong>${gapAbove} pts</strong> para superar a <em>${above.n.split(' ')[0]}</em>`:'');
+    }
+  }
+  document.getElementById('profile-panel').classList.add('open');
+  document.getElementById('profile-overlay').classList.add('on');
+}
+function closeProfile(){
+  document.getElementById('profile-panel').classList.remove('open');
+  document.getElementById('profile-overlay').classList.remove('on');
+}
+
+// ═══ HELPERS ═══
+const nrm=s=>String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function toast(m,e=false){const t=document.getElementById('toast');t.textContent=m;t.className='toast on'+(e?' err':'');setTimeout(()=>t.classList.remove('on'),2800)}
+
+// ═══ COUNTDOWN ═══
+const WCS=new Date('2026-06-11T19:00:00Z'); // Partido inaugural 2:00 PM Colombia
+const WCF=new Date('2026-07-19T19:00:00Z');   // Final del Mundial
+// Parsear fecha-hora de partido a timestamp UTC
+function pTime(f,h){
+  var meses={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  var partsF=f.split(' '), partsH=(h||'').split(':');
+  var d=parseInt(partsF[0]),m=meses[partsF[1]];
+  var hh=parseInt(partsH[0])||0, mm=parseInt(partsH[1])||0;
+  // Hora Colombia (UTC-5) -> UTC: sumar 5 horas
+  return Date.UTC(2026,m,d,hh+5,mm,0);
+}
+function fmtDiff(diff){
+  if(diff<=0)return '▶ En curso / Finalizado';
+  var d=Math.floor(diff/86400000);
+  var h=Math.floor(diff%86400000/3600000);
+  var m=Math.floor(diff%3600000/60000);
+  var s=Math.floor(diff%60000/1000);
+  if(d>0)return d+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m';
+  if(h>0)return String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s';
+  return String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s';
+}
+function updatePCD(){
+  var now=Date.now();
+  PG.forEach(function(p){
+    var el=document.getElementById('pcd-'+p.n);
+    if(!el)return;
+    var t=pTime(p.f,p.h.replace(' Col','').replace(' Mex','').trim());
+    var diff=t-now;
+    if(diff>0){
+      el.textContent='⏱ '+fmtDiff(diff);
+      el.style.color='var(--amarillo)';
+    }else if(diff>-7200000){
+      el.textContent='▶ En curso';
+      el.style.color='#4ade80';
+    }else{
+      el.textContent='✓ Finalizado';
+      el.style.color='rgba(107,148,120,0.5)';
+    }
+  });
+}
+
+function tick(){
+  const now=Date.now(),cdw=document.querySelector('.cdw');if(!cdw)return;
+  const tgt=now<WCS?WCS:WCF,d=tgt-now;
+  if(d<=0){cdw.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:16px;color:var(--d2);letter-spacing:2px">🏆 MUNDIAL FINALIZADO</div>';return}
+  if(now>=WCS&&!document.getElementById('cd-lbl')){
+    cdw.insertAdjacentHTML('beforebegin','<div id="cd-lbl" style="font-family:\'Bebas Neue\',sans-serif;font-size:10px;letter-spacing:2px;color:var(--v3);text-align:center;margin-top:.7rem">⚽ MUNDIAL EN CURSO · FINAL EN</div>');
+  }
+  const dd=Math.floor(d/86400000),hh=Math.floor(d%86400000/3600000),mm=Math.floor(d%3600000/60000),ss=Math.floor(d%60000/1000);
+  ['d','h','m','s'].forEach((x,i)=>{const el=document.getElementById('cd-'+x);if(el)el.textContent=String([dd,hh,mm,ss][i]).padStart(2,'0')});
+}
+tick();updatePCD();setInterval(function(){tick();updatePCD();},1000);
+
+// ═══ TABS ═══
+function goT(id,btn){
+  document.querySelectorAll('.tc').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.hnp,.tbtn').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  document.querySelectorAll('.hnp,.tbtn').forEach(b=>{if((b.getAttribute('onclick')||'').includes("'"+id+"'"))b.classList.add('on')});
+  if(id==='sel')renderSel();
+  if(id==='fix')renderFix();
+  if(id==='sts')renderSts();
+  if(id==='cht')renderChat();
+  if(id==='rnk')renderRanking();
+}
+
+// ═══ AUTOCOMPLETE ═══
+function acF(t){
+  const inp=document.getElementById('in-'+t),list=document.getElementById('acl-'+t);
+  const q=nrm(inp.value);let html='';
+  if(t==='cam'){
+    const items=Object.entries(S).filter(([k,v])=>nrm(v.n).includes(q)||k.toLowerCase().includes(q));
+    list.classList.toggle('op',items.length>0&&q.length>0);
+    html=items.map(([k,v])=>`<div class="aci" onmousedown="acE('cam','${esc(v.n)}')"><span class="aci-em">${v.e}</span><div><div class="aci-n">${v.n}</div><div class="aci-s">${v.c}</div></div></div>`).join('');
+  }else{
+    const items=J.filter(j=>nrm(j.n).includes(q)||nrm(S[j.c]?.n||'').includes(q)).slice(0,12);
+    list.classList.toggle('op',items.length>0&&q.length>0);
+    html=items.map(j=>`<div class="aci" onmousedown="acE('gol','${esc(j.n)}')">
+      ${j.img?`<img src="${j.img}" onerror="this.outerHTML='<span class=aci-em>${S[j.c]?.e||'⚽'}</span>'" alt=""/>`:`<span class="aci-em">${S[j.c]?.e||'⚽'}</span>`}
+      <div><div class="aci-n">${j.n}</div><div class="aci-s">${S[j.c]?.e||''} ${S[j.c]?.n||''} · ${j.p}</div></div>
+    </div>`).join('');
+  }
+  list.innerHTML=html;
+}
+function acE(t,v){document.getElementById('in-'+t).value=v;document.getElementById('acl-'+t).classList.remove('op')}
+function acC(t,ms){setTimeout(()=>document.getElementById('acl-'+t).classList.remove('op'),ms)}
+
+// ═══ PRONÓSTICOS ═══
+function agregar(){
+  const n=document.getElementById('in-nom').value.trim(),u=document.getElementById('in-usr').value.trim(),
+        c=document.getElementById('in-cam').value.trim(),g=document.getElementById('in-gol').value.trim();
+  if(!n)return toast('⚠️ Ingresa nombre',true);
+  if(!c)return toast('⚠️ Ingresa campeón',true);
+  if(!g)return toast('⚠️ Ingresa goleador',true);
+  datos.push({id:Date.now(),n,u:u||'—',c,g});
+  limpiar();renderT();stats();toast('✅ Pronóstico registrado');
+}
+function eliminar(id){
+  const r=datos.find(x=>x.id===id);if(!r)return;
+  const inp=prompt(`Para eliminar el pronóstico de "${r.n}"\nescribe su usuario:`);
+  if(inp===null)return;
+  if(nrm(inp.trim())!==nrm(r.u))return toast('⚠️ Usuario incorrecto — no eliminado',true);
+  datos=datos.filter(x=>x.id!==id);renderT();stats();renderRanking();toast('Pronóstico eliminado');
+}
+function limpiar(){['nom','usr','cam','gol'].forEach(x=>document.getElementById('in-'+x).value='');document.getElementById('in-nom').focus()}
+function moda(arr){const f=arr.filter(Boolean);if(!f.length)return'—';const fr={};f.forEach(v=>{fr[v]=(fr[v]||0)+1});return Object.entries(fr).sort((a,b)=>b[1]-a[1])[0][0]}
+
+
+// ═══ FLAG IMG ═══
+const FLAG_CODES={
+  'ALG':'dz','ARG':'ar','AUS':'au','AUT':'at','BEL':'be','BIH':'ba',
+  'BRA':'br','CPV':'cv','CAN':'ca','COL':'co','COD':'cd','CIV':'ci',
+  'CRO':'hr','CUW':'cw','CZE':'cz','ECU':'ec','EGY':'eg','ENG':'gb-eng',
+  'ESP':'es','FRA':'fr','GER':'de','GHA':'gh','HAI':'ht','IRN':'ir',
+  'IRQ':'iq','JPN':'jp','JOR':'jo','KOR':'kr','KSA':'sa','MAR':'ma',
+  'MEX':'mx','NED':'nl','NOR':'no','NZL':'nz','PAN':'pa','PAR':'py',
+  'POR':'pt','QAT':'qa','RSA':'za','SCO':'gb-sct','SEN':'sn','SUI':'ch',
+  'SWE':'se','TUN':'tn','TUR':'tr','URU':'uy','USA':'us','UZB':'uz',
+};
+function flagImg(cod,size){
+  var fc=FLAG_CODES[cod];
+  if(!fc)return '';
+  var s=size||13,h=Math.round(s*0.72);
+  var url='https://flagcdn.com/w40/'+fc+'.png';
+  var sty='width:'+s+'px;height:'+h+'px;object-fit:cover;border-radius:1px;vertical-align:middle;flex-shrink:0';
+  return '<img src="'+url+'" style="'+sty+'" alt="">';
+}
+
+
+function renderT(){
+  const q=nrm(document.getElementById('buscar').value);
+  const fil=datos.filter(r=>nrm(r.n).includes(q));
+  const tb=document.getElementById('tbody');
+  if(!fil.length){tb.innerHTML=`<tr><td colspan="6"><div class="empty">${datos.length?'Sin resultados':'Sin pronósticos aún'}</div></td></tr>`;return}
+  tb.innerHTML=fil.map((r,i)=>{
+    const ck=selCod(r.c);
+    const jj=J.find(x=>nrm(x.n)===nrm(r.g));
+    const jcod=jj?jj.c:(GOL_SEL[r.g]||null);
+    const posReal=datos.indexOf(r);
+    const rn=posReal===0?'r1':posReal===1?'r2':posReal===2?'r3':'';
+    const cflagHtml=ck?flagImg(ck,13):'';
+    const gflagHtml=jj?.img
+      ?`<img class="pthumb" src="${jj.img}" onerror="this.style.display='none'" alt=""/>`
+      :(jcod?flagImg(jcod,13):'');
+    const {camOk,golOk}=calcPuntos(r);
+    return`<tr>
+      <td class="${rn}">${posReal+1}</td>
+      <td><strong>${esc(r.n)}</strong></td>
+      <td style="font-size:10px;color:var(--mt)">${esc(r.u||'—')}</td>
+      <td><span class="chip cg${camOk?' chip-ok':''}" style="display:inline-flex;align-items:center;gap:4px">${cflagHtml} ${esc(r.c)}${camOk?' ✓':''}</span></td>
+      <td><div style="display:flex;flex-direction:column;gap:2px"><span class="chip cv${golOk?' chip-ok':''}" style="display:inline-flex;align-items:center;gap:4px">${gflagHtml} ${esc(r.g)}${golOk?' ✓':''}</span>${jcod?`<span style="font-size:9px;color:var(--mt);display:flex;align-items:center;gap:3px;padding-left:2px">${flagImg(jcod,11)} ${esc(S[jcod]?.n||'')}</span>`:''}</div></td>
+      <td><button class="bdel" onclick="eliminar(${r.id})">✕</button></td>
+    </tr>`;
+  }).join('');
+  // La tabla usa flagImg() con <img> directas — no necesita Twemoji
+  setTimeout(highlightMe,50);
+}
+
+function stats(){
+  document.getElementById('st-tot').textContent=datos.length;
+  const mc=moda(datos.map(r=>r.c)),mg=moda(datos.map(r=>r.g));
+  const ck=selCod(mc);
+  document.getElementById('st-cam').textContent=mc==='—'?'—':(ck?S[ck].e+' ':'')+mc;
+  document.getElementById('st-gol').textContent=mg;
+}
+
+// ═══ FIXTURE ═══
+function vF(f,btn){
+  ['grupos','16vos','oct','cua','sem','fin'].forEach(x=>document.getElementById('fx-'+x).style.display=x===f?'':'none');
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+}
+function setRes(pn,side,val){
+  if(!RES[pn])RES[pn]={l:'',v:''};
+  RES[pn][side]=val===''?'':parseInt(val)||0;
+  saveR();
+  const r=RES[pn];
+  if(r.l!==''&&r.v!==''){const p=PG.find(x=>x.n===pn);if(p)recalc(p.g)}
+  if(document.getElementById('tab-sts')?.classList.contains('on'))renderSts();
+}
+function recalc(g){
+  GRUPOS.find(gr=>gr.g===g).eq.forEach(c=>{POS[g][c]={pj:0,g:0,e:0,p:0,pts:0}});
+  PG.filter(p=>p.g===g).forEach(p=>{
+    const r=RES[p.n];if(!r||r.l===''||r.v==='')return;
+    const rl=+r.l,rv=+r.v;
+    const pl=POS[g][p.l],pv=POS[g][p.v];
+    pl.pj++;pv.pj++;
+    if(rl>rv){pl.pts+=3;pl.g++;pv.p++}
+    else if(rl<rv){pv.pts+=3;pv.g++;pl.p++}
+    else{pl.pts++;pv.pts++;pl.e++;pv.e++}
+  });
+  saveP();renderFix();
+}
+function rGrupo(gr){
+  const pts=POS[gr.g]||{};
+  const sorted=gr.eq.slice().sort((a,b)=>(pts[b]?.pts||0)-(pts[a]?.pts||0));
+  const rows=sorted.map((cod,i)=>{
+    const s=S[cod],p=pts[cod]||{pj:0,g:0,e:0,p:0,pts:0};
+    return`<tr><td><div class="tcell"><span class="tflag">${s.e}</span><span class="tnm">${s.n}</span></div></td>
+      <td contenteditable oninput="POS['${gr.g}']['${cod}'].pj=+this.textContent||0;saveP()">${p.pj}</td>
+      <td contenteditable oninput="POS['${gr.g}']['${cod}'].g=+this.textContent||0;POS['${gr.g}']['${cod}'].pts=(POS['${gr.g}']['${cod}'].g||0)*3+(POS['${gr.g}']['${cod}'].e||0);saveP()">${p.g}</td>
+      <td contenteditable oninput="POS['${gr.g}']['${cod}'].e=+this.textContent||0;POS['${gr.g}']['${cod}'].pts=(POS['${gr.g}']['${cod}'].g||0)*3+(POS['${gr.g}']['${cod}'].e||0);saveP()">${p.e}</td>
+      <td contenteditable oninput="POS['${gr.g}']['${cod}'].p=+this.textContent||0;saveP()">${p.p}</td>
+      <td class="ptsv${i<2?' cl':''}">${p.pts}</td></tr>`;
+  }).join('');
+  const parts=PG.filter(p=>p.g===gr.g).map(p=>{
+    const r=RES[p.n]||{l:'',v:''};const sl=S[p.l],sv=S[p.v];
+    // Favoritos: cuántos primos eligieron cada equipo como campeón
+    const favL=datos.filter(x=>selCod(x.c)===p.l).length;
+    const favV=datos.filter(x=>selCod(x.c)===p.v).length;
+    return`<div class="pcard">
+      <div class="pteam-l"><span class="pflag">${sl?.e||'🏳️'}</span><span class="pnm">${sl?.n||p.l}</span>${favL?`<span class="fav-chip">🏆${favL}</span>`:''}
+      </div>
+      <div class="pmid">
+        ${r.l!==''
+          ?`<div class="pres" title="Clic para editar" onclick="this.style.display='none';this.nextElementSibling.style.display='flex'" style="cursor:pointer">${r.l}-${r.v}</div>`
+          :'<div class="pvs">VS</div>'}
+        <div class="res-edit" style="${r.l!==''?'display:none':''}">
+          <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.l}" onchange="setRes(${p.n},'l',this.value);renderFix()"/>
+          <span class="res-sep">-</span>
+          <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.v}" onchange="setRes(${p.n},'v',this.value);renderFix()"/>
+        </div>
+        <div class="pmeta">${p.f} · ${p.h}<br><span style="color:rgba(107,148,120,0.4);font-size:7px">${p.s}</span></div>
+        <div class="pcd" id="pcd-${p.n}">...</div>
+        <div class="pnum">P${p.n}</div>
+      </div>
+      <div class="pteam-r"><span class="pflag">${sv?.e||'🏳️'}</span><span class="pnm">${sv?.n||p.v}</span>${favV?`<span class="fav-chip">🏆${favV}</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+  return`<div class="gcard"><div class="ghdr"><span class="gnm">Grupo ${gr.g}</span><span class="gcnf">Clic en números para editar</span></div>
+    <table class="gtbl"><thead><tr><th>Selección</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="psec"><div class="psec-t">Partidos</div><div class="plist">${parts}</div></div></div>`;
+}
+function rElim(id,arr){
+  document.getElementById(id).innerHTML=arr.map(p=>{
+    const slR=resolveSlot(p.l),svR=resolveSlot(p.v);
+    const slE=slR?.e||'🏳️',slN=slR?.n||p.l;
+    const svE=svR?.e||'🏳️',svN=svR?.n||p.v;
+    const slSty=slR?.tentative?'color:var(--mt);font-style:italic':'';
+    const svSty=svR?.tentative?'color:var(--mt);font-style:italic':'';
+    return`<div class="ecrd">
+      <div class="eteam"><div class="eflag">${slE}</div><div class="enm" style="${slSty}">${slN}</div></div>
+      <div class="emid"><span class="evs">VS</span><div class="emeta">${p.f}<br>${p.s}</div></div>
+      <div class="eteam"><div class="eflag">${svE}</div><div class="enm" style="${svSty}">${svN}</div></div>
+    </div>`;
+  }).join('');
+}
+function renderFix(){
+  document.getElementById('gg-c').innerHTML=GRUPOS.map(rGrupo).join('');
+  rElim('ec-16v',ELIM['16vos']);rElim('ec-oct',ELIM.oct);
+  rElim('ec-cua',ELIM.cua);rElim('ec-sem',ELIM.sem);rElim('ec-fin',ELIM.fin);
+  setTimeout(updatePCD,100);
+  // Generar botones de días
+  var ordenMes={'Jun':6,'Jul':7};
+  var dias=[];
+  PG.forEach(function(p){if(!dias.includes(p.f))dias.push(p.f)});
+  dias.sort(function(a,b){
+    var pa=a.split(' '),pb=b.split(' ');
+    var ma=ordenMes[pa[1]]||0,mb=ordenMes[pb[1]]||0;
+    return ma!==mb?ma-mb:parseInt(pa[0])-parseInt(pb[0]);
+  });
+  var wrap=document.getElementById('dia-btns');
+  if(wrap){
+    wrap.innerHTML=dias.map(function(d){
+      return'<button class="fbtn" data-dia="'+d+'" onclick="filtrarDia(this.dataset.dia,this)">'+d+'</button>';
+    }).join('');
+  }
+}
+
+var _diaActivo='todos';
+function filtrarDia(dia,btn){
+  _diaActivo=dia;
+  // Resaltar botón activo
+  document.querySelectorAll('#dia-btn-todos,#dia-btns .fbtn').forEach(function(b){b.classList.remove('on')});
+  if(btn)btn.classList.add('on');
+
+  if(dia==='todos'){
+    // Mostrar todo
+    document.querySelectorAll('#gg-c .pcard').forEach(function(el){el.classList.remove('hidden')});
+    document.querySelectorAll('#gg-c .gcard').forEach(function(el){el.classList.remove('hidden')});
+    document.querySelectorAll('#gg-c .psec-t').forEach(function(el){el.style.display=''});
+    return;
+  }
+
+  // Filtrar partidos por día dentro de cada grupo
+  document.querySelectorAll('#gg-c .gcard').forEach(function(gcard){
+    var partidos=gcard.querySelectorAll('.pcard');
+    var alguno=false;
+    partidos.forEach(function(p){
+      var meta=p.querySelector('.pmeta');
+      if(meta&&meta.textContent.includes(dia)){
+        p.classList.remove('hidden');
+        alguno=true;
+      } else {
+        p.classList.add('hidden');
+      }
+    });
+    // Ocultar gcard entero si no hay partidos de ese día en este grupo
+    gcard.classList.toggle('hidden',!alguno);
+  });
+}
+
+// ═══ SELECCIONES ═══
+function renderSel(){
+  const q=nrm(document.getElementById('bsel').value);
+  const vC={},vG={};datos.forEach(r=>{if(r.c)vC[r.c]=(vC[r.c]||0)+1;if(r.g)vG[r.g]=(vG[r.g]||0)+1});
+  const sels=Object.entries(S).filter(([k,v])=>nrm(v.n).includes(q)||J.some(j=>j.c===k&&nrm(j.n).includes(q)));
+  document.getElementById('sgrid').innerHTML=sels.map(([k,v])=>{
+    const vc=vC[v.n]||0;
+    return`<div class="scard" onclick="aModal('${k}')">
+      ${vc?`<span class="vbadge">🏆${vc}</span>`:''}
+      <span class="scard-em">${v.e}</span>
+      <div class="scard-n">${v.n}</div>
+      <div class="scard-c">${v.c}</div>
+    </div>`;
+  }).join('');
+}
+function aModal(cod){
+  const s=S[cod];if(!s)return;
+  const vG={};datos.forEach(r=>{if(r.g)vG[r.g]=(vG[r.g]||0)+1});
+  const jug=J.filter(j=>j.c===cod);
+  document.getElementById('m-tit').textContent=s.e+' '+s.n+' — Goleadores';
+  document.getElementById('m-play').innerHTML=jug.map(j=>{
+    const v=vG[j.n]||0;
+    return`<div class="pcard2" onclick="elegirG('${esc(j.n)}')">
+      ${j.img
+        ?`<img class="pimg" src="${j.img}" onerror="this.style.display='none';this.nextSibling.style.display='flex'" alt=""/><div class="pem" style="display:none">${s.e}</div>`
+        :`<div class="pem">${s.e}</div>`}
+      <div class="pnm2">${j.n}</div>
+      <div class="ppos">${j.p}</div>
+      ${v?`<div class="pvts">⚽${v}</div>`:''}
+    </div>`;
+  }).join('');
+  document.getElementById('mbg').classList.add('op');
+}
+function elegirG(n){document.getElementById('in-gol').value=n;document.getElementById('mbg').classList.remove('op');goT('pro',null)}
+
+// ═══ STATS ═══
+function renderSts(){
+  const vC={},vG={};datos.forEach(r=>{if(r.c)vC[r.c]=(vC[r.c]||0)+1;if(r.g)vG[r.g]=(vG[r.g]||0)+1});
+  const maxC=Math.max(...Object.values(vC),1),maxG=Math.max(...Object.values(vG),1);
+  const sortC=Object.entries(vC).sort((a,b)=>b[1]-a[1]).slice(0,7);
+  const sortG=Object.entries(vG).sort((a,b)=>b[1]-a[1]).slice(0,7);
+  document.getElementById('ch-cam').innerHTML=`<div class="bwrap">${
+    sortC.map(([n,v])=>{const ck=selCod(n),em=ck?S[ck].e:'🏆';
+      return`<div class="brow"><span class="bem">${em}</span><span class="blbl">${n}</span><div class="btrack"><div class="bfill gold" style="width:${Math.round(v/maxC*100)}%"></div></div><span class="bval">${v}</span></div>`;
+    }).join('')}</div>`;
+  document.getElementById('ch-gol').innerHTML=`<div class="bwrap">${
+    sortG.map(([n,v])=>{const jj=J.find(x=>nrm(x.n)===nrm(n)),em=jj?S[jj.c]?.e||'⚽':'⚽';
+      return`<div class="brow"><span class="bem">${em}</span><span class="blbl">${n}</span><div class="btrack"><div class="bfill" style="width:${Math.round(v/maxG*100)}%"></div></div><span class="bval">${v}</span></div>`;
+    }).join('')}</div>`;
+  const topC=sortC[0]?.[0]||'—',topG=sortG[0]?.[0]||'—';
+  let jug=0,gol=0;
+  PG.forEach(p=>{const r=RES[p.n];if(r&&r.l!==''&&r.v!==''){jug++;gol+=+r.l+ +r.v}});
+  document.getElementById('st-cards').innerHTML=[
+    [vC[topC]||0,'acertarían<br>campeón'],
+    [vG[topG]||0,'acertarían<br>goleador'],
+    [datos.filter(r=>r.c).length,'con campeón<br>registrado'],
+    [datos.filter(r=>r.g).length,'con goleador<br>registrado'],
+    [jug,'partidos<br>jugados'],
+    [gol,'goles<br>en torneo'],
+  ].map(([n,l])=>`<div class="acard"><div class="anum">${n}</div><div class="albl">${l}</div></div>`).join('');
+  document.getElementById('st-tbl').innerHTML=`<table style="width:100%;border-collapse:collapse">
+    <thead><tr>${['Participante','Campeón','Goleador'].map(h=>`<th style="padding:6px 8px;text-align:left;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);border-bottom:1px solid var(--br2)">${h}</th>`).join('')}</tr></thead>
+    <tbody>${datos.slice().sort((a,b)=>a.n.localeCompare(b.n)).map(r=>{
+      const ck=selCod(r.c);
+      return`<tr style="border-bottom:1px solid var(--br)">
+        <td style="padding:5px 8px;font-size:11px;font-weight:600">${esc(r.n)}</td>
+        <td style="padding:5px 8px;font-size:11px;color:var(--mt2)">${ck?S[ck].e:''} ${esc(r.c)}</td>
+        <td style="padding:5px 8px;font-size:11px;color:var(--mt2)">${esc(r.g)}</td>
+      </tr>`;
+    }).join('')}</tbody></table>`;
+}
+
+// ═══ CHAT ═══
+function envChat(){
+  const nom=document.getElementById('ch-nom').value.trim(),msg=document.getElementById('ch-msg').value.trim();
+  if(!nom)return toast('⚠️ Ingresa tu nombre',true);
+  if(!msg)return toast('⚠️ Escribe algo',true);
+  const now=new Date(),hora=now.toLocaleDateString('es-CO',{day:'2-digit',month:'short'})+' '+now.toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'});
+  CHT.push({autor:nom,texto:msg,hora});saveC();
+  document.getElementById('ch-msg').value='';renderChat();toast('💬 Enviado');
+}
+function borrarMsg(i){if(!confirm('¿Borrar?'))return;CHT.splice(i,1);saveC();renderChat()}
+function renderChat(){
+  const c=document.getElementById('ch-cont');
+  if(!CHT.length){c.innerHTML='<div style="text-align:center;padding:2rem;color:var(--mt);font-size:12px">💬 Aún no hay mensajes</div>';return}
+  c.innerHTML=[...CHT].reverse().map((m,ri)=>{
+    const i=CHT.length-1-ri;
+    return`<div class="cbbl"><div class="caut">${esc(m.autor)}<span class="chr">${m.hora} <button class="cdel" onclick="borrarMsg(${i})">✕</button></span></div><div class="ctxt">${esc(m.texto)}</div></div>`;
+  }).join('');
+}
+
+// ═══ EXCEL ═══
+function expXlsx(){
+  if(!datos.length)return toast('Sin datos',true);
+  if(typeof XLSX==='undefined')return toast('⏳',true);
+  const ws=XLSX.utils.json_to_sheet(datos.map((r,i)=>({'#':i+1,'Nombre':r.n,'Usuario':r.u,'Campeon':r.c,'Goleador':r.g})));
+  ws['!cols']=[{wch:4},{wch:32},{wch:18},{wch:20},{wch:20}];
+  const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Pronósticos');
+  XLSX.writeFile(wb,'polla2026.xlsx');toast('📊 Exportado');
+}
+function impXlsx(ev){
+  const f=ev.target.files[0];if(!f)return;
+  if(typeof XLSX==='undefined')return toast('⏳',true);
+  const rd=new FileReader();
+  rd.onload=e=>{
+    try{
+      const wb=XLSX.read(e.target.result,{type:'array'});
+      const rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
+      if(!rows.length)return toast('Vacío',true);
+      const k=s=>nrm(s),ks=Object.keys(rows[0]);
+      const fk=opts=>ks.find(kk=>opts.some(o=>k(kk).includes(o)))||null;
+      const kN=fk(['nombre','participante']),kU=fk(['usuario']),kC=fk(['campeon']),kG=fk(['goleador','gol']);
+      if(!kN)return toast('Sin columna Nombre',true);
+      const nvs=rows.filter(r=>String(r[kN]||'').trim()).map((r,i)=>({id:Date.now()+i,n:String(r[kN]).trim(),u:kU?String(r[kU]).trim():'—',c:kC?String(r[kC]).trim():'',g:kG?String(r[kG]).trim():''}));
+      if(confirm(`${nvs.length} filas.\nOK=Reemplazar · Cancelar=Fusionar`)){datos=nvs}
+      else{nvs.forEach(nr=>{const idx=datos.findIndex(r=>k(r.n)===k(nr.n));if(idx>=0){if(nr.c)datos[idx].c=nr.c;if(nr.g)datos[idx].g=nr.g}else datos.push(nr)})}
+      renderT();stats();toast(`✅ ${nvs.length} registros`);
+    }catch{toast('❌ Error',true)}
+    ev.target.value='';
+  };
+  rd.readAsArrayBuffer(f);
+}
+
+// ═══ PUNTOS BONUS ═══
+function calcPuntos(r){
+  const admCam=nrm(ADMIN.cam||''),admGol=nrm(ADMIN.gol||'');
+  const camOk=!!(admCam&&(nrm(r.c)===admCam||(selCod(r.c)&&selCod(r.c)===selCod(ADMIN.cam))));
+  const golOk=!!(admGol&&nrm(r.g)===admGol);
+  let pts=0;
+  if(camOk)pts+=10;
+  if(golOk)pts+=10;
+  if(camOk&&golOk)pts+=20;
+  return{pts,camOk,golOk};
+}
+
+// ═══ RANKING ═══
+function renderRanking(){
+  // Labels estado actual
+  const cl=document.getElementById('rnk-cam-lbl'),gl=document.getElementById('rnk-gol-lbl');
+  if(cl)cl.textContent=ADMIN.cam||'por definir';
+  if(gl)gl.textContent=ADMIN.gol||'por definir';
+  // Rellenar datalists una sola vez
+  const dlS=document.getElementById('dl-sels');
+  if(dlS&&!dlS.children.length)dlS.innerHTML=Object.values(S).map(s=>`<option value="${s.n}">`).join('');
+  const dlJ=document.getElementById('dl-jug');
+  if(dlJ&&!dlJ.children.length)dlJ.innerHTML=J.map(j=>`<option value="${j.n}">`).join('');
+  // Pre-llenar inputs con valores guardados
+  const ac=document.getElementById('adm-cam'),ag=document.getElementById('adm-gol');
+  if(ac&&!ac.value)ac.value=ADMIN.cam||'';
+  if(ag&&!ag.value)ag.value=ADMIN.gol||'';
+  // Construir tabla — si hay datos de golp.cc los usamos para ordenar y mostrar pts reales
+  renderPodium();
+  const tb=document.getElementById('rnk-tbody');if(!tb)return;
+  const useGolp=!!(GOLP_PTS&&Object.keys(GOLP_PTS).length);
+  // Bonus solo aplica al final (cuando admin haya guardado campeón Y goleador)
+  const bonusActivo=!!(ADMIN.cam&&ADMIN.gol);
+  const sorted=datos.slice().map(r=>{
+    const bonus=calcPuntos(r);
+    const gd=useGolp?GOLP_PTS[nrm(r.u||'')]||GOLP_PTS[(r.u||'').toLowerCase()]||null:null;
+    const golpPts=gd?.pts??null;
+    const totalPts=useGolp?(golpPts!==null?golpPts+(bonusActivo?bonus.pts:0):null):bonusActivo?bonus.pts:0;
+    return{...r,...bonus,_golpPts:golpPts,_golpPos:gd?.pos??9999,_total:totalPts};
+  }).sort((a,b)=>{
+    if(useGolp)return a._golpPos-b._golpPos||(b._golpPts??-1)-(a._golpPts??-1)||a.n.localeCompare(b.n);
+    return (b._total??0)-(a._total??0)||a.n.localeCompare(b.n);
+  });
+  const medals=['🥇','🥈','🥉'];
+  const leader=sorted[0]?._total??0;
+  tb.innerHTML=sorted.map((r,i)=>{
+    const ck=selCod(r.c);
+    const jj=J.find(x=>nrm(x.n)===nrm(r.g));
+    const jcod=jj?jj.c:(GOL_SEL[r.g]||null);
+    const cf=ck?flagImg(ck,12):'';
+    const gf=jj?.img?`<img class="pthumb" src="${jj.img}" onerror="this.style.display='none'" alt=""/>`:(jcod?flagImg(jcod,12):'');
+    const pc=i===0?'r1':i===1?'r2':i===2?'r3':'';
+    // Highlights de campeón/goleador solo si bonus está activo (fin de torneo)
+    const cSty=bonusActivo&&r.camOk?'color:#4ade80;font-weight:700':'';
+    const gSty=bonusActivo&&r.golOk?'color:#4ade80;font-weight:700':'';
+    const teamN=jcod?S[jcod]?.n||'':'';
+    const ptsShow=r._total!==null?r._total:'—';
+    const bonusTag=bonusActivo&&r.pts>0?`<span style="font-size:9px;color:var(--d2);margin-left:3px">+${r.pts}🏆</span>`:'';
+    return`<tr style="cursor:pointer" onclick="openProfile(${r.id})">
+      <td class="${pc}" style="font-size:${medals[i]?'17':'13'}px;text-align:center">${medals[i]||i+1}</td>
+      <td><strong>${esc(r.n)}</strong><div style="font-size:9px;color:var(--mt)">${esc(r.u||'')}</div></td>
+      <td style="${cSty}"><span style="display:inline-flex;align-items:center;gap:3px">${cf} ${esc(r.c)}${bonusActivo&&r.camOk?' ✓':''}</span></td>
+      <td style="${gSty}"><div style="display:flex;flex-direction:column;gap:1px">
+        <span style="display:inline-flex;align-items:center;gap:3px">${gf} ${esc(r.g)}${bonusActivo&&r.golOk?' ✓':''}</span>
+        ${teamN?`<span style="font-size:9px;color:var(--mt)">${teamN}</span>`:''}
+      </div></td>
+      <td class="rnk-pts">${ptsShow}${bonusTag}</td>
+      <td style="text-align:right;font-size:10px;color:${i===0?'var(--d2)':'var(--mt)'};white-space:nowrap">${i===0?'👑 Líder':(r._total!==null&&leader>0?'-'+(leader-(r._total??0))+' pts':'—')}</td>
+    </tr>`;
+  }).join('');
+  setTimeout(highlightMe,50);
+}
+
+function saveAdmin(){
+  const pw=document.getElementById('adm-pw').value;
+  if(pw!=='primos2026')return toast('⚠️ Contraseña incorrecta',true);
+  const cam=document.getElementById('adm-cam').value.trim();
+  const gol=document.getElementById('adm-gol').value.trim();
+  ADMIN={cam,gol};saveAdm();
+  renderRanking();renderT();
+  toast('✅ Resultados guardados · Ranking actualizado');
+}
+
+function shareWA(){
+  const useGolp=!!(GOLP_PTS&&Object.keys(GOLP_PTS).length);
+  const bonusActivo=!!(ADMIN.cam&&ADMIN.gol);
+  const sorted=datos.slice().map(r=>{
+    const bonus=calcPuntos(r);
+    const gd=useGolp?GOLP_PTS[nrm(r.u||'')]||GOLP_PTS[(r.u||'').toLowerCase()]||null:null;
+    const golpPts=gd?.pts??null;
+    const total=useGolp?(golpPts!==null?golpPts+(bonusActivo?bonus.pts:0):0):bonusActivo?bonus.pts:0;
+    return{...r,...bonus,_total:total,_pos:gd?.pos??9999};
+  }).sort((a,b)=>useGolp?a._pos-b._pos:b._total-a._total);
+  const md=['🥇','🥈','🥉'];
+  const lines=sorted.slice(0,10).map((r,i)=>`${md[i]||i+1+'.'} ${r.n} · ${r._total} pts`);
+  const text=`⚽ LOS PRIMOS · Mundial 2026\n\n📊 Top 10:\n${lines.join('\n')}\n\n${bonusActivo?`🏆 Campeón: ${ADMIN.cam}\n⚽ Goleador: ${ADMIN.gol}\n\n`:''}golpredictor.com`;
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
+}
+
+// ═══ NOTIFICACIONES ═══
+const _notifSent=new Set();
+function initNotifs(){
+  if(!('Notification' in window))return;
+  if(Notification.permission==='default'){
+    // Pedir permiso con un pequeño delay para no bloquear la carga
+    setTimeout(()=>Notification.requestPermission(),3000);
+  }
+}
+function checkMatchNotifs(){
+  if(!('Notification' in window)||Notification.permission!=='granted')return;
+  const now=Date.now();
+  PG.forEach(p=>{
+    const raw=p.h.replace(/ Col| Mex/g,'').trim();
+    const t=pTime(p.f,raw);
+    const diff=t-now;
+    if(diff>0&&diff<300000&&!_notifSent.has(p.n)){
+      _notifSent.add(p.n);
+      const sl=S[p.l],sv=S[p.v];
+      const mins=Math.ceil(diff/60000);
+      try{new Notification(`⚽ Partido en ${mins} min`,{
+        body:`${sl?.e||''} ${sl?.n||p.l} vs ${sv?.n||p.v} ${sv?.e||''} · ${p.s}`,
+        icon:'https://flagcdn.com/w40/'+(FLAG_CODES[p.l]||'un')+'.png'
+      })}catch(e){}
+    }
+  });
+}
+
+// ═══ FASE ELIMINATORIA AUTOMÁTICA ═══
+function getGrpRanked(g){
+  const gr=GRUPOS.find(x=>x.g===g);if(!gr)return[];
+  const pts=POS[g]||{};
+  return gr.eq.slice().sort((a,b)=>{
+    const pa=pts[a]||{pts:0,g:0,e:0,p:0};
+    const pb=pts[b]||{pts:0,g:0,e:0,p:0};
+    if(pb.pts!==pa.pts)return pb.pts-pa.pts;
+    return((pb.g-pb.p)|0)-((pa.g-pa.p)|0);
+  });
+}
+function resolveSlot(slot){
+  if(!slot)return null;
+  // 1A, 2B, etc.
+  const m=slot.match(/^([12])([A-L])$/);
+  if(m){
+    const pos=parseInt(m[1])-1,g=m[2];
+    const ranked=getGrpRanked(g);
+    const cod=ranked[pos];
+    if(cod&&S[cod])return S[cod];
+    // Grupo con partidos aún por jugar — mostrar tentativo
+    const gr=GRUPOS.find(x=>x.g===g);
+    if(!gr)return null;
+    const eq=gr.eq[pos];
+    return eq?{e:S[eq]?.e||'🏳️',n:`${pos+1}º Grp ${g}`,tentative:true}:null;
+  }
+  // Slots de 3ros o ganadores de llaves: mostrar texto como está
+  return null;
+}
+
+// ═══ PODIO ═══
+function renderPodium(){
+  const el=document.getElementById('rnk-podium');if(!el)return;
+  const useGolp=!!(GOLP_PTS&&Object.keys(GOLP_PTS).length);
+  const bonusActivo=!!(ADMIN.cam&&ADMIN.gol);
+  const ranked=datos.slice().map(r=>{
+    const bonus=calcPuntos(r);
+    const gd=useGolp?GOLP_PTS[nrm(r.u||'')]||GOLP_PTS[(r.u||'').toLowerCase()]||null:null;
+    const golpPts=gd?.pts??null;
+    const total=useGolp?(golpPts!==null?golpPts+(bonusActivo?bonus.pts:0):0):bonusActivo?bonus.pts:0;
+    return{...r,_total:total,_pos:gd?.pos??9999};
+  }).sort((a,b)=>useGolp?a._pos-b._pos:b._total-a._total).slice(0,3);
+  if(!ranked.length){el.innerHTML='';return}
+  // orden visual podio: plata(1), oro(0), bronce(2)
+  const order=[ranked[1],ranked[0],ranked[2]];
+  const heights=[72,100,52];
+  const medals=['🥈','🥇','🥉'];
+  const ptColors=['#bbb','var(--d2)','#cd7f32'];
+  const cls=['pod-2','pod-1','pod-3'];
+  el.innerHTML=`<div class="podium-wrap">${order.map((r,i)=>r?`
+    <div class="pod-col">
+      <div class="pod-name">${esc(r.n.split(' ')[0])}</div>
+      <div class="pod-block ${cls[i]}" style="height:${heights[i]}px">
+        <div style="font-size:${i===1?'24':'20'}px">${medals[i]}</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:${i===1?'20':'16'}px;color:${ptColors[i]}">${r._total} pts</div>
+      </div>
+    </div>`:'').join('')}</div>`;
+}
+
+// ═══ QR ═══
+function showQR(){
+  const url='https://www.golpredictor.com';
+  document.getElementById('qr-img').src=`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}&bgcolor=121F16&color=F5C842&qzone=2`;
+  document.getElementById('qr-modal').classList.add('on');
+}
+
+// ═══ SYNC GOLPREDICTOR ═══
+function syncGolp(){
+  const box=document.getElementById('golp-import-box');
+  if(box)box.style.display=box.style.display==='none'?'block':'none';
+}
+
+function importGolp(){
+  const raw=document.getElementById('golp-paste').value.trim();
+  if(!raw)return toast('⚠️ Pega el contenido primero',true);
+  const st=document.getElementById('golp-status');
+  const parsed={};
+  let pos=1;
+  raw.split('\n').forEach(line=>{
+    const l=line.trim();
+    if(!l||/^posici/i.test(l))return;
+    // Intentar separación por tabs primero (copia directa de tabla HTML)
+    const parts=l.split('\t').map(s=>s.trim()).filter(Boolean);
+    let gpUser='',pts=0;
+    if(parts.length>=4){
+      // Formato: Posición | Usuario | Nombre | Puntos | ...
+      gpUser=parts[1].toLowerCase();
+      pts=parseInt(parts[3])||0;
+    } else {
+      // Fallback: separado por espacios — tomar 2do token como usuario
+      const sp=l.split(/\s+/);
+      // Si primer token es número, usuario es el segundo
+      if(sp.length>=4&&/^\d+$/.test(sp[0])){
+        gpUser=sp[1].toLowerCase();
+        pts=parseInt(sp[sp.length-2])||0;
+      }
+    }
+    if(!gpUser)return;
+    const localU=GP_MAP[gpUser]||gpUser;
+    parsed[localU]={pos,pts,gpUser};
+    pos++;
+  });
+  const found=Object.keys(parsed).length;
+  if(!found)return toast('⚠️ No se reconoció el formato — verifica que copiaste la tabla completa',true);
+  GOLP_PTS=parsed;
+  saveGolp();
+  renderRanking();
+  document.getElementById('golp-import-box').style.display='none';
+  document.getElementById('golp-paste').value='';
+  const ts=new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'});
+  if(st){st.style.display='block';st.textContent=`✅ ${found} participantes importados desde golpredictor · ${ts}`}
+  toast(`✅ Ranking actualizado — ${found} participantes`);
+}
+
+// ═══ LIVE MATCHES ═══
+const TSDB_MAP={
+  'Mexico':'MEX','South Africa':'RSA','Korea Republic':'KOR','Czech Republic':'CZE','Czechia':'CZE',
+  'Canada':'CAN','Bosnia and Herzegovina':'BIH','Qatar':'QAT','Switzerland':'SUI',
+  'Brazil':'BRA','Morocco':'MAR','Haiti':'HAI','Scotland':'SCO',
+  'United States':'USA','Paraguay':'PAR','Australia':'AUS','Turkey':'TUR','Türkiye':'TUR',
+  'Germany':'GER','Curacao':'CUW','Curaçao':'CUW',"Ivory Coast":'CIV',"Côte d'Ivoire":'CIV','Ecuador':'ECU',
+  'Netherlands':'NED','Japan':'JPN','Sweden':'SWE','Tunisia':'TUN',
+  'Belgium':'BEL','Egypt':'EGY','Iran':'IRN','New Zealand':'NZL',
+  'Spain':'ESP','Cape Verde':'CPV','Saudi Arabia':'KSA','Uruguay':'URU',
+  'France':'FRA','Senegal':'SEN','Iraq':'IRQ','Norway':'NOR',
+  'Argentina':'ARG','Algeria':'ALG','Austria':'AUT','Jordan':'JOR',
+  'Portugal':'POR','DR Congo':'COD','Congo DR':'COD','Uzbekistan':'UZB','Colombia':'COL',
+  'England':'ENG','Croatia':'CRO','Ghana':'GHA','Panama':'PAN'
+};
+
+function getLivePG(){
+  const now=Date.now();
+  return PG.filter(p=>{
+    const raw=p.h.replace(/ Col| Mex/g,'').trim();
+    const t=pTime(p.f,raw);
+    return t<=now && now-t<7200000;
+  }).map(p=>{
+    const raw=p.h.replace(/ Col| Mex/g,'').trim();
+    const t=pTime(p.f,raw);
+    // Restar 2 min para compensar arranque tardío típico (los partidos salen ~1-3 min después)
+    return{...p,_elapsed:Math.max(0,Math.floor((Date.now()-t)/60000)-2)};
+  });
+}
+
+function tiempoP(e){
+  // 1ª parte: 0-45 min
+  if(e<=45)return e+"'";
+  // Tiempo añadido 1ª parte: ~3 min típico
+  if(e<=48)return"45+'";
+  // Descanso: ~15 min (48-63 elapsed = 15 min pausa)
+  if(e<=63)return"⏸ MT";
+  // 2ª parte: empieza en elapsed=64
+  const m2=e-63;
+  if(m2<=45)return m2+"'";
+  // Tiempo añadido 2ª parte
+  if(m2<=50)return"90+'";
+  return"FIN ✓";
+}
+
+function renderLiveBanner(){
+  const live=getLivePG();
+  const bar=document.getElementById('live-bar');
+  if(!bar)return;
+  if(!live.length){bar.classList.remove('active');return}
+  bar.classList.add('active');
+  document.getElementById('live-ts').textContent='· '+new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('live-matches').innerHTML=live.map(p=>{
+    const sl=S[p.l],sv=S[p.v],r=RES[p.n]||{};
+    const lv=r.l!==undefined&&r.l!==''?r.l:'';
+    const rv=r.v!==undefined&&r.v!==''?r.v:'';
+    const tiempo=tiempoP(p._elapsed);
+    const tiempoColor=p._elapsed>63?'#4ade80':p._elapsed>50?'#f59e0b':'#e74c3c';
+    return`<div class="lm-row">
+      <span style="background:${tiempoColor};color:#000;font-family:'Bebas Neue',sans-serif;font-size:12px;padding:1px 7px;border-radius:99px;font-weight:700;flex-shrink:0">${tiempo}</span>
+      <span class="lm-flag">${sl?.e||'🏳️'}</span>
+      <span class="lm-team">${sl?.n||p.l}</span>
+      <input class="live-inp" type="number" min="0" max="20" value="${lv}" placeholder="-" onchange="setRes(${p.n},'l',this.value);renderLiveBanner()"/>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--mt)">-</span>
+      <input class="live-inp" type="number" min="0" max="20" value="${rv}" placeholder="-" onchange="setRes(${p.n},'v',this.value);renderLiveBanner()"/>
+      <span class="lm-team">${sv?.n||p.v}</span>
+      <span class="lm-flag">${sv?.e||'🏳️'}</span>
+      <span style="font-size:9px;color:var(--mt);margin-left:2px">· ${p.s}</span>
+    </div>`;
+  }).join('');
+}
+
+async function fetchLive(){
+  const btn=document.getElementById('live-fetch-btn');
+  if(btn){btn.textContent='⏳';btn.disabled=true}
+  const d=new Date();
+  const ds=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  try{
+    const res=await fetch('https://www.thesportsdb.com/api/v1/json/3/eventsday.php?d='+ds+'&l=FIFA%20World%20Cup');
+    const data=await res.json();
+    let updated=0;
+    (data.events||[]).forEach(ev=>{
+      const lCod=TSDB_MAP[ev.strHomeTeam],vCod=TSDB_MAP[ev.strAwayTeam];
+      if(!lCod||!vCod)return;
+      const match=PG.find(p=>(p.l===lCod&&p.v===vCod)||(p.l===vCod&&p.v===lCod));
+      if(!match)return;
+      const swapped=match.l===vCod;
+      const hs=ev.intHomeScore,as_=ev.intAwayScore;
+      if(hs===null||hs===''||hs===undefined||as_===null||as_===''||as_===undefined)return;
+      if(!RES[match.n])RES[match.n]={l:'',v:''};
+      RES[match.n].l=swapped?as_:hs;
+      RES[match.n].v=swapped?hs:as_;
+      recalc(match.g);updated++;
+    });
+    saveR();renderLiveBanner();
+    if(document.getElementById('tab-fix')?.classList.contains('on'))renderFix();
+    toast(updated?'🔄 '+updated+' marcador'+(updated>1?'es':'')+(updated>1?' actualizados':' actualizado'):'Sin datos en vivo por ahora');
+  }catch{toast('⚠️ No se pudieron obtener marcadores',true)}
+  finally{if(btn){btn.textContent='🔄 Actualizar';btn.disabled=false}}
+}
+
+// ═══ INIT ═══
+document.getElementById('in-gol').addEventListener('keydown',e=>{if(e.key==='Enter')agregar()});
+renderT();stats();renderSel();renderFix();renderChat();renderRanking();
+renderLiveBanner();
+initNotifs();
+initLogin();
+setInterval(renderLiveBanner,60000);
+setInterval(checkMatchNotifs,60000);
+fetchLive();
+</script>
+<style>
+/* Tamaños de emojis convertidos por Twemoji según contexto */
+.tflag img.emoji  { width:16px!important; height:16px!important; vertical-align:middle!important; margin:0 0 1px 0!important }
+.pflag img.emoji  { width:20px!important; height:20px!important; vertical-align:middle!important; margin:0!important }
+.eflag img.emoji  { width:20px!important; height:20px!important; vertical-align:middle!important; margin:0!important }
+.scard-em img.emoji { width:28px!important; height:28px!important; display:block!important; margin:0 auto!important }
+.aci-em img.emoji { width:16px!important; height:16px!important; vertical-align:middle!important; margin:0!important }
+.chip-em img.emoji{ width:13px!important; height:13px!important; vertical-align:middle!important; margin:0 1px 1px 0!important }
+.bem img.emoji    { width:13px!important; height:13px!important; vertical-align:middle!important; margin:0!important }
+.pem img.emoji    { width:26px!important; height:26px!important }
+.sede img.emoji   { width:16px!important; height:16px!important; vertical-align:middle!important; margin:0 2px 1px 0!important }
+/* htrophy no se parsea con twemoji */
+</style>
+<script>
+(function(){
+  var s=document.createElement('script');
+  s.src='https://unpkg.com/twemoji@14.0.2/dist/twemoji.min.js';
+  s.crossOrigin='anonymous';
+  s.onload=function(){
+    // Parsear SOLO clases que contienen banderas de países
+    // NO parsear tabs, botones, labels, badges de puntos
+    var opts={folder:'svg',ext:'.svg'};
+    function parseFlags(){
+      document.querySelectorAll('.tflag,.pflag,.eflag,.scard-em,.aci-em,.chip-em,.bem,.pem,.sede').forEach(function(el){
+        twemoji.parse(el,opts);
+      });
+    }
+    // Parsear lo que ya está en el DOM (renderT ya corrió antes de que cargara twemoji)
+    parseFlags();
+    // También parsear la tabla y selecciones que ya se renderizaron
+    setTimeout(function(){
+      twemoji.parse(document.getElementById('tbody'),opts);
+      twemoji.parse(document.getElementById('sgrid'),opts);
+      twemoji.parse(document.getElementById('gg-c'),opts);
+    }, 100);
+    // Re-parsear al renderizar contenido dinámico
+    var _rT=window.renderT,_rF=window.renderFix,_rS=window.renderSel,_rSts=window.renderSts;
+    window.renderT  =function(){_rT();  setTimeout(parseFlags,40)};
+    window.renderFix=function(){_rF();  setTimeout(parseFlags,40)};
+    window.renderSel=function(){_rS();  setTimeout(parseFlags,40)};
+    window.renderSts=function(){_rSts();setTimeout(parseFlags,40)};
+  };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
