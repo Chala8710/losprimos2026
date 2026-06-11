@@ -6,6 +6,7 @@
 <title>LOS PRIMOS · Mundial 2026</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script>
 // ═══ SUPABASE CONFIG ═══
 const SB_URL='https://moitjfdsemukuwbofqtl.supabase.co';
@@ -322,6 +323,47 @@ footer a{color:var(--v3);text-decoration:none}
 .pp-pick-label{font-size:9px;color:var(--mt);text-transform:uppercase;letter-spacing:1px}
 .pp-pick-val{font-size:13px;font-weight:600;color:var(--tx)}
 
+/* LIGHT MODE */
+body.light{--bg:#EEF3F0;--sf:#E2EAE5;--card:#FFFFFF;--card2:#F4F8F5;--br:rgba(0,0,0,0.07);--br2:rgba(0,0,0,0.13);--tx:#1A2E22;--mt:#4A7A5A;--mt2:#3A6A4A}
+body.light header{background:rgba(238,243,240,0.96)}
+body.light .tbar{background:rgba(238,243,240,0.94)}
+body.light .live-bar{background:rgba(231,76,60,0.05)}
+.theme-btn{background:transparent;border:1px solid var(--br2);color:var(--mt);padding:5px 9px;border-radius:99px;cursor:pointer;font-size:14px;transition:all .15s;line-height:1}
+.theme-btn:hover{background:var(--card);color:var(--tx)}
+
+/* TUTORIAL */
+.tutorial-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:900;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(8px)}
+.tutorial-box{background:var(--card);border:1px solid var(--br2);border-radius:20px;max-width:400px;width:100%;padding:1.8rem 1.5rem;text-align:center}
+.tutorial-step{display:none}.tutorial-step.on{display:block}
+.tut-icon{font-size:52px;margin-bottom:.8rem}
+.tut-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--d2);margin-bottom:.5rem}
+.tut-desc{font-size:12px;color:var(--mt2);line-height:1.7;margin-bottom:1.2rem}
+.tut-dots{display:flex;justify-content:center;gap:5px;margin-bottom:1rem}
+.tut-dot{width:7px;height:7px;border-radius:50%;background:var(--br2)}.tut-dot.on{background:var(--d2)}
+.tut-btn{background:var(--v);color:#fff;border:none;padding:10px 26px;border-radius:99px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s}
+.tut-btn:hover{background:var(--v3)}
+.tut-skip{background:none;border:none;color:var(--mt);font-size:11px;cursor:pointer;margin-top:.7rem;display:block;font-family:'Inter',sans-serif;width:100%;text-align:center}
+
+/* REACCIONES */
+.react-bar{display:flex;gap:4px;flex-wrap:wrap;padding:5px 8px 7px;border-top:1px solid var(--br)}
+.react-btn{background:var(--sf);border:1px solid var(--br2);border-radius:99px;padding:2px 8px;font-size:11px;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:3px;color:var(--mt);font-family:'Inter',sans-serif}
+.react-btn:hover{background:rgba(26,122,82,.18);border-color:var(--v)}
+.react-btn.mine{background:rgba(245,200,66,.12);border-color:rgba(245,200,66,.4);color:var(--d2)}
+.react-cnt{font-size:10px;font-weight:700}
+
+/* RANKING DELTA */
+.rank-delta{font-size:9px;font-weight:700;padding:1px 5px;border-radius:99px;margin-left:3px;vertical-align:middle}
+.rank-up{background:rgba(74,222,128,.15);color:#4ade80}
+.rank-down{background:rgba(239,68,68,.15);color:#ef4444}
+.rank-same{color:var(--mt);font-size:8px}
+
+/* EVOLUCIÓN CHART */
+.evo-wrap{background:var(--card);border:1px solid var(--br);border-radius:12px;padding:1rem;margin-bottom:1.2rem}
+
+/* NOTIF BANNER */
+.notif-bar{background:rgba(26,122,82,.1);border:1px solid rgba(26,122,82,.25);border-radius:10px;padding:.65rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--mt2)}
+.notif-bar button{margin-left:auto;background:var(--v);color:#fff;border:none;padding:5px 12px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0}
+
 /* READONLY */
 body.readonly .btn,.body.readonly button[onclick*="agregar"],.readonly .fcard:not(.adm-visible){pointer-events:none;opacity:.4}
 body.readonly .fcard{display:none}
@@ -367,6 +409,7 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
     <button class="hnp"     onclick="goT('inf',this)">Info</button>
   </nav>
   <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
     <span id="sync-badge" title="Estado conexión" style="display:none"><span class="sync-dot off" id="sync-dot"></span><span id="sync-lbl" style="font-size:10px;color:var(--mt)">Local</span></span>
     <button id="me-btn" onclick="openMyProfile()" style="display:none;background:var(--v2);border:1px solid var(--v);color:var(--tx);padding:5px 10px;border-radius:99px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;align-items:center;gap:5px">
       <span id="me-avatar" style="font-size:13px">👤</span>
@@ -375,6 +418,51 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
     <a href="https://www.golpredictor.com" target="_blank" class="hcta">🔗 Ver polla</a>
   </div>
 </header>
+
+<!-- TUTORIAL MODAL -->
+<div id="tutorial-overlay" class="tutorial-overlay" style="display:none">
+  <div class="tutorial-box">
+    <div class="tut-dots" id="tut-dots"></div>
+    <div id="tut-steps">
+      <div class="tutorial-step on">
+        <div class="tut-icon">⚽</div>
+        <div class="tut-title">¡Bienvenido a Los Primos!</div>
+        <div class="tut-desc">La polla mundialista de la familia para el Mundial 2026.<br>Aquí puedes seguir el torneo, ver el ranking y competir con todos.</div>
+      </div>
+      <div class="tutorial-step">
+        <div class="tut-icon">🏆</div>
+        <div class="tut-title">¿Cómo ganar puntos?</div>
+        <div class="tut-desc">Los puntos se calculan en <strong>golpredictor.com</strong> según tus pronósticos de marcador.<br><br>
+          <span style="color:var(--d2);font-weight:700">+10 pts</span> si aciertas el campeón<br>
+          <span style="color:#5DD4A0;font-weight:700">+10 pts</span> si aciertas el goleador<br>
+          <span style="color:#D07FE8;font-weight:700">+20 pts extra</span> si aciertas ambos</div>
+      </div>
+      <div class="tutorial-step">
+        <div class="tut-icon">📊</div>
+        <div class="tut-title">Pestañas de la app</div>
+        <div class="tut-desc">
+          <strong>Pronósticos</strong> — registra tu campeón y goleador<br>
+          <strong>Fixture</strong> — todos los partidos del torneo<br>
+          <strong>Ranking</strong> — tabla de posiciones en tiempo real<br>
+          <strong>Selecciones</strong> — info de cada equipo<br>
+          <strong>Chat</strong> — habla con los primos
+        </div>
+      </div>
+      <div class="tutorial-step">
+        <div class="tut-icon">🔔</div>
+        <div class="tut-title">Notificaciones en vivo</div>
+        <div class="tut-desc">Activa las notificaciones para recibir alertas cuando cambie el marcador de un partido o alguien suba en el ranking.</div>
+      </div>
+      <div class="tutorial-step">
+        <div class="tut-icon">🎉</div>
+        <div class="tut-title">¡Listo para competir!</div>
+        <div class="tut-desc">Ya sabes todo lo que necesitas. ¡Que gane el mejor primo!</div>
+      </div>
+    </div>
+    <button class="tut-btn" id="tut-next" onclick="tutNext()">Siguiente →</button>
+    <button class="tut-skip" onclick="closeTutorial()">Saltar tutorial</button>
+  </div>
+</div>
 
 <div class="tbar">
   <button class="tbtn on"  onclick="goT('pro',this)">Pronósticos</button>
@@ -611,6 +699,25 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
     </div>
   </div>
 
+  <!-- Banner notificaciones -->
+  <div id="notif-bar" class="notif-bar" style="display:none">
+    🔔 Activa las notificaciones para recibir alertas de goles y cambios en el ranking
+    <button onclick="pedirNotif()">Activar</button>
+  </div>
+
+  <!-- Evolución ranking -->
+  <div class="evo-wrap" id="evo-wrap" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;flex-wrap:wrap;gap:6px">
+      <div style="font-size:11px;font-weight:700;color:var(--mt);text-transform:uppercase;letter-spacing:1px">📈 Evolución del ranking</div>
+      <select id="evo-top" onchange="renderEvo()" style="background:var(--sf);border:1px solid var(--br2);color:var(--tx);border-radius:7px;padding:3px 8px;font-size:11px;font-family:'Inter',sans-serif;outline:none">
+        <option value="5">Top 5</option>
+        <option value="10">Top 10</option>
+        <option value="all">Todos</option>
+      </select>
+    </div>
+    <canvas id="evo-chart" height="180"></canvas>
+  </div>
+
   <!-- Podio top 3 -->
   <div id="rnk-podium"></div>
 
@@ -760,7 +867,22 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
       <div class="pp-pick"><div class="pp-pick-icon" id="pp-cam-flag">🏆</div><div><div class="pp-pick-label">Campeón</div><div class="pp-pick-val" id="pp-cam">—</div></div></div>
       <div class="pp-pick"><div class="pp-pick-icon" id="pp-gol-flag">⚽</div><div><div class="pp-pick-label">Goleador</div><div class="pp-pick-val" id="pp-gol">—</div><div style="font-size:9px;color:var(--mt)" id="pp-gol-team"></div></div></div>
     </div>
-    <div id="pp-needs" style="background:var(--card);border:1px solid var(--br);border-radius:10px;padding:.75rem;font-size:11px;color:var(--mt2);line-height:1.6"></div>
+    <div id="pp-needs" style="background:var(--card);border:1px solid var(--br);border-radius:10px;padding:.75rem;font-size:11px;color:var(--mt2);line-height:1.6;margin-bottom:1rem"></div>
+    <!-- Estadísticas de aciertos -->
+    <div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mt);margin-bottom:6px">📊 Estadísticas golpredictor</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:1rem" id="pp-stats-grid">
+      <div class="pp-stat"><div class="pp-stat-n" id="pp-gp-pts" style="color:var(--v3)">—</div><div class="pp-stat-l">Pts golpredictor</div></div>
+      <div class="pp-stat"><div class="pp-stat-n" id="pp-gp-pos" style="font-size:18px">—</div><div class="pp-stat-l">Pos. global</div></div>
+    </div>
+    <!-- Barra de progreso hacia el líder -->
+    <div id="pp-progress-wrap" style="margin-bottom:1rem;display:none">
+      <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--mt);margin-bottom:4px">
+        <span>Tu puntuación</span><span id="pp-progress-lbl"></span>
+      </div>
+      <div style="background:var(--br2);border-radius:99px;height:7px;overflow:hidden">
+        <div id="pp-progress-bar" style="height:100%;border-radius:99px;background:linear-gradient(90deg,var(--v),var(--v3));transition:width .6s"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -2272,6 +2394,7 @@ window._initFirebase=async function(){
       if(row.key==='chat'&&row.data!=null){CHT=Array.isArray(row.data)?row.data:[];localStorage.setItem('c26',JSON.stringify(CHT));}
       if(row.key==='adm'&&row.data!=null){ADMIN=row.data;localStorage.setItem('adm26',JSON.stringify(ADMIN));}
       if(row.key==='golp'&&row.data!=null){GOLP_PTS=row.data;localStorage.setItem('gpts26',JSON.stringify(GOLP_PTS));}
+      if(row.key==='reac'&&row.data!=null){REAC=row.data;localStorage.setItem('reac26',JSON.stringify(REAC));}
     });
     renderT();stats();renderFix();renderChat();renderRanking();renderLiveBanner();
   }catch(e){console.warn('Supabase load error',e);}
@@ -2293,6 +2416,7 @@ window._initFirebase=async function(){
       if(key==='golp'){GOLP_PTS=data||null;localStorage.setItem('gpts26',JSON.stringify(GOLP_PTS));renderRanking();}
       if(key==='adm'){ADMIN=data||{cam:'',gol:''};localStorage.setItem('adm26',JSON.stringify(ADMIN));renderRanking();renderT();}
       if(key==='chat'){CHT=Array.isArray(data)?data:[];localStorage.setItem('c26',JSON.stringify(CHT));renderChat();}
+      if(key==='reac'){REAC=data||{};localStorage.setItem('reac26',JSON.stringify(REAC));renderFix();}
     })
     .subscribe();
   // Indicador de conexión
@@ -2424,6 +2548,19 @@ function showProfile(r){
         (above&&gapAbove>0?`<br>⬆️ <strong>${gapAbove} pts</strong> para superar a <em>${above.n.split(' ')[0]}</em>`:'');
     }
   }
+  // Stats golpredictor
+  document.getElementById('pp-gp-pts').textContent = golpPts !== null ? golpPts : '—';
+  document.getElementById('pp-gp-pos').textContent = gd?.pos ? '#'+gd.pos : '—';
+  // Barra progreso
+  const progWrap = document.getElementById('pp-progress-wrap');
+  const progBar = document.getElementById('pp-progress-bar');
+  const progLbl = document.getElementById('pp-progress-lbl');
+  if(leader > 0 && total >= 0){
+    progWrap.style.display = 'block';
+    const pct = Math.min(100, Math.round((total / leader) * 100));
+    progBar.style.width = pct + '%';
+    progLbl.textContent = pct + '% del líder (' + leader + ' pts)';
+  } else { progWrap.style.display = 'none'; }
   document.getElementById('profile-panel').classList.add('open');
   document.getElementById('profile-overlay').classList.add('on');
 }
@@ -2665,7 +2802,8 @@ function rGrupo(gr){
       </div>
       <div class="pteam-r"><span class="pflag">${sv?.e||'🏳️'}</span><span class="pnm">${sv?.n||p.v}</span>${favV?`<span class="fav-chip">🏆${favV}</span>`:''}
       </div>
-    </div>`;
+    </div>
+    <div class="react-bar" id="rbar-${p.n}">${buildReactBar(p.n)}</div>`;
   }).join('');
   return`<div class="gcard"><div class="ghdr"><span class="gnm">Grupo ${gr.g}</span><span class="gcnf">Clic en números para editar</span></div>
     <table class="gtbl"><thead><tr><th>Selección</th><th>PJ</th><th>G</th><th>E</th><th>P</th><th>Pts</th></tr></thead><tbody>${rows}</tbody></table>
@@ -2921,8 +3059,15 @@ function renderRanking(){
     const teamN=jcod?S[jcod]?.n||'':'';
     const ptsShow=r._total!==null?r._total:'—';
     const bonusTag=bonusActivo&&r.pts>0?`<span style="font-size:9px;color:var(--d2);margin-left:3px">+${r.pts}🏆</span>`:'';
+    // Delta posición
+    const prevRnk=JSON.parse(localStorage.getItem('rnk_prev')||'{}');
+    const prevPos=prevRnk[r.id];
+    const deltaPos=prevPos?prevPos-(i+1):0;
+    const deltaTag=deltaPos>0?`<span class="rank-delta rank-up">↑${deltaPos}</span>`:
+                   deltaPos<0?`<span class="rank-delta rank-down">↓${Math.abs(deltaPos)}</span>`:
+                   prevPos?`<span class="rank-same">—</span>`:'';
     return`<tr style="cursor:pointer" onclick="openProfile(${r.id})">
-      <td class="${pc}" style="font-size:${medals[i]?'17':'13'}px;text-align:center">${medals[i]||i+1}</td>
+      <td class="${pc}" style="font-size:${medals[i]?'17':'13'}px;text-align:center">${medals[i]||i+1}${deltaTag}</td>
       <td><strong>${esc(r.n)}</strong><div style="font-size:9px;color:var(--mt)">${esc(r.u||'')}</div></td>
       <td style="${cSty}"><span style="display:inline-flex;align-items:center;gap:3px">${cf} ${esc(r.c)}${bonusActivo&&r.camOk?' ✓':''}</span></td>
       <td style="${gSty}"><div style="display:flex;flex-direction:column;gap:1px">
@@ -2933,6 +3078,22 @@ function renderRanking(){
       <td style="text-align:right;font-size:10px;color:${i===0?'var(--d2)':'var(--mt)'};white-space:nowrap">${i===0?'👑 Líder':(r._total!==null&&leader>0?'-'+(leader-(r._total??0))+' pts':'—')}</td>
     </tr>`;
   }).join('');
+  // Guardar snapshot de posiciones para delta la próxima vez
+  const snap={};sorted.forEach((r,i)=>snap[r.id]=i+1);
+  localStorage.setItem('rnk_prev',JSON.stringify(snap));
+  // Guardar historial para gráfica (max 30 snapshots)
+  if(useGolp){
+    const hist=JSON.parse(localStorage.getItem('rnk_hist')||'[]');
+    const ts=new Date().toLocaleDateString('es-CO',{day:'2-digit',month:'short'});
+    const last=hist[hist.length-1];
+    if(!last||last.ts!==ts){
+      const entry={ts,snap:sorted.slice(0,10).map(r=>({id:r.id,n:r.n.split(' ')[0],pts:r._total??0}))};
+      hist.push(entry);
+      if(hist.length>30)hist.splice(0,hist.length-30);
+      localStorage.setItem('rnk_hist',JSON.stringify(hist));
+    }
+    renderEvo();
+  }
   setTimeout(highlightMe,50);
 }
 
@@ -2967,9 +3128,18 @@ const _notifSent=new Set();
 function initNotifs(){
   if(!('Notification' in window))return;
   if(Notification.permission==='default'){
-    // Pedir permiso con un pequeño delay para no bloquear la carga
-    setTimeout(()=>Notification.requestPermission(),3000);
+    const bar=document.getElementById('notif-bar');
+    if(bar)bar.style.display='flex';
   }
+}
+function pedirNotif(){
+  if(!('Notification' in window))return;
+  Notification.requestPermission().then(p=>{
+    const bar=document.getElementById('notif-bar');
+    if(bar)bar.style.display='none';
+    if(p==='granted')toast('🔔 Notificaciones activadas');
+    else toast('⚠️ Permiso denegado',true);
+  });
 }
 function checkMatchNotifs(){
   if(!('Notification' in window)||Notification.permission!=='granted')return;
@@ -3248,12 +3418,126 @@ async function fetchLive(){
   finally{if(btn){btn.textContent='🔄 Actualizar';btn.disabled=false}}
 }
 
+// ═══ TEMA CLARO / OSCURO ═══
+function toggleTheme(){
+  const light=document.body.classList.toggle('light');
+  localStorage.setItem('theme26',light?'light':'dark');
+  document.getElementById('theme-btn').textContent=light?'☀️':'🌙';
+}
+(function initTheme(){
+  if(localStorage.getItem('theme26')==='light'){
+    document.body.classList.add('light');
+    const btn=document.getElementById('theme-btn');
+    if(btn)btn.textContent='☀️';
+  }
+})();
+
+// ═══ TUTORIAL ═══
+let _tutStep=0;
+const _tutSteps=5;
+function initTutorial(){
+  if(localStorage.getItem('tut26_done'))return;
+  const dots=document.getElementById('tut-dots');
+  if(dots)dots.innerHTML=Array.from({length:_tutSteps},(_,i)=>`<div class="tut-dot${i===0?' on':''}"></div>`).join('');
+  const ol=document.getElementById('tutorial-overlay');
+  if(ol)ol.style.display='flex';
+}
+function tutNext(){
+  _tutStep++;
+  const steps=document.querySelectorAll('.tutorial-step');
+  const dots=document.querySelectorAll('.tut-dot');
+  const btn=document.getElementById('tut-next');
+  if(_tutStep>=_tutSteps){closeTutorial();return;}
+  steps.forEach((s,i)=>s.classList.toggle('on',i===_tutStep));
+  dots.forEach((d,i)=>d.classList.toggle('on',i===_tutStep));
+  if(btn)btn.textContent=_tutStep===_tutSteps-1?'¡Empezar! 🎉':'Siguiente →';
+}
+function closeTutorial(){
+  localStorage.setItem('tut26_done','1');
+  const ol=document.getElementById('tutorial-overlay');
+  if(ol)ol.style.display='none';
+  // Ofrecer notificaciones después del tutorial
+  if('Notification' in window&&Notification.permission==='default'){
+    const bar=document.getElementById('notif-bar');
+    if(bar)bar.style.display='flex';
+  }
+}
+
+// ═══ GRÁFICA EVOLUCIÓN ═══
+let _evoChart=null;
+function renderEvo(){
+  const wrap=document.getElementById('evo-wrap');
+  const canvas=document.getElementById('evo-chart');
+  if(!wrap||!canvas||typeof Chart==='undefined')return;
+  const hist=JSON.parse(localStorage.getItem('rnk_hist')||'[]');
+  if(hist.length<2){wrap.style.display='none';return;}
+  wrap.style.display='block';
+  const topN=document.getElementById('evo-top')?.value||'5';
+  // Tomar participantes del último snapshot
+  const last=hist[hist.length-1].snap;
+  const limit=topN==='all'?last.length:parseInt(topN);
+  const participants=last.slice(0,limit);
+  const labels=hist.map(h=>h.ts);
+  const colors=['#F5C842','#C0C0C0','#CD7F32','#4ade80','#60a5fa','#f87171','#a78bfa','#34d399','#fb923c','#e879f9'];
+  const datasets=participants.map((p,i)=>({
+    label:p.n,
+    data:hist.map(h=>{const e=h.snap.find(x=>x.id===p.id);return e?e.pts:null;}),
+    borderColor:colors[i%colors.length],
+    backgroundColor:colors[i%colors.length]+'22',
+    tension:.4,borderWidth:2,pointRadius:3,spanGaps:true
+  }));
+  if(_evoChart)_evoChart.destroy();
+  _evoChart=new Chart(canvas,{
+    type:'line',
+    data:{labels,datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#A0BFA8',font:{size:10},boxWidth:10}}},
+      scales:{
+        x:{ticks:{color:'#6B9478',font:{size:9}},grid:{color:'rgba(255,255,255,0.05)'}},
+        y:{ticks:{color:'#6B9478',font:{size:9}},grid:{color:'rgba(255,255,255,0.05)'}}
+      }
+    }
+  });
+}
+
+// ═══ REACCIONES EMOJI ═══
+let REAC=JSON.parse(localStorage.getItem('reac26')||'{}');
+const EMOJIS_REAC=['🔥','😱','👏','😂','💔','🎉'];
+function saveReac(){
+  localStorage.setItem('reac26',JSON.stringify(REAC));
+  if(window._FB_READY)window._SB.from('polla26').upsert({key:'reac',data:REAC,updated_at:new Date().toISOString()}).then(()=>{}).catch(()=>{});
+}
+function toggleReaccion(matchId,emoji){
+  if(!REAC[matchId])REAC[matchId]={};
+  const uid=ME?ME.u:'anon';
+  const cur=REAC[matchId][uid];
+  if(cur===emoji)delete REAC[matchId][uid];
+  else REAC[matchId][uid]=emoji;
+  saveReac();
+  // Actualizar solo ese react-bar
+  const bar=document.getElementById('rbar-'+matchId);
+  if(bar)bar.innerHTML=buildReactBar(matchId);
+}
+function buildReactBar(matchId){
+  const data=REAC[matchId]||{};
+  const uid=ME?ME.u:'anon';
+  const counts={};
+  Object.values(data).forEach(e=>{counts[e]=(counts[e]||0)+1;});
+  return EMOJIS_REAC.map(e=>{
+    const n=counts[e]||0;
+    const mine=data[uid]===e;
+    return`<button class="react-btn${mine?' mine':''}" onclick="toggleReaccion('${matchId}','${e}')">${e}${n>0?`<span class="react-cnt">${n}</span>`:''}</button>`;
+  }).join('');
+}
+
 // ═══ INIT ═══
 document.getElementById('in-gol').addEventListener('keydown',e=>{if(e.key==='Enter')agregar()});
 renderT();stats();renderSel();renderFix();renderChat();renderRanking();
 renderLiveBanner();
 initNotifs();
 initLogin();
+initTutorial();
 setInterval(renderLiveBanner,60000);
 setInterval(checkMatchNotifs,60000);
 fetchLive();
