@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LOS PRIMOS · Mundial 2026</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <script>
 // ═══ SUPABASE CONFIG ═══
 const SB_URL='https://moitjfdsemukuwbofqtl.supabase.co';
@@ -563,16 +564,50 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
 
   <!-- Panel importar golpredictor -->
   <div id="golp-import-box" style="display:none;background:var(--card);border:1px solid rgba(26,122,82,0.35);border-radius:12px;padding:1rem;margin-bottom:1rem">
-    <div style="font-size:12px;font-weight:600;color:var(--d2);margin-bottom:6px">📋 Pegar tabla de posiciones</div>
-    <p style="font-size:11px;color:var(--mt2);margin-bottom:8px;line-height:1.5">
-      1. Abre <strong>golpredictor.com</strong> → tu polla → pestaña <em>Posiciones</em><br>
-      2. Selecciona toda la tabla (Ctrl+A en la tabla) y cópiala (Ctrl+C)<br>
-      3. Pégala aquí y dale <em>Guardar ranking</em>
-    </p>
-    <textarea id="golp-paste" rows="8" placeholder="Pega aquí el contenido copiado de golpredictor.com..." style="width:100%;background:var(--sf);border:1px solid var(--br2);color:var(--tx);border-radius:8px;padding:8px;font-size:11px;font-family:monospace;resize:vertical"></textarea>
-    <div style="display:flex;gap:8px;margin-top:8px">
-      <button onclick="importGolp()" style="background:var(--v);color:#fff;border:none;padding:7px 16px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">💾 Guardar ranking</button>
-      <button onclick="document.getElementById('golp-import-box').style.display='none'" style="background:transparent;color:var(--mt);border:1px solid var(--br2);padding:7px 16px;border-radius:99px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif">Cancelar</button>
+    <!-- Tabs -->
+    <div style="display:flex;gap:6px;margin-bottom:10px">
+      <button id="golp-tab-txt" onclick="golpTab('txt')" style="background:var(--v);color:#fff;border:none;padding:5px 14px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">📋 Pegar texto</button>
+      <button id="golp-tab-img" onclick="golpTab('img')" style="background:var(--sf);color:var(--mt);border:1px solid var(--br2);padding:5px 14px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">🖼️ Subir imagen</button>
+    </div>
+    <!-- Panel texto -->
+    <div id="golp-panel-txt">
+      <p style="font-size:11px;color:var(--mt2);margin-bottom:8px;line-height:1.5">
+        1. Abre <strong>golpredictor.com</strong> → tu polla → pestaña <em>Posiciones</em><br>
+        2. Selecciona toda la tabla (Ctrl+A en la tabla) y cópiala (Ctrl+C)<br>
+        3. Pégala aquí y dale <em>Guardar ranking</em>
+      </p>
+      <textarea id="golp-paste" rows="8" placeholder="Pega aquí el contenido copiado de golpredictor.com o el texto generado desde la imagen..." style="width:100%;background:var(--sf);border:1px solid var(--br2);color:var(--tx);border-radius:8px;padding:8px;font-size:11px;font-family:monospace;resize:vertical"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button onclick="importGolp()" style="background:var(--v);color:#fff;border:none;padding:7px 16px;border-radius:99px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">💾 Guardar ranking</button>
+        <button onclick="document.getElementById('golp-import-box').style.display='none'" style="background:transparent;color:var(--mt);border:1px solid var(--br2);padding:7px 16px;border-radius:99px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif">Cancelar</button>
+      </div>
+    </div>
+    <!-- Panel imagen -->
+    <div id="golp-panel-img" style="display:none">
+      <p style="font-size:11px;color:var(--mt2);margin-bottom:8px;line-height:1.5">
+        1. Toma una captura de pantalla de la tabla de <strong>golpredictor.com</strong><br>
+        2. Súbela aquí — la app leerá los puntos automáticamente
+      </p>
+      <label id="golp-drop" for="golp-file-input" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:2px dashed rgba(26,122,82,0.4);border-radius:10px;padding:24px;cursor:pointer;color:var(--mt);font-size:12px;transition:border-color .2s"
+        ondragover="event.preventDefault();this.style.borderColor='var(--v)'"
+        ondragleave="this.style.borderColor='rgba(26,122,82,0.4)'"
+        ondrop="event.preventDefault();this.style.borderColor='rgba(26,122,82,0.4)';handleGolpImage(event.dataTransfer.files[0])">
+        <span style="font-size:28px">📸</span>
+        <span>Arrastra la imagen aquí o <span style="color:var(--v);font-weight:700">haz clic para elegir</span></span>
+        <span style="font-size:10px;opacity:.6">PNG, JPG, WEBP — captura de la tabla golpredictor</span>
+      </label>
+      <input id="golp-file-input" type="file" accept="image/*" style="display:none" onchange="handleGolpImage(this.files[0])">
+      <!-- Preview + progreso -->
+      <div id="golp-ocr-preview" style="display:none;margin-top:10px">
+        <img id="golp-ocr-img" style="max-width:100%;border-radius:8px;max-height:180px;object-fit:contain;border:1px solid var(--br2)" src="">
+        <div id="golp-ocr-bar-wrap" style="margin-top:8px;background:var(--sf);border-radius:99px;height:6px;overflow:hidden">
+          <div id="golp-ocr-bar" style="height:6px;background:var(--v);width:0%;transition:width .3s;border-radius:99px"></div>
+        </div>
+        <div id="golp-ocr-status" style="font-size:11px;color:var(--mt);margin-top:4px;text-align:center">Procesando imagen…</div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button onclick="document.getElementById('golp-import-box').style.display='none'" style="background:transparent;color:var(--mt);border:1px solid var(--br2);padding:7px 16px;border-radius:99px;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif">Cancelar</button>
+      </div>
     </div>
   </div>
 
@@ -2201,7 +2236,7 @@ let CHT=JSON.parse(localStorage.getItem('c26')||'[]');
 let ADMIN=JSON.parse(localStorage.getItem('adm26')||'{"cam":"","gol":""}');
 let GOLP_PTS=JSON.parse(localStorage.getItem('gpts26')||'null');
 // Mapeo golpredictor username → username local en INIT (donde difieren)
-const GP_MAP={'yulypit13':'yulygol13','luisenrima17':'luisserna17','andres1012':'andres1032','arrivismo':'aleriosval','luisomuniz':'luisomunoz','derbyvol':'deibyval','weboz':'seboz','andres21988':'andresz1988','oscarber':'oscaribe','fabifenata':'fabiferala','webasing26':'sebasleg26','dfchalancad':'dfchalarcard','cchalapit07':'cchalap87','cesarandroaco':'cesarorozco','jhormaliga28':'jhonsalga28','alejama73':'alejonal73','jhondaz1':'jhonda23','jowlop':'joselop','pachoerias':'pachoarias','juandich1222':'juandch1222','villar23':'villa123','jard8424':'jard0424','antimile':'anitamile','laura07':'lauris07','odalizalaz129':'odalzatea129','diegop415':'diego415','leo1lardo':'leo11ardo','xduquen':'xduquex','jcalgado107':'jcsalgado107'};
+const GP_MAP={'yulypit13':'yulygol13','luisenrima17':'luisserna17','andres1012':'andres1032','arrivismo':'aleriosval','arvmono':'aleriosval','luisomuniz':'luisomunoz','derbyvol':'deibyval','weboz':'seboz','andres21988':'andresz1988','oscarber':'oscaribe','fabifenata':'fabiferala','webasing26':'sebasleg26','dfchalancad':'dfchalarcard','cchalapit07':'cchalap87','cesarandroaco':'cesarorozco','jhormaliga28':'jhonsalga28','alejama73':'alejonal73','jhondaz1':'jhonda23','jowlop':'joselop','pachoerias':'pachoarias','juandich1222':'juandch1222','villar23':'villa123','jard8424':'jard0424','antimile':'anitamile','laura07':'lauris07','odalizalaz129':'odalzatea129','diegop415':'diego415','leo1lardo':'leo11ardo','xduquen':'xduquex','jcalgado107':'jcsalgado107'};
 // ═══ SAVE — localStorage + Firebase si está configurado ═══
 function saveR(){
   localStorage.setItem('r26',JSON.stringify(RES));
@@ -3025,6 +3060,49 @@ function showQR(){
 function syncGolp(){
   const box=document.getElementById('golp-import-box');
   if(box)box.style.display=box.style.display==='none'?'block':'none';
+}
+function golpTab(t){
+  document.getElementById('golp-panel-txt').style.display=t==='txt'?'block':'none';
+  document.getElementById('golp-panel-img').style.display=t==='img'?'block':'none';
+  document.getElementById('golp-tab-txt').style.background=t==='txt'?'var(--v)':'var(--sf)';
+  document.getElementById('golp-tab-txt').style.color=t==='txt'?'#fff':'var(--mt)';
+  document.getElementById('golp-tab-img').style.background=t==='img'?'var(--v)':'var(--sf)';
+  document.getElementById('golp-tab-img').style.color=t==='img'?'#fff':'var(--mt)';
+}
+function handleGolpImage(file){
+  if(!file||!file.type.startsWith('image/'))return toast('⚠️ Selecciona una imagen válida',true);
+  const prev=document.getElementById('golp-ocr-preview');
+  const img=document.getElementById('golp-ocr-img');
+  const bar=document.getElementById('golp-ocr-bar');
+  const status=document.getElementById('golp-ocr-status');
+  const url=URL.createObjectURL(file);
+  img.src=url;
+  prev.style.display='block';
+  bar.style.width='0%';
+  status.textContent='Iniciando lectura…';
+  Tesseract.recognize(file,'spa+eng',{
+    logger:m=>{
+      if(m.status==='recognizing text'){
+        bar.style.width=(m.progress*100).toFixed(0)+'%';
+        status.textContent='Leyendo imagen… '+(m.progress*100).toFixed(0)+'%';
+      }
+    }
+  }).then(({data:{text}})=>{
+    bar.style.width='100%';
+    status.textContent='✅ Lectura completa — procesando datos…';
+    // Rellenar textarea y procesar
+    document.getElementById('golp-paste').value=text;
+    setTimeout(()=>{
+      importGolp();
+      prev.style.display='none';
+      bar.style.width='0%';
+      // Reset file input
+      document.getElementById('golp-file-input').value='';
+    },600);
+  }).catch(e=>{
+    status.textContent='❌ Error al leer la imagen — intenta con texto';
+    console.warn('OCR error',e);
+  });
 }
 
 function importGolp(){
