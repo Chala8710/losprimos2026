@@ -2789,13 +2789,13 @@ function rGrupo(gr){
       </div>
       <div class="pmid">
         ${r.l!==''
-          ?`<div class="pres" title="Clic para editar" onclick="this.style.display='none';this.nextElementSibling.style.display='flex'" style="cursor:pointer">${r.l}-${r.v}</div>`
+          ?`<div class="pres"${isAdmin()?` title="Clic para editar" onclick="this.style.display='none';this.nextElementSibling.style.display='flex'" style="cursor:pointer"`:''} >${r.l}-${r.v}</div>`
           :'<div class="pvs">VS</div>'}
-        <div class="res-edit" style="${r.l!==''?'display:none':''}">
+        ${isAdmin()?`<div class="res-edit" style="${r.l!==''?'display:none':''}">
           <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.l}" onchange="setRes(${p.n},'l',this.value);renderFix()"/>
           <span class="res-sep">-</span>
           <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.v}" onchange="setRes(${p.n},'v',this.value);renderFix()"/>
-        </div>
+        </div>`:'<div style="font-size:8px;color:var(--mt);text-align:center">⚡ Auto</div>'}
         <div class="pmeta">${p.f} · ${p.h}<br><span style="color:rgba(107,148,120,0.4);font-size:7px">${p.s}</span></div>
         <div class="pcd" id="pcd-${p.n}">...</div>
         <div class="pnum">P${p.n}</div>
@@ -3100,6 +3100,7 @@ function renderRanking(){
 function saveAdmin(){
   const pw=document.getElementById('adm-pw').value;
   if(pw!=='primos2026')return toast('⚠️ Contraseña incorrecta',true);
+  localStorage.setItem('adm_ok26','1');
   const cam=document.getElementById('adm-cam').value.trim();
   const gol=document.getElementById('adm-gol').value.trim();
   ADMIN={cam,gol};saveAdm();
@@ -3418,6 +3419,8 @@ async function fetchLive(){
   finally{if(btn){btn.textContent='🔄 Actualizar';btn.disabled=false}}
 }
 
+function isAdmin(){return localStorage.getItem('adm_ok26')==='1';}
+
 // ═══ TEMA CLARO / OSCURO ═══
 function toggleTheme(){
   const light=document.body.classList.toggle('light');
@@ -3540,6 +3543,7 @@ initLogin();
 initTutorial();
 setInterval(renderLiveBanner,60000);
 setInterval(checkMatchNotifs,60000);
+setInterval(fetchLive,120000); // Auto-fetch cada 2 min
 fetchLive();
 </script>
 <style>
