@@ -716,19 +716,6 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
     </table>
   </div>
 
-  <!-- Evolución ranking -->
-  <div class="evo-wrap" id="evo-wrap" style="display:none">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;flex-wrap:wrap;gap:6px">
-      <div style="font-size:11px;font-weight:700;color:var(--mt);text-transform:uppercase;letter-spacing:1px">📈 Evolución del ranking</div>
-      <select id="evo-top" onchange="renderEvo()" style="background:var(--sf);border:1px solid var(--br2);color:var(--tx);border-radius:7px;padding:3px 8px;font-size:11px;font-family:'Inter',sans-serif;outline:none">
-        <option value="5">Top 5</option>
-        <option value="10">Top 10</option>
-        <option value="all">Todos</option>
-      </select>
-    </div>
-    <canvas id="evo-chart" height="180"></canvas>
-  </div>
-
   <!-- Sistema de puntos recordatorio -->
   <div style="background:rgba(245,200,66,0.06);border:1px solid rgba(245,200,66,0.18);border-radius:10px;padding:.75rem 1rem;margin-bottom:1.3rem;font-size:11px;color:var(--mt2)">
     <div style="font-weight:600;color:var(--d2);margin-bottom:5px">📊 Ranking durante el torneo: puntos de golpredictor.com (marcadores acertados)</div>
