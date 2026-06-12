@@ -2248,7 +2248,7 @@ const PG=[
   {n:56,l:'CUW',v:'CIV',g:'E',f:'25 Jun',h:'15:00 Col',s:'DSPORTS'},
   {n:57,l:'JPN',v:'SWE',g:'F',f:'25 Jun',h:'18:00 Col',s:'DSPORTS'},
   {n:58,l:'PAR',v:'AUS',g:'D',f:'25 Jun',h:'21:00 Col',s:'DSPORTS'},
-  {n:59,l:'TUR',v:'AUS',g:'D',f:'20 Jun',h:'23:00 Col',s:'DSPORTS·WIN SPORTS'},
+  {n:59,l:'AUS',v:'TUR',g:'D',f:'13 Jun',h:'23:00 Col',s:'DSPORTS·WIN SPORTS'},
   {n:60,l:'NZL',v:'BEL',g:'G',f:'26 Jun',h:'22:00 Col',s:'DSPORTS'},
   {n:61,l:'PAN',v:'ENG',g:'L',f:'27 Jun',h:'16:00 Col',s:'DSPORTS'},
   {n:62,l:'CPV',v:'KSA',g:'H',f:'24 Jun',h:'23:00',s:'Miami'},
@@ -2776,9 +2776,11 @@ function rGrupo(gr){
       </div>
       <div class="pmid">
         ${r.l!==''
-          ?`<div class="pres" title="Clic para editar" onclick="this.style.display='none';this.nextElementSibling.style.display='flex'" style="cursor:pointer">${r.l}-${r.v}</div>`
+          ?(r.fin
+            ?`<div class="pres" style="cursor:default" title="Partido finalizado 🔒">${r.l}-${r.v} 🔒</div>`
+            :`<div class="pres" title="Clic para editar" onclick="this.style.display='none';this.nextElementSibling.style.display='flex'" style="cursor:pointer">${r.l}-${r.v}</div>`)
           :'<div class="pvs">VS</div>'}
-        ${started?`<div class="res-edit" style="${r.l!==''?'display:none':''}">
+        ${started&&!r.fin?`<div class="res-edit" style="${r.l!==''?'display:none':''}">
           <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.l}" onchange="setRes(${p.n},'l',this.value);renderFix()"/>
           <span class="res-sep">-</span>
           <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.v}" onchange="setRes(${p.n},'v',this.value);renderFix()"/>
