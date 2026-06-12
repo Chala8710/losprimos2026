@@ -705,6 +705,17 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
     <button onclick="pedirNotif()">Activar</button>
   </div>
 
+  <!-- Podio top 3 -->
+  <div id="rnk-podium"></div>
+
+  <!-- Tabla ranking -->
+  <div class="twrap" style="margin-bottom:1.3rem">
+    <table>
+      <thead><tr><th style="width:36px">#</th><th>Participante</th><th>Campeón</th><th>Goleador</th><th style="width:44px;text-align:right">Pts</th><th style="width:52px;text-align:right;font-size:9px">Falta</th></tr></thead>
+      <tbody id="rnk-tbody"></tbody>
+    </table>
+  </div>
+
   <!-- Evolución ranking -->
   <div class="evo-wrap" id="evo-wrap" style="display:none">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem;flex-wrap:wrap;gap:6px">
@@ -716,17 +727,6 @@ tr.me-row td:first-child::after{content:'◀ Yo';font-size:8px;color:var(--v3);d
       </select>
     </div>
     <canvas id="evo-chart" height="180"></canvas>
-  </div>
-
-  <!-- Podio top 3 -->
-  <div id="rnk-podium"></div>
-
-  <!-- Tabla ranking -->
-  <div class="twrap" style="margin-bottom:1.3rem">
-    <table>
-      <thead><tr><th style="width:36px">#</th><th>Participante</th><th>Campeón</th><th>Goleador</th><th style="width:44px;text-align:right">Pts</th><th style="width:52px;text-align:right;font-size:9px">Falta</th></tr></thead>
-      <tbody id="rnk-tbody"></tbody>
-    </table>
   </div>
 
   <!-- Sistema de puntos recordatorio -->
