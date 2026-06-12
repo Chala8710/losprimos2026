@@ -6,7 +6,6 @@
 <title>LOS PRIMOS · Mundial 2026</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <script>
 // ═══ SUPABASE CONFIG ═══
 const SB_URL='https://moitjfdsemukuwbofqtl.supabase.co';
@@ -357,8 +356,6 @@ body.light .live-bar{background:rgba(231,76,60,0.05)}
 .rank-down{background:rgba(239,68,68,.15);color:#ef4444}
 .rank-same{color:var(--mt);font-size:8px}
 
-/* EVOLUCIÓN CHART */
-.evo-wrap{background:var(--card);border:1px solid var(--br);border-radius:12px;padding:1rem;margin-bottom:1.2rem}
 
 /* NOTIF BANNER */
 .notif-bar{background:rgba(26,122,82,.1);border:1px solid rgba(26,122,82,.25);border-radius:10px;padding:.65rem 1rem;margin-bottom:1rem;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--mt2)}
@@ -3070,19 +3067,6 @@ function renderRanking(){
   // Guardar snapshot de posiciones para delta la próxima vez
   const snap={};sorted.forEach((r,i)=>snap[r.id]=i+1);
   localStorage.setItem('rnk_prev',JSON.stringify(snap));
-  // Guardar historial para gráfica (max 30 snapshots)
-  if(useGolp){
-    const hist=JSON.parse(localStorage.getItem('rnk_hist')||'[]');
-    const ts=new Date().toLocaleDateString('es-CO',{day:'2-digit',month:'short'});
-    const last=hist[hist.length-1];
-    if(!last||last.ts!==ts){
-      const entry={ts,snap:sorted.slice(0,10).map(r=>({id:r.id,n:r.n.split(' ')[0],pts:r._total??0}))};
-      hist.push(entry);
-      if(hist.length>30)hist.splice(0,hist.length-30);
-      localStorage.setItem('rnk_hist',JSON.stringify(hist));
-    }
-    renderEvo();
-  }
   setTimeout(highlightMe,50);
 }
 
@@ -3455,43 +3439,6 @@ function closeTutorial(){
   }
 }
 
-// ═══ GRÁFICA EVOLUCIÓN ═══
-let _evoChart=null;
-function renderEvo(){
-  const wrap=document.getElementById('evo-wrap');
-  const canvas=document.getElementById('evo-chart');
-  if(!wrap||!canvas||typeof Chart==='undefined')return;
-  const hist=JSON.parse(localStorage.getItem('rnk_hist')||'[]');
-  if(hist.length<2){wrap.style.display='none';return;}
-  wrap.style.display='block';
-  const topN=document.getElementById('evo-top')?.value||'5';
-  // Tomar participantes del último snapshot
-  const last=hist[hist.length-1].snap;
-  const limit=topN==='all'?last.length:parseInt(topN);
-  const participants=last.slice(0,limit);
-  const labels=hist.map(h=>h.ts);
-  const colors=['#F5C842','#C0C0C0','#CD7F32','#4ade80','#60a5fa','#f87171','#a78bfa','#34d399','#fb923c','#e879f9'];
-  const datasets=participants.map((p,i)=>({
-    label:p.n,
-    data:hist.map(h=>{const e=h.snap.find(x=>x.id===p.id);return e?e.pts:null;}),
-    borderColor:colors[i%colors.length],
-    backgroundColor:colors[i%colors.length]+'22',
-    tension:.4,borderWidth:2,pointRadius:3,spanGaps:true
-  }));
-  if(_evoChart)_evoChart.destroy();
-  _evoChart=new Chart(canvas,{
-    type:'line',
-    data:{labels,datasets},
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{labels:{color:'#A0BFA8',font:{size:10},boxWidth:10}}},
-      scales:{
-        x:{ticks:{color:'#6B9478',font:{size:9}},grid:{color:'rgba(255,255,255,0.05)'}},
-        y:{ticks:{color:'#6B9478',font:{size:9}},grid:{color:'rgba(255,255,255,0.05)'}}
-      }
-    }
-  });
-}
 
 // ═══ REACCIONES EMOJI ═══
 let REAC=JSON.parse(localStorage.getItem('reac26')||'{}');
