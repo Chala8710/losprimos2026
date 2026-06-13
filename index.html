@@ -3384,6 +3384,7 @@ async function fetchLive(){
       const swapped=match.l===vCod;
       const hs=ev.intHomeScore,as_=ev.intAwayScore;
       if(hs===null||hs===''||hs===undefined||as_===null||as_===''||as_===undefined)return;
+      if(LOCKED.has(match.n))return;
       if(!RES[match.n])RES[match.n]={l:'',v:''};
       RES[match.n].l=swapped?as_:hs;
       RES[match.n].v=swapped?hs:as_;
