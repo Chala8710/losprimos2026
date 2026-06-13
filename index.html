@@ -2264,6 +2264,9 @@ const PG=[
   {n:72,l:'BIH',v:'QAT',g:'B',f:'27 Jun',h:'15:00',s:'Seattle'},
 ];
 
+// Partidos finalizados — solo modificar desde el código
+const LOCKED=new Set([1,2,3,6]);
+
 const ELIM={
   '16vos':[
     {l:'2A',v:'2B',f:'28 Jun',s:'Los Ángeles'},{l:'1F',v:'2C',f:'28 Jun',s:'Monterrey'},
@@ -2776,11 +2779,11 @@ function rGrupo(gr){
       </div>
       <div class="pmid">
         ${r.l!==''
-          ?(r.fin
+          ?(LOCKED.has(p.n)
             ?`<div class="pres" style="cursor:default" title="Partido finalizado 🔒">${r.l}-${r.v} 🔒</div>`
             :`<div class="pres" title="Clic para editar" onclick="this.style.display='none';this.nextElementSibling.style.display='flex'" style="cursor:pointer">${r.l}-${r.v}</div>`)
           :'<div class="pvs">VS</div>'}
-        ${started&&!r.fin?`<div class="res-edit" style="${r.l!==''?'display:none':''}">
+        ${started&&!LOCKED.has(p.n)?`<div class="res-edit" style="${r.l!==''?'display:none':''}">
           <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.l}" onchange="setRes(${p.n},'l',this.value);renderFix()"/>
           <span class="res-sep">-</span>
           <input class="res-inp" type="number" min="0" max="20" placeholder="-" value="${r.v}" onchange="setRes(${p.n},'v',this.value);renderFix()"/>
