@@ -2830,9 +2830,10 @@ function renderFix(){
   var wrap=document.getElementById('dia-btns');
   if(wrap){
     wrap.innerHTML=dias.map(function(d){
-      return'<button class="fbtn" data-dia="'+d+'" onclick="filtrarDia(this.dataset.dia,this)">'+d+'</button>';
+      return'<button class="fbtn'+(d===_diaActivo?' on':'')+'" data-dia="'+d+'" onclick="filtrarDia(this.dataset.dia,this)">'+d+'</button>';
     }).join('');
   }
+  if(_diaActivo!=='todos')filtrarDia(_diaActivo,null);
 }
 
 var _diaActivo='todos';
@@ -2843,8 +2844,8 @@ function filtrarDia(dia,btn){
   if(btn)btn.classList.add('on');
 
   if(dia==='todos'){
-    // Mostrar todo
     document.querySelectorAll('#gg-c .pcard').forEach(function(el){el.classList.remove('hidden')});
+    document.querySelectorAll('#gg-c .react-bar').forEach(function(el){el.style.display=''});
     document.querySelectorAll('#gg-c .gcard').forEach(function(el){el.classList.remove('hidden')});
     document.querySelectorAll('#gg-c .psec-t').forEach(function(el){el.style.display=''});
     return;
@@ -2856,12 +2857,12 @@ function filtrarDia(dia,btn){
     var alguno=false;
     partidos.forEach(function(p){
       var meta=p.querySelector('.pmeta');
-      if(meta&&meta.textContent.includes(dia)){
-        p.classList.remove('hidden');
-        alguno=true;
-      } else {
-        p.classList.add('hidden');
-      }
+      var show=meta&&meta.textContent.includes(dia);
+      p.classList.toggle('hidden',!show);
+      // Ocultar también el react-bar hermano
+      var rb=p.nextElementSibling;
+      if(rb&&rb.classList.contains('react-bar'))rb.style.display=show?'':'none';
+      if(show)alguno=true;
     });
     // Ocultar gcard entero si no hay partidos de ese día en este grupo
     gcard.classList.toggle('hidden',!alguno);
